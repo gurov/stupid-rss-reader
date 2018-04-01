@@ -5,7 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --prod",
+    "build": "ng build --prod --env=prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -23,6 +23,7 @@
     "@angular/router": "^5.2.0",
     "@angular/service-worker": "^5.2.0",
     "core-js": "^2.4.1",
+    "rss-parser": "^3.1.2",
     "rxjs": "^5.5.6",
     "zone.js": "^0.8.19"
   },

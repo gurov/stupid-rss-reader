@@ -1,0 +1,114 @@
+<div class="container mb-3">
+    <div>
+        <a routerLink="/">
+            <img src="assets/icon-72x72.png" alt="Stupid RSS Reader logo">
+        </a>
+    </div>
+    <h2>Stupid RSS Reader</h2>
+</div>
+
+<div class="container pt-3 pb-3" style="background-color:cornsilk">
+    <h4 *ngIf="store.length">Feeds</h4>
+    <table class="table" *ngIf="store.length">
+        <tbody>
+        <tr *ngFor="let feed of store">
+            <td>
+                <a [routerLink]="['/home', feed.url]">{{feed.url}}</a>
+            </td>
+            <td>
+                <button class="close" (click)="removeFeed(feed.url)">&times;</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="input-group mb-3 mt-2">
+        <input type="text"
+               class="form-control"
+               [(ngModel)]="newFeed"
+               placeholder="https://example.com/rss">
+        <div class="input-group-append">
+            <button class="btn btn-primary"
+                    type="button"
+                    (click)="add()"
+                    [disabled]="!newFeed">+ Add
+            </button>
+        </div>
+    </div>
+    <div *ngIf="error" class="text-danger">💢 {{error}}</div>
+
+</div>
+
+<div class="container pt-3 pb-3" style="background-color:floralwhite">
+    <h4>About</h4>
+    <p>I'm tired of different stupid RSS clients and I created ows Stupid RSS Reader.</p>
+</div>
+
+<div class="container pt-3 pb-3" style="background-color:bisque">
+    <h4>Settings</h4>
+    <h6>CORS proxy</h6>
+    <div class="form-check">
+        <input class="form-check-input" type="radio"
+               name="cors"
+               id="cors1"
+               [value]="'cors1'"
+               (change)="setCors('cors1')"
+               [(ngModel)]="cors">
+        <label class="form-check-label" for="cors1">
+            https://crossorigin.me/
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio"
+               name="cors"
+               id="cors2"
+               [value]="'cors2'"
+               (change)="setCors('cors2')"
+               [(ngModel)]="cors">
+        <label class="form-check-label" for="cors2">
+            https://cors-anywhere.herokuapp.com/
+        </label>
+    </div>
+    <h6 class="mt-2">Keep posts</h6>
+    <div class="form-check">
+        <input class="form-check-input"
+               type="radio"
+               name="keep"
+               id="keep3"
+               [(ngModel)]="days"
+               (change)="setDays(3)"
+               [value]="3">
+        <label class="form-check-label"
+               for="keep2">
+            for 3 days
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input"
+               type="radio"
+               name="keep"
+               id="keep2"
+               [(ngModel)]="days"
+               (change)="setDays(7)"
+               [value]="7">
+        <label class="form-check-label"
+               for="keep2">
+            for 1 weeks
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input"
+               type="radio"
+               name="keep"
+               id="keep1"
+               [(ngModel)]="days"
+               (change)="setDays(14)"
+               [value]="14">
+        <label class="form-check-label"
+               for="keep1">
+            for 2 weeks
+        </label>
+    </div>
+
+</div>
+
+

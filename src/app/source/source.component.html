@@ -1,0 +1,45 @@
+<div class="container mb-3">
+    <div>
+        <a routerLink="/">
+            <img src="assets/icon-72x72.png" alt="Stupid RSS Reader logo">
+        </a>
+    </div>
+    <h6 class="post-header mt-1">
+        {{feed?.url}}
+    </h6>
+</div>
+<hr>
+<div class="container" *ngIf="newPosts.length" style="border-left: 2px solid green">
+
+    <div class="text-center" *ngIf="!showNewPosts">
+        <button class="btn btn-success" (click)="showNewPosts = true">Show new ({{newPosts.length}})</button>
+    </div>
+    <div *ngIf="showNewPosts">
+        <div *ngFor="let item of newPosts|sort:'isoDate':false" class="post">
+            <h6 class="text-muted">{{item.author || item.creator}}, {{item.isoDate}},
+                <a target="_blank" [href]="item.link">link ➢</a>
+            </h6>
+            <h2>{{item.title}}</h2>
+            <div [innerHTML]="item.content"></div>
+        </div>
+    </div>
+
+</div>
+
+<div class="container">
+
+    <div *ngFor="let item of feed.items|sort:'isoDate':false" class="post">
+        <h6 class="text-muted">{{item.author || item.creator}}, {{item.isoDate | isoToDate | date}},
+            <a target="_blank" [href]="item.link">link ➢</a></h6>
+        <h2>{{item.title}}</h2>
+        <div [innerHTML]="item.content"></div>
+    </div>
+</div>
+
+<hr>
+
+<div class="container mb-5">
+    <h6 class="post-header mt-4">
+        <a routerLink="/home">↵ back</a>
+    </h6>
+</div>

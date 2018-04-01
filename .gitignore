@@ -32,6 +32,7 @@
 /libpeerconnection.log
 npm-debug.log
 yarn-error.log
+package-lock.json
 testem.log
 /typings
 
@@ -42,3 +43,5 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+

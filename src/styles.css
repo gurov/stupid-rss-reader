@@ -1,1 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
+
+h1, h2, h3, h4, h5, h6 {
+    margin-left: 0;
+    color:#417505;
+}
+
+.post-header {
+    word-wrap: break-word;
+    color:#417505;
+}
+
+.rss-label {
+    padding: 0.1rem 0.3rem;
+    background-color: coral;
+    margin-right: 0.5rem;
+}
+
+.container .post {
+    margin-bottom: 3rem;
+}
+
+.post img {
+    height: auto;
+    max-width: 100%;
+}
+body {
+    font-family: 'Rubik', -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+}
