@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NewsService } from '../news.service';
 import { Feed } from '../models';
+import 'rxjs/add/operator/finally';
 
 @Component({
     selector: 'app-home',
@@ -14,6 +15,7 @@ export class HomeComponent implements OnInit {
     days: number = +localStorage.getItem('days') || 14;
     error: string = '';
     store: Feed[] = [];
+    loading: boolean = false;
 
     constructor(public newsService: NewsService) {
     }
@@ -42,8 +44,10 @@ export class HomeComponent implements OnInit {
     }
 
     add() {
+        this.loading = true;
         this.error = '';
         this.newsService.add(this.newFeed.trim())
+            .finally(() => this.loading = false)
             .subscribe(() => this.newFeed = '', error => this.error = error);
     }
 

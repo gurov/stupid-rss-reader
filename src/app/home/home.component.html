@@ -28,6 +28,7 @@
                placeholder="https://example.com/rss">
         <div class="input-group-append">
             <button class="btn btn-primary"
+                    [ngClass]="{'progress-bar-striped': loading, 'progress-bar-animated':loading}"
                     type="button"
                     (click)="add()"
                     [disabled]="!newFeed">+ Add

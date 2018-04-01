@@ -5,6 +5,7 @@ import { fromPromise } from 'rxjs/observable/fromPromise';
 import { Feed, Post } from './models';
 import * as Parser from 'rss-parser';
 import 'rxjs/add/operator/do';
+import 'rxjs/add/observable/throw';
 
 const PROXY = 'https://crossorigin.me/';
 const CORS_PROXY = 'https://cors-anywhere.herokuapp.com/'
@@ -66,7 +67,7 @@ export class NewsService {
                 localStorage.setItem('store', JSON.stringify(this.store));
             });
         }
-        return Observable.throw('Feed exist');
+        return Observable.throw('Error: The feed exist');
 
     }
 
