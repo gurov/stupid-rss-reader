@@ -19,7 +19,7 @@
             <h6 class="text-muted">{{item.author || item.creator}}, {{item.isoDate}},
                 <a target="_blank" [href]="item.link">link ➢</a>
             </h6>
-            <h2>{{item.title}}</h2>
+            <h4>{{item.title}}</h4>
             <div [innerHTML]="item.content"></div>
         </div>
     </div>
@@ -31,7 +31,7 @@
     <div *ngFor="let item of feed.items|sort:'isoDate':false" class="post">
         <h6 class="text-muted">{{item.author || item.creator}}, {{item.isoDate | isoToDate | date}},
             <a target="_blank" [href]="item.link">link ➢</a></h6>
-        <h2>{{item.title}}</h2>
+        <h4>{{item.title}}</h4>
         <div [innerHTML]="item.content"></div>
     </div>
 </div>
