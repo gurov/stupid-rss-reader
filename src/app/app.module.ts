@@ -25,7 +25,7 @@ import { IsoToDatePipe } from './iso-to-date.pipe';
         BrowserModule,
         AppRoutingModule,
         FormsModule,
-        ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production})
+        ServiceWorkerModule.register('/stupid-rss-reader/ngsw-worker.js', {enabled: environment.production})
     ],
     providers: [NewsService],
     bootstrap: [AppComponent]
