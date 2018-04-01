@@ -7,6 +7,7 @@ Stupid RSS Reader is [Progressive Web Apps](https://developers.google.com/web/pr
 All user data is stored only locally.
 
 ## Screenshots
-![](https://habrastorage.org/webt/z-/l6/pu/z-l6pupxqnulr9bn6byj2k0af6u.jpeg)
 
-![](https://habrastorage.org/webt/fk/sx/m1/fksxm1r2d7ipe1dqnwjmjpvn5zq.jpeg)
+|![](https://habrastorage.org/webt/fu/rh/so/furhso5_ok7n0d5ozi0eh9ugdde.jpeg)|![](https://habrastorage.org/webt/lp/ec/a3/lpeca3iffz3xhy-dtleoqng4p4g.jpeg)|
+|----|---|
+
