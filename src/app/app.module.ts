@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -26,7 +25,6 @@ import { IsoToDatePipe } from './iso-to-date.pipe';
         BrowserModule,
         AppRoutingModule,
         FormsModule,
-        HttpClientModule,
         ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production})
     ],
     providers: [NewsService],

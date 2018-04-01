@@ -23,6 +23,10 @@
       "resources": {
         "files": [
           "/assets/**"
+        ],
+        "urls": [
+          "https://fonts.googleapis.com/**",
+          "https://maxcdn.bootstrapcdn.com/**"
         ]
       }
     }
