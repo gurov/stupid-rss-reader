@@ -44,9 +44,11 @@ export class HomeComponent implements OnInit {
     }
 
     add() {
+        this.newFeed = this.newFeed.trim().toLowerCase();
+
         this.loading = true;
         this.error = '';
-        this.newsService.add(this.newFeed.trim())
+        this.newsService.add(this.newFeed)
             .finally(() => this.loading = false)
             .subscribe(() => this.newFeed = '', error => this.error = error);
     }

@@ -1,10 +1,15 @@
 # stupid-rss-reader
 
-I'm tired of different stupid RSS clients and I created ows Stupid RSS Reader.
+I'm tired of different stupid RSS clients and I created own Stupid RSS Reader.
 
-Stupid RSS Reader is [Progressive Web Apps](https://developers.google.com/web/progressive-web-apps/).
+Try it [here](https://gurov.github.io/stupid-rss-reader/)
 
-All user data is stored only locally.
+## Features
+* Stupid RSS Reader is [Progressive Web Apps](https://developers.google.com/web/progressive-web-apps/);
+* Very simple;
+* Offline mode;
+* All user data are stored locally only;
+* Open source.
 
 ## Screenshots
 

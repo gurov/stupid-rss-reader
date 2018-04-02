@@ -8,7 +8,7 @@ import 'rxjs/add/operator/do';
 import 'rxjs/add/observable/throw';
 
 const PROXY = 'https://crossorigin.me/';
-const CORS_PROXY = 'https://cors-anywhere.herokuapp.com/'
+const CORS_PROXY = 'https://cors-anywhere.herokuapp.com/';
 
 @Injectable()
 export class NewsService {

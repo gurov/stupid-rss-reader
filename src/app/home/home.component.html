@@ -25,7 +25,7 @@
         <input type="text"
                class="form-control"
                [(ngModel)]="newFeed"
-               placeholder="https://example.com/rss">
+               placeholder="https://example.com/rss/">
         <div class="input-group-append">
             <button class="btn btn-primary"
                     [ngClass]="{'progress-bar-striped': loading, 'progress-bar-animated':loading}"
@@ -41,11 +41,18 @@
 
 <div class="container pt-3 pb-3" style="background-color:floralwhite">
     <h4>About</h4>
-    <p>I'm tired of different stupid RSS clients and I created ows Stupid RSS Reader.</p>
-    <p>Stupid RSS Reader is <a target="_blank" href="https://developers.google.com/web/progressive-web-apps/">Progressive
-        Web Apps</a></p>
-    <p>All user data is stored only locally.</p>
-    <p><a target="_blank" href="https://github.com/gurov/stupid-rss-reader">Github</a></p>
+    <p>I'm tired of different stupid RSS clients and I created own Stupid RSS Reader.</p>
+    <h6>Features</h6>
+    <ul>
+        <li>Stupid RSS is <a target="_blank" href="https://developers.google.com/web/progressive-web-apps/">Progressive
+            Web Apps</a>;
+        </li>
+        <li>Very simple;</li>
+        <li>Offline mode;</li>
+        <li>All user data are stored locally only;</li>
+        <li>Open source: <a target="_blank" href="https://github.com/gurov/stupid-rss-reader">Github</a>.</li>
+    </ul>
+
 </div>
 
 <div class="container pt-3 pb-3" style="background-color:bisque">
