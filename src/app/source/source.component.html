@@ -4,7 +4,7 @@
             <img src="assets/icon-72x72.png" alt="Stupid RSS Reader logo">
         </a>
     </div>
-    <h6 class="post-header mt-1">
+    <h6 class="post-header mt-2">
         {{feed?.url}}
     </h6>
 </div>
@@ -27,7 +27,7 @@
 </div>
 
 <div class="container">
-
+    <div class="text-center text-info" *ngIf="!feed.items.length && !newPosts.length">No recent posts</div>
     <div *ngFor="let item of feed.items|sort:'isoDate':false" class="post">
         <h6 class="text-muted">{{item.author || item.creator}}, {{item.isoDate | isoToDate | date}},
             <a target="_blank" [href]="item.link">link ➢</a></h6>

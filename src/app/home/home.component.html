@@ -4,7 +4,7 @@
             <img src="assets/icon-72x72.png" alt="Stupid RSS Reader logo">
         </a>
     </div>
-    <h2>Stupid RSS Reader</h2>
+    <h2 class="mt-2">Stupid RSS Reader</h2>
 </div>
 
 <div class="container pt-3 pb-3" style="background-color:cornsilk">
@@ -12,10 +12,10 @@
     <table class="table" *ngIf="store.length">
         <tbody>
         <tr *ngFor="let feed of store">
-            <td>
+            <td class="pl-0">
                 <a [routerLink]="['/home', feed.url]">{{feed.url}}</a>
             </td>
-            <td>
+            <td class="pr-0">
                 <button class="close" (click)="removeFeed(feed.url)">&times;</button>
             </td>
         </tr>
