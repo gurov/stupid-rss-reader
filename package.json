@@ -23,6 +23,7 @@
     "@angular/platform-browser-dynamic": "^5.2.0",
     "@angular/router": "^5.2.0",
     "@angular/service-worker": "^5.2.0",
+    "bootstrap": "^4.0.0",
     "core-js": "^2.4.1",
     "rss-parser": "^3.1.2",
     "rxjs": "^5.5.6",
