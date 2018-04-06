@@ -1,8 +1,9 @@
 <div class="container mb-3">
     <div>
         <a routerLink="/">
-            <img src="assets/icon-72x72.png?2" alt="Stupid RSS Reader logo">
+            <img src="assets/fur-boot-green.svg" style="width: 5rem" alt="Stupid RSS Reader logo">
         </a>
+        <span *ngIf="loading" class="ml-4 spinner"></span>
     </div>
     <h6 class="post-header mt-2">
         {{feed?.url}}
@@ -32,6 +33,9 @@
         <h6 class="text-muted">{{item.author || item.creator}}, {{item.isoDate | isoToDate | date}},
             <a target="_blank" [href]="item.link">link ➢</a></h6>
         <h4>{{item.title}}</h4>
+        <div *ngIf="item?.categories?.length" class="small text-muted mb-1">
+            <em *ngFor="let category of item.categories; let last = last">{{category}}<span *ngIf="!last">, </span></em>
+        </div>
         <div [innerHTML]="item.content"></div>
     </div>
 </div>

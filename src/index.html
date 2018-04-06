@@ -16,7 +16,36 @@
 
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
 </head>
+<style>
+    .preloader {
+        width: 100%;
+        text-align: center;
+        margin-top: 20%;
+        font-family: monospace;
+        font-size: 1.2rem;
+    }
+
+    .spinner {
+        height: 0.6rem;
+        width: 0.6rem;
+        display: inline-block;
+        animation: rotate 3s infinite ease-out;
+        border: 2px solid #444;
+        border-right-color: transparent;
+        border-left-color: transparent;
+        border-radius: 50%;
+
+    }
+
+    @keyframes rotate {
+        0%    { transform: rotate(0deg); }
+        100%  { transform: rotate(2840deg); }
+    }
+
+</style>
 <body>
-<app-root>Stupid RSS Reader is loading ...</app-root>
+<app-root>
+    <div class="preloader"><span class="spinner"></span> Stupid RSS Reader is loading ...</div>
+</app-root>
 </body>
 </html>
