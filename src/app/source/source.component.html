@@ -21,6 +21,9 @@
                 <a target="_blank" [href]="item.link">link ➢</a>
             </h6>
             <h4>{{item.title}}</h4>
+            <div *ngIf="item?.categories?.length" class="small text-muted mb-1">
+                <em *ngFor="let category of item.categories; let last = last">{{category}}<span *ngIf="!last">, </span></em>
+            </div>
             <div [innerHTML]="item.content"></div>
         </div>
     </div>
