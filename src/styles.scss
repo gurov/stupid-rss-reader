@@ -1,7 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import '~bootstrap/scss/functions';
+
+$grid-gutter-width: 60px;
 @import '~bootstrap/scss/variables';
+
 @import '~bootstrap/scss/mixins';
 @import '~bootstrap/scss/root';
 @import '~bootstrap/scss/reboot';
@@ -48,13 +51,14 @@ h1, h2, h3, h4, h5, h6 {
 
 .container .post {
     margin-bottom: 3rem;
+  word-break: break-word;
 }
 
 .post img {
     height: auto;
-  margin-left: -15px;
+  margin-left: -30px;
     max-width: 100%;
-  max-width: calc(100% + 30px);
+  max-width: calc(100% + 60px);
 
 }
 .table td {
