@@ -17,14 +17,7 @@
     </div>
     <div *ngIf="showNewPosts">
         <div *ngFor="let item of newPosts|sort:'isoDate':false" class="post">
-            <h6 class="text-muted">{{item.author || item.creator}}, {{item.isoDate}},
-                <a target="_blank" [href]="item.link">link ➢</a>
-            </h6>
-            <h4>{{item.title}}</h4>
-            <div *ngIf="item?.categories?.length" class="small text-muted mb-1">
-                <em *ngFor="let category of item.categories; let last = last">{{category}}<span *ngIf="!last">, </span></em>
-            </div>
-            <div [innerHTML]="item.content"></div>
+            <app-post [post]="item"></app-post>
         </div>
     </div>
 
@@ -33,13 +26,7 @@
 <div class="container">
     <div class="text-center text-info" *ngIf="!feed.items.length && !newPosts.length">No recent posts</div>
     <div *ngFor="let item of feed.items|sort:'isoDate':false" class="post">
-        <h6 class="text-muted">{{item.author || item.creator}}, {{item.isoDate | isoToDate | date}},
-            <a target="_blank" [href]="item.link">link ➢</a></h6>
-        <h4>{{item.title}}</h4>
-        <div *ngIf="item?.categories?.length" class="small text-muted mb-1">
-            <em *ngFor="let category of item.categories; let last = last">{{category}}<span *ngIf="!last">, </span></em>
-        </div>
-        <div [innerHTML]="item.content"></div>
+        <app-post [post]="item"></app-post>
     </div>
 </div>
 

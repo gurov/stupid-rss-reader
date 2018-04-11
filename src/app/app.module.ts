@@ -12,6 +12,7 @@ import { HomeComponent } from './home/home.component';
 import { NewsService } from './news.service';
 import { SortPipe } from './sort.pipe';
 import { IsoToDatePipe } from './iso-to-date.pipe';
+import { PostComponent } from './source/post.component';
 
 @NgModule({
     declarations: [
@@ -19,7 +20,8 @@ import { IsoToDatePipe } from './iso-to-date.pipe';
         SourceComponent,
         HomeComponent,
         SortPipe,
-        IsoToDatePipe
+        IsoToDatePipe,
+        PostComponent
     ],
     imports: [
         BrowserModule,
