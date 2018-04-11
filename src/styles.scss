@@ -2,7 +2,6 @@
 
 @import '~bootstrap/scss/functions';
 
-$grid-gutter-width: 60px;
 @import '~bootstrap/scss/variables';
 
 @import '~bootstrap/scss/mixins';
@@ -56,9 +55,9 @@ h1, h2, h3, h4, h5, h6 {
 
 .post img {
     height: auto;
-  margin-left: -30px;
+  margin-left: -15px;
     max-width: 100%;
-  max-width: calc(100% + 60px);
+  max-width: calc(100% + 30px);
 
 }
 .table td {
