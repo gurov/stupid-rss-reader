@@ -18,7 +18,7 @@ import { Post } from '../models';
         <div *ngIf="contentSnippet && post.enclosure">
             <img [src]="post.enclosure.url" class="mt-1 mb-2">
         </div>
-        <p>{{post.contentSnippet}}</p>
+        <p *ngIf="contentSnippet">{{post.contentSnippet}}</p>
     `,
     styles: []
 })
