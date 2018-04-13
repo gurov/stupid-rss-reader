@@ -1,5 +1,6 @@
 export class Feed {
     items: Post[] = [];
+    contentSnippet: boolean = false;
     url: string;
 }
 
@@ -9,6 +10,12 @@ export class Post {
     link: string;
     author: string;
     content: string;
+    contentSnippet: string;
     categories: string[];
     isoDate: string;
+    enclosure?: {
+        length: number,
+        type: string,
+        url: string
+    }
 }

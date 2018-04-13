@@ -74,10 +74,11 @@ export class NewsService {
     private updateFeed(url: string, posts: Post[]) {
         this.store.forEach((feed, index) => {
             if (feed.url === url) {
-                const feed = new Feed();
-                feed.url = url;
-                feed.items = posts;
-                this.store[index] = feed;
+                const freshFeed = new Feed();
+                freshFeed.url = url;
+                freshFeed.items = posts;
+                freshFeed.contentSnippet = feed.contentSnippet;
+                this.store[index] = freshFeed;
             }
         });
         localStorage.setItem('store', JSON.stringify(this.store));
@@ -85,6 +86,15 @@ export class NewsService {
 
     deleteFeed(url: string) {
         this.store = this.store.filter(feed => feed.url !== url);
+        localStorage.setItem('store', JSON.stringify(this.store));
+    }
+
+    changeContentView(url: string, showContentSnippet: boolean) {
+        this.store.forEach((feed, index) => {
+            if (feed.url === url) {
+                this.store[index].contentSnippet = showContentSnippet;
+            }
+        });
         localStorage.setItem('store', JSON.stringify(this.store));
     }
 

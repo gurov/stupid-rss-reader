@@ -29,4 +29,8 @@ export class SourceComponent implements OnInit {
             .switchMap(url => this.newsService.getNewPostsAndUpdate(url).finally(() => this.loading = false))
             .subscribe(posts => this.newPosts = posts);
     }
+
+    changeContentView() {
+        this.newsService.changeContentView(this.feed.url, this.feed.contentSnippet);
+    }
 }

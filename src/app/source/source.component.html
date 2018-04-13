@@ -12,12 +12,12 @@
 <hr>
 <div class="container" *ngIf="newPosts.length" style="border-left: 2px solid green">
 
-    <div class="text-center" *ngIf="!showNewPosts">
+    <div class="text-center mb-2" *ngIf="!showNewPosts">
         <button class="btn btn-success" (click)="showNewPosts = true">Show new ({{newPosts.length}})</button>
     </div>
     <div *ngIf="showNewPosts">
         <div *ngFor="let item of newPosts|sort:'isoDate':false" class="post">
-            <app-post [post]="item"></app-post>
+            <app-post [post]="item" [contentSnippet]="feed.contentSnippet"></app-post>
         </div>
     </div>
 
@@ -26,7 +26,7 @@
 <div class="container">
     <div class="text-center text-info" *ngIf="!feed.items.length && !newPosts.length">No recent posts</div>
     <div *ngFor="let item of feed.items|sort:'isoDate':false" class="post">
-        <app-post [post]="item"></app-post>
+        <app-post [post]="item" [contentSnippet]="feed.contentSnippet"></app-post>
     </div>
 </div>
 
@@ -36,4 +36,13 @@
     <h6 class="post-header mt-4">
         <a routerLink="/home">↵ back</a>
     </h6>
+</div>
+<div class="bg-secondary text-white pt-2 pb-4">
+    <div class="container">
+        <label>
+            <input type="checkbox"
+                   [(ngModel)]="feed.contentSnippet"
+                   (change)="changeContentView()"> Use content snippet for post displaying
+        </label>
+    </div>
 </div>
