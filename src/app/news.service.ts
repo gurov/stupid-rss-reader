@@ -52,7 +52,7 @@ export class NewsService {
 
     get(url: string): Observable<Feed> {
 
-        const corsProxy = localStorage.getItem('cors') || 'cors1';
+        const corsProxy = localStorage.getItem('cors') || 'cors2';
         const proxyUrl = corsProxy === 'cors1' ? PROXY : CORS_PROXY;
 
         return fromPromise(this.parser.parseURL(proxyUrl + url))

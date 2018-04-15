@@ -9,9 +9,9 @@
       "urls": [
         "/stupid-rss-reader/index.html",
         "/stupid-rss-reader/inline.318b50c57b4eba3d437b.bundle.js",
-        "/stupid-rss-reader/main.a6a59981493e841254fc.bundle.js",
+        "/stupid-rss-reader/main.71f82e15c9a323b3796d.bundle.js",
         "/stupid-rss-reader/polyfills.a4cbca43b93abf1d64f8.bundle.js",
-        "/stupid-rss-reader/styles.be3e3940c91d3f077e6e.bundle.css"
+        "/stupid-rss-reader/styles.e6c1c35cae8e1acd9a8c.bundle.css"
       ],
       "patterns": []
     },
@@ -43,13 +43,13 @@
   "hashTable": {
     "/stupid-rss-reader/inline.318b50c57b4eba3d437b.bundle.js": "998c6060446975e566fd17509558ddc68d72eec3",
     "/stupid-rss-reader/assets/android-chrome-192x192.png": "ad0fdd1996a3cc34a625499b8fea65f455601a18",
-    "/stupid-rss-reader/main.a6a59981493e841254fc.bundle.js": "26c96db4134a6096e641a48c495d222d656500b7",
+    "/stupid-rss-reader/main.71f82e15c9a323b3796d.bundle.js": "8a935a608b932155b604282dd97ee4e66f27f4b0",
     "/stupid-rss-reader/assets/android-chrome-512x512.png": "cc303a2c704964cae1ae4bc28d51913649140b9b",
     "/stupid-rss-reader/polyfills.a4cbca43b93abf1d64f8.bundle.js": "4b1e68a18c17223468c56c0ff5e3ba018f368218",
     "/stupid-rss-reader/assets/apple-touch-icon.png": "1afda609406d56f0330c36164f476a12b2e753ae",
-    "/stupid-rss-reader/styles.be3e3940c91d3f077e6e.bundle.css": "832c4970cf1b60de1624826c0490ddd60247201b",
+    "/stupid-rss-reader/styles.e6c1c35cae8e1acd9a8c.bundle.css": "d85d757d703a7732628a4f8f3de810d8f625b7b4",
     "/stupid-rss-reader/assets/browserconfig.xml": "46fb79e8a556afb1f44ae0e49e95d3df9c2cd3b1",
-    "/stupid-rss-reader/index.html": "8c4372ca5e6e0099abbd18df3b6f9fd80e0c343e",
+    "/stupid-rss-reader/index.html": "bf0fa50361c9eb36f574d55b631ee7052ff4b953",
     "/stupid-rss-reader/assets/favicon-16x16.png": "6eb39b631ebfe75c3a4d89a395802a0ff62b1639",
     "/stupid-rss-reader/assets/favicon-32x32.png": "958bb429907c752fca5edcbf77a90319a2e605fc",
     "/stupid-rss-reader/assets/favicon.ico": "51f83552d6bd2f73fb09d202efbb4a903443ca29",

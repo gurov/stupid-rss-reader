@@ -10,7 +10,7 @@
     </h6>
 </div>
 <hr>
-<div class="container" *ngIf="newPosts.length" style="border-left: 2px solid green">
+<div class="container" *ngIf="newPosts.length">
 
     <div class="text-center mb-2" *ngIf="!showNewPosts">
         <button class="btn btn-success" (click)="showNewPosts = true">Show new ({{newPosts.length}})</button>
@@ -19,6 +19,7 @@
         <div *ngFor="let item of newPosts|sort:'isoDate':false" class="post">
             <app-post [post]="item" [contentSnippet]="feed.contentSnippet"></app-post>
         </div>
+        <div class="divide-line text-center text-success mb-5 mt-3">new ⤴</div>
     </div>
 
 </div>
