@@ -5,7 +5,7 @@
   "name": "Stupid RSS Reader",
   "start_url": ".",
   "manifest_version": 2,
-  "version": "1.6.2",
+  "version": "1.6.3",
   "default_locale": "en",
   "display": "standalone",
   "description": "Stupid RSS Reader - Progressive Web Application",
