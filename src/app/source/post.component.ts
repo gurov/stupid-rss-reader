@@ -14,7 +14,7 @@ import { Post } from '../models';
         <div *ngIf="post?.categories?.length" class="small text-muted mb-1">
             <em *ngFor="let category of post.categories; let last = last">{{category}}<span *ngIf="!last">, </span></em>
         </div>
-        <div *ngIf="!contentSnippet" [innerHTML]="post.content"></div>
+        <div *ngIf="!contentSnippet" [innerHTML]="post.content | sanitizeHtml"></div>
         <div *ngIf="contentSnippet && post.enclosure">
             <img [src]="post.enclosure.url" class="mt-1 mb-2">
         </div>

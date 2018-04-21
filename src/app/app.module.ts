@@ -13,6 +13,7 @@ import { NewsService } from './news.service';
 import { SortPipe } from './sort.pipe';
 import { IsoToDatePipe } from './iso-to-date.pipe';
 import { PostComponent } from './source/post.component';
+import { SanitizeHtmlPipe } from './sanitize-html.pipe';
 
 @NgModule({
     declarations: [
@@ -21,7 +22,8 @@ import { PostComponent } from './source/post.component';
         HomeComponent,
         SortPipe,
         IsoToDatePipe,
-        PostComponent
+        PostComponent,
+        SanitizeHtmlPipe
     ],
     imports: [
         BrowserModule,

@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
             .forEach(key => this.CORSList.push({key, url: CORSProxyList[key]}));
         const lastCORS = localStorage.getItem('cors');
         if (lastCORS && CORSProxyList[lastCORS]) {
-            this.cors = CORSProxyList[lastCORS];
+            this.cors = lastCORS;
         }
     }
 
