@@ -9,7 +9,7 @@
       "urls": [
         "/stupid-rss-reader/index.html",
         "/stupid-rss-reader/inline.318b50c57b4eba3d437b.bundle.js",
-        "/stupid-rss-reader/main.bb846f9e0a124f39d87b.bundle.js",
+        "/stupid-rss-reader/main.83180030c388dc187ddc.bundle.js",
         "/stupid-rss-reader/polyfills.a4cbca43b93abf1d64f8.bundle.js",
         "/stupid-rss-reader/styles.171807d1e0e72200c6c5.bundle.css"
       ],
@@ -43,13 +43,13 @@
   "hashTable": {
     "/stupid-rss-reader/inline.318b50c57b4eba3d437b.bundle.js": "998c6060446975e566fd17509558ddc68d72eec3",
     "/stupid-rss-reader/assets/android-chrome-192x192.png": "ad0fdd1996a3cc34a625499b8fea65f455601a18",
-    "/stupid-rss-reader/main.bb846f9e0a124f39d87b.bundle.js": "cf1489be380ab801038700725652d80f2143ad9c",
+    "/stupid-rss-reader/main.83180030c388dc187ddc.bundle.js": "3375503acae5fdd9581a20b697cd66e03c686be0",
     "/stupid-rss-reader/assets/android-chrome-512x512.png": "cc303a2c704964cae1ae4bc28d51913649140b9b",
     "/stupid-rss-reader/polyfills.a4cbca43b93abf1d64f8.bundle.js": "4b1e68a18c17223468c56c0ff5e3ba018f368218",
     "/stupid-rss-reader/assets/apple-touch-icon.png": "1afda609406d56f0330c36164f476a12b2e753ae",
     "/stupid-rss-reader/styles.171807d1e0e72200c6c5.bundle.css": "0c554b18673269a3e443f847007f26b6344d46f9",
     "/stupid-rss-reader/assets/browserconfig.xml": "46fb79e8a556afb1f44ae0e49e95d3df9c2cd3b1",
-    "/stupid-rss-reader/index.html": "e833d13943a6186a68500469ef5fa05d7807cc38",
+    "/stupid-rss-reader/index.html": "c48b6d3766c3e43a485728f80be270fd4e3044b0",
     "/stupid-rss-reader/assets/favicon-16x16.png": "6eb39b631ebfe75c3a4d89a395802a0ff62b1639",
     "/stupid-rss-reader/assets/favicon-32x32.png": "958bb429907c752fca5edcbf77a90319a2e605fc",
     "/stupid-rss-reader/assets/favicon.ico": "51f83552d6bd2f73fb09d202efbb4a903443ca29",

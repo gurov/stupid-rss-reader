@@ -34,9 +34,26 @@ export class NewsService {
 
     constructor() {
         const storeString = localStorage.getItem('store');
-        try {
-            this.store = JSON.parse(storeString) || [];
-        } catch (error) {
+
+        if (!storeString) {
+            this.store = [
+                {
+                    items: [],
+                    contentSnippet:true,
+                    url:'https://www.gismeteo.ru/news/rss/'
+                },
+                {
+                    items: [],
+                    contentSnippet:false,
+                    url:'https://hnrss.org/newest?points=300&comments=100'
+                }
+            ];
+            localStorage.setItem('store', JSON.stringify(this.store));
+        } else {
+            try {
+                this.store = JSON.parse(storeString) || [];
+            } catch (error) {
+            }
         }
     }
 
