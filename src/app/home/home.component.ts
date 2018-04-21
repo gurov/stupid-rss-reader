@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NewsService } from '../news.service';
+import { CORSProxyList, NewsService } from '../news.service';
 import { Feed } from '../models';
 import 'rxjs/add/operator/finally';
 
@@ -11,13 +11,20 @@ import 'rxjs/add/operator/finally';
 export class HomeComponent implements OnInit {
 
     newFeed: string = '';
-    cors: string = localStorage.getItem('cors') || 'cors1';
+    cors: string = 'corsanywhere';
     days: number = +localStorage.getItem('days') || 14;
     error: string = '';
     store: Feed[] = [];
     loading: boolean = false;
+    CORSList = [];
 
     constructor(public newsService: NewsService) {
+        Object.keys(CORSProxyList)
+            .forEach(key => this.CORSList.push({key, url: CORSProxyList[key]}));
+        const lastCORS = localStorage.getItem('cors');
+        if (lastCORS && CORSProxyList[lastCORS]) {
+            this.cors = CORSProxyList[lastCORS];
+        }
     }
 
     setCors(event: string) {

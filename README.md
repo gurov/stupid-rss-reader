@@ -5,11 +5,16 @@ I'm tired of different stupid RSS clients and I created own Stupid RSS Reader.
 Try it [here](https://gurov.github.io/stupid-rss-reader/)
 
 ## Features
-* Stupid RSS Reader is [Progressive Web App](https://developers.google.com/web/progressive-web-apps/);
-* Very simple;
-* Offline mode;
-* All user data are stored locally only;
-* Open source.
+* Stupid RSS Reader is [Progressive Web App](https://developers.google.com/web/progressive-web-apps/)
+* Very simple
+* Offline mode
+* All user data are stored locally only
+* Open source
+
+## Used
+* Logo: [game-icons.net](http://game-icons.net/)
+* Javascript framework: [angular.io](https://angular.io/)
+* CSS  framework: [getbootstrap.com](https://getbootstrap.com/)
 
 ## Screenshots
 

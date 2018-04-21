@@ -7,8 +7,24 @@ import * as Parser from 'rss-parser';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/observable/throw';
 
-const PROXY = 'https://crossorigin.me/';
-const CORS_PROXY = 'https://cors-anywhere.herokuapp.com/';
+export const CORSProxyList = {
+    corsanywhere: 'https://cors-anywhere.herokuapp.com/',
+    crossorigin: 'http://crossorigin.me/',
+    corsproxy: 'http://cors-proxy.htmldriven.com/?url=',
+    whateverorigin: 'http://www.whateverorigin.org/get?url=',
+    corsio: 'https://cors.io/?',
+    drysierra94326: 'http://dry-sierra-94326.herokuapp.com/',
+    thingproxy: 'https://thingproxy.freeboard.io/fetch/',
+    corsnowsh: 'https://cors.now.sh/',
+    freecorsproxy: 'https://free-cors-proxy.herokuapp.com',
+    corsproxyourbuildo: 'https://corsproxy.our.buildo.io',
+    corsifyme: 'http://www.corsify.me/',
+    gobetween: 'http://gobetween.oklabs.org/pipe/',
+    corshyooru: 'http://cors.hyoo.ru/',
+    cors4js: 'https://cors4js.appspot.com/?url=',
+    fuckcors: 'http://fuck-cors.com/?url=',
+    proxysauce: 'https://proxy-sauce.glitch.me/',
+};
 
 @Injectable()
 export class NewsService {
@@ -52,8 +68,12 @@ export class NewsService {
 
     get(url: string): Observable<Feed> {
 
-        const corsProxy = localStorage.getItem('cors') || 'cors2';
-        const proxyUrl = corsProxy === 'cors1' ? PROXY : CORS_PROXY;
+        let proxyUrl = CORSProxyList.corsanywhere;
+
+        const lastCORS = localStorage.getItem('cors');
+        if (lastCORS && CORSProxyList[lastCORS]) {
+            proxyUrl = CORSProxyList[lastCORS];
+        }
 
         return fromPromise(this.parser.parseURL(proxyUrl + url))
             .pipe(map(feed => <Feed>Object.assign(feed, {url})));

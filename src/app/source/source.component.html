@@ -1,6 +1,6 @@
 <div class="container mb-3">
     <div>
-        <a routerLink="/">
+        <a routerLink="/" class="click-effect">
             <img src="assets/fur-boot-green.svg" style="width: 5rem" alt="Stupid RSS Reader logo">
         </a>
         <span *ngIf="loading" class="ml-4 spinner"></span>
@@ -12,7 +12,7 @@
 <hr>
 <div class="container" *ngIf="newPosts.length">
 
-    <div class="text-center mb-2" *ngIf="!showNewPosts">
+    <div class="text-center mb-3" *ngIf="!showNewPosts">
         <button class="btn btn-success" (click)="showNewPosts = true">Show new ({{newPosts.length}})</button>
     </div>
     <div *ngIf="showNewPosts">
