@@ -36,6 +36,7 @@ export class NewsService {
         const storeString = localStorage.getItem('store');
 
         if (!storeString) {
+            // set example feeds
             this.store = [
                 {
                     items: [],
