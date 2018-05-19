@@ -54,6 +54,10 @@ h1, h2, h3, h4, h5, h6 {
   word-break: break-word;
 }
 
+.post img {
+    height: auto;
+    max-width: 100%;
+}
 .table td {
     word-break: break-all;
 }
