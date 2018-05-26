@@ -72,7 +72,7 @@ export class NewsService {
                 const oldItems = this.filterOldPosts(this.getFeed(url).items);
 
                 const oldIsoDates = oldItems.map(post => post.isoDate);
-                const newPosts = newItems
+                const newPosts = this.filterPostsByWords(newItems, feed.stopWords)
                     .filter(post => !oldIsoDates.includes(post.isoDate));
 
                 this.updateFeed(url, [...newPosts, ...oldItems]);
@@ -112,7 +112,12 @@ export class NewsService {
 
     }
 
-    private filterPosts(posts: Post[], stopWords: string): Post[] {
+    private filterPostsByWords(posts: Post[], stopWords: string = ''): Post[] {
+
+        if (!stopWords.trim()) {
+            return posts;
+        }
+
         const words: string [] = stopWords
             .split(',')
             .map(w => w.trim().toLocaleLowerCase())
@@ -126,7 +131,7 @@ export class NewsService {
             if (feed.url === url) {
                 const freshFeed = new Feed();
                 freshFeed.url = url;
-                freshFeed.items = this.filterPosts(posts, feed.stopWords);
+                freshFeed.items = posts;
                 freshFeed.contentSnippet = feed.contentSnippet;
                 this.store[index] = freshFeed;
             }
