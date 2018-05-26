@@ -31,13 +31,20 @@
     {
       "name": "images",
       "urls": [
-        "/**/*.png",
-        "/**/*.jpg",
-        "/**/*.jpeg",
-        "/**/*.ico",
-        "/**/*.bmp",
-        "/**/*.gif",
-        "/**/*.svg"
+        "https://**.png",
+        "http://**.png",
+        "https://**.jpg",
+        "http://**.jpg",
+        "https://**.jpeg",
+        "http://**.jpeg",
+        "https://**.ico",
+        "http://**.ico",
+        "https://**.bmp",
+        "http://**.bmp",
+        "https://**.gif",
+        "http://**.gif",
+        "https://**.svg",
+        "http://**.svg"
       ],
       "cacheConfig": {
         "maxSize": 100,
