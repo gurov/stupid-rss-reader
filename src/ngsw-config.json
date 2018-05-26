@@ -25,30 +25,28 @@
           "/assets/**"
         ]
       }
-    }
-  ],
-  "dataGroups": [
+    },
     {
       "name": "images",
-      "urls": [
-        "https://**.png",
-        "http://**.png",
-        "https://**.jpg",
-        "http://**.jpg",
-        "https://**.jpeg",
-        "http://**.jpeg",
-        "https://**.ico",
-        "http://**.ico",
-        "https://**.bmp",
-        "http://**.bmp",
-        "https://**.gif",
-        "http://**.gif",
-        "https://**.svg",
-        "http://**.svg"
-      ],
-      "cacheConfig": {
-        "maxSize": 100,
-        "maxAge": "14d12h"
+      "installMode": "lazy",
+      "updateMode": "lazy",
+      "resources": {
+        "urls": [
+          "https://**.png",
+          "http://**.png",
+          "https://**.jpg",
+          "http://**.jpg",
+          "https://**.jpeg",
+          "http://**.jpeg",
+          "https://**.ico",
+          "http://**.ico",
+          "https://**.bmp",
+          "http://**.bmp",
+          "https://**.gif",
+          "http://**.gif",
+          "https://**.svg",
+          "http://**.svg"
+        ]
       }
     }
   ]

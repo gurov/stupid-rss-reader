@@ -37,11 +37,12 @@
         "/stupid-rss-reader/assets/safari-pinned-tab.svg"
       ],
       "patterns": []
-    }
-  ],
-  "dataGroups": [
+    },
     {
       "name": "images",
+      "installMode": "lazy",
+      "updateMode": "lazy",
+      "urls": [],
       "patterns": [
         "https:\\/\\/[^\\/]+[^\\/]+\\.png",
         "http:\\/\\/[^\\/]+[^\\/]+\\.png",
@@ -57,13 +58,10 @@
         "http:\\/\\/[^\\/]+[^\\/]+\\.gif",
         "https:\\/\\/[^\\/]+[^\\/]+\\.svg",
         "http:\\/\\/[^\\/]+[^\\/]+\\.svg"
-      ],
-      "strategy": "performance",
-      "maxSize": 100,
-      "maxAge": 1252800000,
-      "version": 1
+      ]
     }
   ],
+  "dataGroups": [],
   "hashTable": {
     "/stupid-rss-reader/inline.318b50c57b4eba3d437b.bundle.js": "998c6060446975e566fd17509558ddc68d72eec3",
     "/stupid-rss-reader/assets/android-chrome-192x192.png": "ad0fdd1996a3cc34a625499b8fea65f455601a18",
