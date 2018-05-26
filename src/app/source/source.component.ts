@@ -26,11 +26,17 @@ export class SourceComponent implements OnInit {
         this.route.params
             .map(params => decodeURIComponent(params['url']))
             .do(url => this.feed = this.newsService.getFeed(url))
+            .do(() => this.feed.stopWords = this.feed.stopWords || '')
             .switchMap(url => this.newsService.getNewPostsAndUpdate(url).finally(() => this.loading = false))
             .subscribe(posts => this.newPosts = posts);
+
     }
 
     changeContentView() {
         this.newsService.changeContentView(this.feed.url, this.feed.contentSnippet);
+    }
+
+    changeStopWords() {
+        this.newsService.changeStopWords(this.feed.url, this.feed.stopWords);
     }
 }

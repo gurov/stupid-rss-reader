@@ -26,5 +26,23 @@
         ]
       }
     }
+  ],
+  "dataGroups": [
+    {
+      "name": "images",
+      "urls": [
+        "/**/*.png",
+        "/**/*.jpg",
+        "/**/*.jpeg",
+        "/**/*.ico",
+        "/**/*.bmp",
+        "/**/*.gif",
+        "/**/*.svg"
+      ],
+      "cacheConfig": {
+        "maxSize": 100,
+        "maxAge": "14d12h"
+      }
+    }
   ]
 }

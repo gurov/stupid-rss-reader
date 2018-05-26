@@ -5,11 +5,11 @@
   "name": "Stupid RSS Reader",
   "start_url": ".",
   "manifest_version": 2,
-  "version": "1.7.2",
+  "version": "1.8.0",
   "default_locale": "en",
   "display": "standalone",
   "description": "Stupid RSS Reader - Progressive Web Application",
-  "orientation": "portrait-primary",
+  "orientation": "portrait",
   "icons": [
     {
       "src": "assets/favicon-32x32.png",
