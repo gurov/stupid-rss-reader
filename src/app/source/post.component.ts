@@ -8,9 +8,11 @@ import { Post } from '../models';
             <span *ngIf="post.author || post.creator">
                 {{post.author || post.creator}},
             </span>
-            {{post.isoDate | isoToDate | date}},
-            <a target="_blank" [href]="post.link">link ➢</a></h6>
-        <h4>{{post.title}}</h4>
+            {{post.isoDate | isoToDate | date}}
+        </h6>
+        <h4>
+            <a target="_blank" [href]="post.link">{{post.title}} 🔗</a>
+        </h4>
         <div *ngIf="post?.categories?.length" class="small text-muted mb-1">
             <em *ngFor="let category of post.categories; let last = last">{{category}}<span *ngIf="!last">, </span></em>
         </div>

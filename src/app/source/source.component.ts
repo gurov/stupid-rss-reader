@@ -6,6 +6,7 @@ import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/finally';
+import 'rxjs/add/operator/delay';
 
 @Component({
     selector: 'app-source',
@@ -25,9 +26,10 @@ export class SourceComponent implements OnInit {
         this.loading = true;
         this.route.params
             .map(params => decodeURIComponent(params['url']))
+            .finally(() => this.loading = false)
             .do(url => this.feed = this.newsService.getFeed(url))
-            .do(() => this.feed.stopWords = this.feed.stopWords || '')
-            .switchMap(url => this.newsService.getNewPostsAndUpdate(url).finally(() => this.loading = false))
+            .switchMap(url => this.newsService.getNewPostsAndUpdate(url))
+            .delay(1000)
             .subscribe(posts => this.newPosts = posts);
 
     }
@@ -36,7 +38,4 @@ export class SourceComponent implements OnInit {
         this.newsService.changeContentView(this.feed.url, this.feed.contentSnippet);
     }
 
-    changeStopWords() {
-        this.newsService.changeStopWords(this.feed.url, this.feed.stopWords);
-    }
 }

@@ -41,13 +41,11 @@ export class NewsService {
                 {
                     items: [],
                     contentSnippet:true,
-                    stopWords: '',
                     url:'https://www.gismeteo.ru/news/rss/'
                 },
                 {
                     items: [],
                     contentSnippet:false,
-                    stopWords: '',
                     url:'https://hnrss.org/newest?points=300&comments=100'
                 }
             ];
@@ -72,8 +70,7 @@ export class NewsService {
                 const oldItems = this.filterOldPosts(this.getFeed(url).items);
 
                 const oldIsoDates = oldItems.map(post => post.isoDate);
-                const newPosts = this.filterPostsByWords(newItems, feed.stopWords)
-                    .filter(post => !oldIsoDates.includes(post.isoDate));
+                const newPosts = newItems.filter(post => !oldIsoDates.includes(post.isoDate));
 
                 this.updateFeed(url, [...newPosts, ...oldItems]);
                 return newPosts;
@@ -112,20 +109,6 @@ export class NewsService {
 
     }
 
-    private filterPostsByWords(posts: Post[], stopWords: string = ''): Post[] {
-
-        if (!stopWords.trim()) {
-            return posts;
-        }
-
-        const words: string [] = stopWords
-            .split(',')
-            .map(w => w.trim().toLocaleLowerCase())
-            .filter(w => w);
-        const re = new RegExp(`(${words.join('|')})`, 'gi');
-        return posts.filter(post => !re.test(post.content) && !re.test(post.contentSnippet));
-    }
-
     private updateFeed(url: string, posts: Post[]) {
         this.store.forEach((feed, index) => {
             if (feed.url === url) {
@@ -148,15 +131,6 @@ export class NewsService {
         this.store.forEach((feed, index) => {
             if (feed.url === url) {
                 this.store[index].contentSnippet = showContentSnippet;
-            }
-        });
-        localStorage.setItem('store', JSON.stringify(this.store));
-    }
-
-    changeStopWords(url: string, stopWords: string = '') {
-        this.store.forEach((feed, index) => {
-            if (feed.url === url) {
-                this.store[index].stopWords = stopWords;
             }
         });
         localStorage.setItem('store', JSON.stringify(this.store));

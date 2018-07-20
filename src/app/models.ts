@@ -1,7 +1,6 @@
 export class Feed {
     items: Post[] = [];
     contentSnippet: boolean = false;
-    stopWords: string = '';
     url: string;
 }
 
