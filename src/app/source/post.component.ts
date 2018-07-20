@@ -11,7 +11,7 @@ import { Post } from '../models';
             {{post.isoDate | isoToDate | date}}
         </h6>
         <h4>
-            <a target="_blank" [href]="post.link">{{post.title}} 🔗</a>
+            <a target="_blank" [href]="post.link">{{post.title}}</a><sup> ↗</sup>
         </h4>
         <div *ngIf="post?.categories?.length" class="small text-muted mb-1">
             <em *ngFor="let category of post.categories; let last = last">{{category}}<span *ngIf="!last">, </span></em>

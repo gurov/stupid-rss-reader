@@ -29,6 +29,14 @@ h1, h2, h3, h4, h5, h6 {
     color:#417505;
 }
 
+h4 > a {
+    color:#417505;
+}
+
+h4 > sup {
+    color:#5591c5;
+}
+
 .container .post > div {
     h1, h2, h3, h4, h5, h6 {
         font-size: 1.4rem;
