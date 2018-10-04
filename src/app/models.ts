@@ -3,10 +3,10 @@ export class Post {
     title: string;
     link: string;
     author: string;
-    content: string;
+    description: string;
     contentSnippet: string;
     categories: string[];
-    isoDate: string;
+    pubDate: string;
     enclosure?: {
         length: number,
         type: string,

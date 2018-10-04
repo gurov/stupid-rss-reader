@@ -8,7 +8,7 @@ import { Post } from '../models';
             <span *ngIf="post.author || post.creator">
                 {{post.author || post.creator}},
             </span>
-            {{post.isoDate | isoToDate | date}}
+            {{post.pubDate}}
         </h6>
         <h4>
             <a target="_blank" [href]="post.link">{{post.title}}</a><sup> ↗</sup>
@@ -16,7 +16,7 @@ import { Post } from '../models';
         <div *ngIf="post?.categories?.length" class="small text-muted mb-1">
             <em *ngFor="let category of post.categories; let last = last">{{category}}<span *ngIf="!last">, </span></em>
         </div>
-        <div [innerHTML]="post.content | sanitizeHtml"></div>
+        <div [innerHTML]="post.description | sanitizeHtml"></div>
     `,
     styles: []
 })
