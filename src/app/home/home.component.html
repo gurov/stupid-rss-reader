@@ -8,15 +8,15 @@
 </div>
 
 <div class="container pt-3 pb-3" style="background-color:cornsilk">
-    <h4 *ngIf="store.length">Feeds</h4>
-    <table class="table" *ngIf="store.length">
+    <h4 *ngIf="feeds.length">Feeds</h4>
+    <table class="table" *ngIf="feeds.length">
         <tbody>
-        <tr *ngFor="let feed of store">
+        <tr *ngFor="let feed of feeds">
             <td class="pl-0">
-                <a [routerLink]="['/home', feed.url]">{{feed.url}}</a>
+                <a [routerLink]="['/home', feed]">{{feed}}</a>
             </td>
             <td class="pr-0">
-                <button class="close" (click)="removeFeed(feed.url)">&times;</button>
+                <button class="close" (click)="removeFeed(feed)">&times;</button>
             </td>
         </tr>
         </tbody>
@@ -72,46 +72,6 @@
         </select>
     </div>
 
-    <h6 class="mt-2">Keep posts</h6>
-    <div class="form-check">
-        <input class="form-check-input"
-               type="radio"
-               name="keep"
-               id="keep3"
-               [(ngModel)]="days"
-               (change)="setDays(3)"
-               [value]="3">
-        <label class="form-check-label"
-               for="keep2">
-            for 3 days
-        </label>
-    </div>
-    <div class="form-check">
-        <input class="form-check-input"
-               type="radio"
-               name="keep"
-               id="keep2"
-               [(ngModel)]="days"
-               (change)="setDays(7)"
-               [value]="7">
-        <label class="form-check-label"
-               for="keep2">
-            for 1 weeks
-        </label>
-    </div>
-    <div class="form-check">
-        <input class="form-check-input"
-               type="radio"
-               name="keep"
-               id="keep1"
-               [(ngModel)]="days"
-               (change)="setDays(14)"
-               [value]="14">
-        <label class="form-check-label"
-               for="keep1">
-            for 2 weeks
-        </label>
-    </div>
 
 </div>
 

@@ -16,26 +16,14 @@ import { Post } from '../models';
         <div *ngIf="post?.categories?.length" class="small text-muted mb-1">
             <em *ngFor="let category of post.categories; let last = last">{{category}}<span *ngIf="!last">, </span></em>
         </div>
-        <div *ngIf="!contentSnippet" [innerHTML]="post.content | sanitizeHtml"></div>
-        <div *ngIf="contentSnippet && post.enclosure">
-            <img [src]="post.enclosure.url" class="mt-1 mb-2">
-        </div>
-        <p *ngIf="contentSnippet">{{post.contentSnippet}}</p>
+        <div [innerHTML]="post.content | sanitizeHtml"></div>
     `,
     styles: []
 })
 export class PostComponent {
 
     @Input() post: Post = new Post();
-    @Input() contentSnippet: boolean = false;
 
     constructor() {
     }
-
-    postHasImage(post: Post): boolean {
-        return !!post.enclosure
-            && post.enclosure.type.includes('image')
-            && !!post.enclosure.url;
-    }
-
 }

@@ -1,12 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { NewsService } from '../news.service';
 import { ActivatedRoute } from '@angular/router';
-import { Feed, Post } from '../models';
-import 'rxjs/add/operator/do';
-import 'rxjs/add/operator/switchMap';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/finally';
-import 'rxjs/add/operator/delay';
+import { Post } from '../models';
+import { map, tap, switchMap, finalize } from 'rxjs/operators';
+import { CoreService } from '../core.service';
 
 @Component({
     selector: 'app-source',
@@ -14,28 +10,47 @@ import 'rxjs/add/operator/delay';
 })
 export class SourceComponent implements OnInit {
 
-    feed: Feed = new Feed();
     newPosts: Post[] = [];
-    showNewPosts: boolean = false;
+    posts: Post[] = [];
+    
     loading: boolean = false;
+    url: string = '';
 
-    constructor(private newsService: NewsService, private route: ActivatedRoute) {
+    constructor(private coreService: CoreService, private route: ActivatedRoute) {
     }
 
     ngOnInit() {
         this.loading = true;
         this.route.params
-            .map(params => decodeURIComponent(params['url']))
-            .do(url => this.feed = this.newsService.getFeed(url))
-            .switchMap(url => this.newsService.getNewPostsAndUpdate(url)
-                .finally(() => this.loading = false))
-            .delay(1000)
-            .subscribe(posts => this.newPosts = posts);
+            .pipe(
+                map(params => decodeURIComponent(params['url'])),
+                tap(url => this.url = url),
+                switchMap(url => this.coreService.getLocalPosts(url)),
+                finalize(() => this.loading = false)
+            )
+            .subscribe(posts => this.posts = posts);
 
     }
 
-    changeContentView() {
-        this.newsService.changeContentView(this.feed.url, this.feed.contentSnippet);
+    getNews() {
+        this.loading = true;
+        this.coreService.getNewPosts(this.url)
+            .pipe(finalize(() => this.loading = false))
+            .subscribe(newPosts => {
+
+                const oldIsoDates = this.posts.map(post => post.isoDate);
+                this.newPosts = newPosts.filter(post => !oldIsoDates.includes(post.isoDate));
+
+                // TODO add sort
+
+                const postsForSaving = [...this.newPosts, ...this.posts];
+
+                const t = 14 * 24 * 3600 * 1000; // 14 days
+                postsForSaving.filter(post => +new Date() - Date.parse(post.isoDate) < t);
+
+            });
+
+
     }
 
 }

@@ -4,30 +4,28 @@
             <img src="assets/fur-boot-green.svg" style="width: 5rem" alt="Stupid RSS Reader logo">
         </a>
         <span *ngIf="loading" class="ml-4 spinner"></span>
+        <button class="btn btn-primary" (click)="getNews()">Get news!</button>
     </div>
     <h6 class="post-header mt-2">
-        {{feed?.url}}
+        {{url}}
     </h6>
 </div>
 <hr>
 <div class="container" *ngIf="newPosts.length">
+    
+    
+    <div *ngFor="let item of newPosts|sort:'isoDate':false" class="post">
+        <app-post [post]="item"></app-post>
+    </div>
+    <div class="divide-line text-center text-success mb-5 mt-3">new ⤴</div>
 
-    <div class="text-center mb-3" *ngIf="!showNewPosts">
-        <button class="btn btn-success" (click)="showNewPosts = true">Show new ({{newPosts.length}})</button>
-    </div>
-    <div *ngIf="showNewPosts">
-        <div *ngFor="let item of newPosts|sort:'isoDate':false" class="post">
-            <app-post [post]="item" [contentSnippet]="feed.contentSnippet"></app-post>
-        </div>
-        <div class="divide-line text-center text-success mb-5 mt-3">new ⤴</div>
-    </div>
 
 </div>
 
 <div class="container">
-    <div class="text-center text-info" *ngIf="!feed.items.length && !newPosts.length">No recent posts</div>
-    <div *ngFor="let item of feed.items|sort:'isoDate':false" class="post">
-        <app-post [post]="item" [contentSnippet]="feed.contentSnippet"></app-post>
+    <div class="text-center text-info" *ngIf="(newPosts.length + posts.length) < 1">No recent posts</div>
+    <div *ngFor="let item of posts|sort:'isoDate':false" class="post">
+        <app-post [post]="item"></app-post>
     </div>
 </div>
 
@@ -37,14 +35,4 @@
     <h6 class="post-header mt-4">
         <a routerLink="/home">↵ back</a>
     </h6>
-</div>
-<div class="bg-secondary text-white pt-2 pb-4">
-    <div class="container">
-        <label>
-            <input type="checkbox"
-                   [(ngModel)]="feed.contentSnippet"
-                   (change)="changeContentView()"> Use content snippet for post displaying
-        </label>
-        <hr>
-    </div>
 </div>

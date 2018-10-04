@@ -1,9 +1,3 @@
-export class Feed {
-    items: Post[] = [];
-    contentSnippet: boolean = false;
-    url: string;
-}
-
 export class Post {
     creator: string;
     title: string;
@@ -19,3 +13,4 @@ export class Post {
         url: string
     }
 }
+
