@@ -2,7 +2,8 @@
  * This parser from:
  * https://andrew.stwrt.ca/posts/js-xml-parsing/
  */
-import { each, has, isArray, isEmpty, isPlainObject, reduce, size, values } from 'lodash';
+import { each, has, isArray, isEmpty, isPlainObject, reduce, size, values, isString } from 'lodash';
+import { Post } from './models';
 
 
 
@@ -72,4 +73,14 @@ export function parse(xml) {
 
     // simplify to reduce number of final leaf nodes and return
     return flatten(data);
+}
+
+export function formatPost (post: Post) {
+    post.date = new Date(post.pubDate);
+    post.author = post.author || post['dc:creator'] || post['creator'];
+    post.categories = post.categories || post['category'];
+    if(isString(post.categories)) {
+        post.categories = [post.categories];
+    }
+    return post; 
 }

@@ -7,6 +7,7 @@ export class Post {
     contentSnippet: string;
     categories: string[];
     pubDate: string;
+    datejs: Date;
     enclosure?: {
         length: number,
         type: string,

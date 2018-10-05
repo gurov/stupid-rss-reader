@@ -3,7 +3,7 @@ import { Observable, Subject, of } from 'rxjs';
 import { Post } from './models';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
-import { parse } from './parser';
+import { parse, formatPost } from './parser';
 import { get } from 'lodash';
 import { CORSProxyList } from './constants';
 
@@ -83,10 +83,9 @@ export class CoreService {
       .pipe(map(xmlText => {
         const XML = new DOMParser().parseFromString(xmlText, "text/xml");;
         const obj = parse(XML);
-        return get(obj, 'channel.item') || [];
+        const items = get(obj, 'channel.item') || []; 
+        return items.map(formatPost);
       }));
-
-
   }
 
   removeFeed(url: string) {

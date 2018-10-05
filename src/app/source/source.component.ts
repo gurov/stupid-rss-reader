@@ -26,7 +26,10 @@ export class SourceComponent implements OnInit {
                 tap(url => this.url = url),
                 switchMap(url => this.coreService.getLocalPosts(url))
             )
-            .subscribe(posts => this.posts = posts, () => {});
+            .subscribe(posts => {
+                this.posts = posts;
+                console.log(posts);
+            });
 
     }
 
