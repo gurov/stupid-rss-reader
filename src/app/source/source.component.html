@@ -3,8 +3,13 @@
         <a routerLink="/">
             <img src="assets/fur-boot-green.svg" style="width: 5rem" alt="Stupid RSS Reader logo">
         </a>
-        <span *ngIf="loading" class="ml-4 spinner"></span>
-        <button class="btn btn-primary" (click)="getNews()">Get news!</button>
+        
+        <button class="btn btn-outline-success ml-4"
+            [disabled]="loading"
+            (click)="getNews()">
+                <span *ngIf="loading" class="spinner"></span>
+            Get news!
+        </button>
     </div>
     <h6 class="post-header mt-2">
         {{url}}

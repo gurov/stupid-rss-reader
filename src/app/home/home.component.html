@@ -39,6 +39,23 @@
 
 </div>
 
+
+
+<div class="container pt-3 pb-3" style="background-color:bisque">
+    <h4>Settings</h4>
+    <h6>CORS proxy</h6>
+
+    <div class="form-group">
+        <select class="form-control" [(ngModel)]="cors" (ngModelChange)="setCors($event)">
+            <option *ngFor="let proxy of CORSList"
+                    [ngValue]="proxy.key">{{proxy.url}}
+            </option>
+        </select>
+    </div>
+
+
+</div>
+
 <div class="container pt-3 pb-3" style="background-color:floralwhite">
     <h4>About</h4>
     <p>I'm tired of different stupid RSS clients and I created own Stupid RSS Reader.</p>
@@ -59,20 +76,3 @@
         <li>CSS framework: <a target="_blank" href="https://getbootstrap.com/">getbootstrap.com</a></li>
     </ul>
 </div>
-
-<div class="container pt-3 pb-3" style="background-color:bisque">
-    <h4>Settings</h4>
-    <h6>CORS proxy</h6>
-
-    <div class="form-group">
-        <select class="form-control" [(ngModel)]="cors" (ngModelChange)="setCors($event)">
-            <option *ngFor="let proxy of CORSList"
-                    [ngValue]="proxy.key">{{proxy.url}}
-            </option>
-        </select>
-    </div>
-
-
-</div>
-
-
