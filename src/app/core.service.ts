@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Observable, Subject, of } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { Post } from './models';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
-import { parse, formatPost } from './parser';
+import { formatPost, parse } from './parser';
 import { get } from 'lodash';
 import { CORSProxyList } from './constants';
 
@@ -24,7 +24,7 @@ export class CoreService {
     }
 
     // support first version
-    if(this.feeds.length === 0) {
+    if (this.feeds.length === 0) {
       const storeString = localStorage.getItem('store');
 
       try {
@@ -34,7 +34,7 @@ export class CoreService {
     }
 
     // for first start
-    if(this.feeds.length === 0) {
+    if (this.feeds.length === 0) {
       this.feeds = [
         'https://hnrss.org/newest?points=300&comments=100'
       ];
@@ -75,15 +75,16 @@ export class CoreService {
 
     const lastCORS = localStorage.getItem('cors');
     if (lastCORS && CORSProxyList[lastCORS]) {
-        proxyUrl = CORSProxyList[lastCORS];
+      proxyUrl = CORSProxyList[lastCORS];
     }
 
 
-    return this.http.get(proxyUrl + url, { responseType: 'text' })
+    return this.http.get(proxyUrl + url, {responseType: 'text'})
       .pipe(map(xmlText => {
-        const XML = new DOMParser().parseFromString(xmlText, "text/xml");;
+        const XML = new DOMParser().parseFromString(xmlText, 'text/xml');
+        ;
         const obj = parse(XML);
-        const items = get(obj, 'channel.item') || []; 
+        const items = get(obj, 'channel.item') || [];
         return items.map(formatPost);
       }));
   }
@@ -103,6 +104,6 @@ export class CoreService {
     }
     return Observable.throw('Error: The feed exist');
 
-}
+  }
 
 }

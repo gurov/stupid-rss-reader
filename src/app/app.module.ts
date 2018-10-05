@@ -15,23 +15,23 @@ import { PostComponent } from './source/post.component';
 import { SanitizeHtmlPipe } from './sanitize-html.pipe';
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        SourceComponent,
-        HomeComponent,
-        SortPipe,
-        IsoToDatePipe,
-        PostComponent,
-        SanitizeHtmlPipe
-    ],
-    imports: [
-        BrowserModule,
-        HttpClientModule,
-        AppRoutingModule,
-        FormsModule,
-        ServiceWorkerModule.register('/stupid-rss-reader/ngsw-worker.js', { enabled: environment.production })
-    ],
-    bootstrap: [AppComponent]
+  declarations: [
+    AppComponent,
+    SourceComponent,
+    HomeComponent,
+    SortPipe,
+    IsoToDatePipe,
+    PostComponent,
+    SanitizeHtmlPipe
+  ],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    AppRoutingModule,
+    FormsModule,
+    ServiceWorkerModule.register('/stupid-rss-reader/ngsw-worker.js', {enabled: environment.production})
+  ],
+  bootstrap: [AppComponent]
 })
 export class AppModule {
 }

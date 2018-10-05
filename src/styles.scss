@@ -1,14 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
-
 @import '~bootstrap/scss/functions';
-
 @import '~bootstrap/scss/variables';
-
 @import '~bootstrap/scss/mixins';
 @import '~bootstrap/scss/root';
 @import '~bootstrap/scss/reboot';
-
-
 @import '~bootstrap/scss/type';
 @import '~bootstrap/scss/images';
 @import '~bootstrap/scss/code';
@@ -22,39 +17,36 @@
 @import '~bootstrap/scss/utilities';
 @import '~bootstrap/scss/progress';
 
-
-
 h1, h2, h3, h4, h5, h6 {
-    margin-left: 0;
-    color:#417505;
+  margin-left: 0;
+  color: #417505;
 }
 
 h4 > a {
-    color:#417505;
+  color: #417505;
 }
 
 h4 > sup {
-    color:#5591c5;
+  color: #5591c5;
 }
 
 .container .post > div {
-    h1, h2, h3, h4, h5, h6 {
-        font-size: 1.4rem;
-        color: #132104;
-    }
+  h1, h2, h3, h4, h5, h6 {
+    font-size: 1.4rem;
+    color: #132104;
+  }
 
 }
 
-
 .post-header {
-    word-wrap: break-word;
-    color:#417505;
+  word-wrap: break-word;
+  color: #417505;
 }
 
 .rss-label {
-    padding: 0.1rem 0.3rem;
-    background-color: coral;
-    margin-right: 0.5rem;
+  padding: 0.1rem 0.3rem;
+  background-color: coral;
+  margin-right: 0.5rem;
 }
 
 .container .post {
@@ -63,18 +55,20 @@ h4 > sup {
 }
 
 .post img {
-    height: auto;
-    max-width: 100%;
+  height: auto;
+  max-width: 100%;
 }
+
 .table td {
-    word-break: break-all;
+  word-break: break-all;
 }
 
 .divide-line {
   position: relative;
   border-bottom: 1px green dotted;
 }
+
 .post-container {
-    position: relative;
-    clear: both;
+  position: relative;
+  clear: both;
 }

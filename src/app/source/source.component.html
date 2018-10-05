@@ -1,43 +1,43 @@
 <div class="container mb-3">
-    <div>
-        <a routerLink="/">
-            <img src="assets/fur-boot-green.svg" style="width: 5rem" alt="Stupid RSS Reader logo">
-        </a>
-        
-        <button class="btn btn-outline-success ml-4"
-            [disabled]="loading"
-            (click)="getNews()">
-                <span *ngIf="loading" class="spinner"></span>
-            Get news!
-        </button>
-    </div>
-    <h6 class="post-header mt-2">
-        {{url}}
-    </h6>
+  <div>
+    <a routerLink="/">
+      <img alt="Stupid RSS Reader logo" src="assets/fur-boot-green.svg" style="width: 5rem">
+    </a>
+
+    <button (click)="getNews()"
+      [disabled]="loading"
+      class="btn btn-outline-success ml-4">
+      <span *ngIf="loading" class="spinner"></span>
+      Get news!
+    </button>
+  </div>
+  <h6 class="post-header mt-2">
+    {{url}}
+  </h6>
 </div>
 <hr>
 <div class="container" *ngIf="newPosts.length">
-    
-    
-    <div *ngFor="let item of newPosts|sort:'date':false" class="d-flex post">
-        <app-post [post]="item"></app-post>
-    </div>
-    <div class="divide-line text-center text-success mb-5 mt-3">new ⤴</div>
+
+
+  <div *ngFor="let item of newPosts|sort:'date':false" class="d-flex post">
+    <app-post [post]="item"></app-post>
+  </div>
+  <div class="divide-line text-center text-success mb-5 mt-3">new ⤴</div>
 
 
 </div>
 
 <div class="container">
-    <div class="text-center text-info" *ngIf="(newPosts.length + posts.length) < 1">No recent posts</div>
-    <div *ngFor="let item of posts|sort:'date':false" class="d-flex post">
-        <app-post [post]="item"></app-post>
-    </div>
+  <div class="text-center text-info" *ngIf="(newPosts.length + posts.length) < 1">No recent posts</div>
+  <div *ngFor="let item of posts|sort:'date':false" class="d-flex post">
+    <app-post [post]="item"></app-post>
+  </div>
 </div>
 
 <hr>
 
 <div class="container mb-5">
-    <h6 class="post-header mt-4">
-        <a routerLink="/home">↵ back</a>
-    </h6>
+  <h6 class="post-header mt-4">
+    <a routerLink="/home">↵ back</a>
+  </h6>
 </div>

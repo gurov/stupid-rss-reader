@@ -1,78 +1,77 @@
 <div class="container mb-3">
-    <div>
-        <a routerLink="/">
-            <img src="assets/fur-boot-green.svg" style="width: 5rem" alt="Stupid RSS Reader logo">
-        </a>
-    </div>
-    <h2 class="mt-2">Stupid RSS Reader</h2>
+  <div>
+    <a routerLink="/">
+      <img alt="Stupid RSS Reader logo" src="assets/fur-boot-green.svg" style="width: 5rem">
+    </a>
+  </div>
+  <h2 class="mt-2">Stupid RSS Reader</h2>
 </div>
 
 <div class="container pt-3 pb-3" style="background-color:cornsilk">
-    <h4 *ngIf="feeds.length">Feeds</h4>
-    <table class="table" *ngIf="feeds.length">
-        <tbody>
-        <tr *ngFor="let feed of feeds">
-            <td class="pl-0">
-                <a [routerLink]="['/home', feed]">{{feed}}</a>
-            </td>
-            <td class="pr-0">
-                <button class="close" (click)="removeFeed(feed)">&times;</button>
-            </td>
-        </tr>
-        </tbody>
-    </table>
-    <div class="input-group mb-3 mt-2">
-        <input type="text"
-               class="form-control"
-               [(ngModel)]="newFeed"
-               placeholder="https://example.com/rss/">
-        <div class="input-group-append">
-            <button class="btn btn-primary"
-                    [ngClass]="{'progress-bar-striped': loading, 'progress-bar-animated':loading}"
-                    type="button"
-                    (click)="add()"
-                    [disabled]="!newFeed">+ Add
-            </button>
-        </div>
+  <h4 *ngIf="feeds.length">Feeds</h4>
+  <table class="table" *ngIf="feeds.length">
+    <tbody>
+    <tr *ngFor="let feed of feeds">
+      <td class="pl-0">
+        <a [routerLink]="['/home', feed]">{{feed}}</a>
+      </td>
+      <td class="pr-0">
+        <button class="close" (click)="removeFeed(feed)">&times;</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <div class="input-group mb-3 mt-2">
+    <input type="text"
+           class="form-control"
+      [(ngModel)]="newFeed"
+           placeholder="https://example.com/rss/">
+    <div class="input-group-append">
+      <button class="btn btn-primary"
+        [ngClass]="{'progress-bar-striped': loading, 'progress-bar-animated':loading}"
+              type="button"
+        (click)="add()"
+        [disabled]="!newFeed">+ Add
+      </button>
     </div>
-    <div *ngIf="error" class="text-danger">💢 {{error}}</div>
+  </div>
+  <div *ngIf="error" class="text-danger">💢 {{error}}</div>
 
 </div>
 
 
-
 <div class="container pt-3 pb-3" style="background-color:bisque">
-    <h4>Settings</h4>
-    <h6>CORS proxy</h6>
+  <h4>Settings</h4>
+  <h6>CORS proxy</h6>
 
-    <div class="form-group">
-        <select class="form-control" [(ngModel)]="cors" (ngModelChange)="setCors($event)">
-            <option *ngFor="let proxy of CORSList"
-                    [ngValue]="proxy.key">{{proxy.url}}
-            </option>
-        </select>
-    </div>
+  <div class="form-group">
+    <select class="form-control" [(ngModel)]="cors" (ngModelChange)="setCors($event)">
+      <option *ngFor="let proxy of CORSList"
+        [ngValue]="proxy.key">{{proxy.url}}
+      </option>
+    </select>
+  </div>
 
 
 </div>
 
 <div class="container pt-3 pb-3" style="background-color:floralwhite">
-    <h4>About</h4>
-    <p>I'm tired of different stupid RSS clients and I created own Stupid RSS Reader.</p>
-    <h6>Features</h6>
-    <ul>
-        <li>Stupid RSS is <a target="_blank" href="https://developers.google.com/web/progressive-web-apps/">Progressive
-            Web App</a>
-        </li>
-        <li>Very simple</li>
-        <li>Offline mode</li>
-        <li>All user data are stored locally only</li>
-        <li>Open source: <a target="_blank" href="https://github.com/gurov/stupid-rss-reader">Github</a></li>
-    </ul>
-    <h6>Used</h6>
-    <ul>
-        <li>Logo: <a target="_blank" href="http://game-icons.net/">game-icons.net</a></li>
-        <li>Javascript framework: <a target="_blank" href="https://angular.io/">angular.io</a></li>
-        <li>CSS framework: <a target="_blank" href="https://getbootstrap.com/">getbootstrap.com</a></li>
-    </ul>
+  <h4>About</h4>
+  <p>I'm tired of different stupid RSS clients and I created own Stupid RSS Reader.</p>
+  <h6>Features</h6>
+  <ul>
+    <li>Stupid RSS is <a target="_blank" href="https://developers.google.com/web/progressive-web-apps/">Progressive
+      Web App</a>
+    </li>
+    <li>Very simple</li>
+    <li>Offline mode</li>
+    <li>All user data are stored locally only</li>
+    <li>Open source: <a target="_blank" href="https://github.com/gurov/stupid-rss-reader">Github</a></li>
+  </ul>
+  <h6>Used</h6>
+  <ul>
+    <li>Logo: <a target="_blank" href="http://game-icons.net/">game-icons.net</a></li>
+    <li>Javascript framework: <a target="_blank" href="https://angular.io/">angular.io</a></li>
+    <li>CSS framework: <a target="_blank" href="https://getbootstrap.com/">getbootstrap.com</a></li>
+  </ul>
 </div>
