@@ -12,7 +12,7 @@ import { CoreService } from '../core.service';
 export class HomeComponent implements OnInit {
 
   newFeed: string = '';
-  cors: string = 'corsanywhere';
+  cors: string = 'corsio';
   error: string = '';
   feeds: string[] = [];
   loading: boolean = false;

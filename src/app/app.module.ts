@@ -9,7 +9,6 @@ import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
 import { SourceComponent } from './source/source.component';
 import { HomeComponent } from './home/home.component';
-import { SortPipe } from './sort.pipe';
 import { IsoToDatePipe } from './iso-to-date.pipe';
 import { PostComponent } from './source/post.component';
 import { SanitizeHtmlPipe } from './sanitize-html.pipe';
@@ -19,7 +18,6 @@ import { SanitizeHtmlPipe } from './sanitize-html.pipe';
     AppComponent,
     SourceComponent,
     HomeComponent,
-    SortPipe,
     IsoToDatePipe,
     PostComponent,
     SanitizeHtmlPipe
