@@ -7,12 +7,9 @@
       "resources": {
         "files": [
           "/favicon.ico",
-          "/index.html"
-        ],
-        "versionedFiles": [
-          "/*.bundle.css",
-          "/*.bundle.js",
-          "/*.chunk.js"
+          "/index.html",
+          "/*.css",
+          "/*.js"
         ]
       }
     },
@@ -32,20 +29,34 @@
       "updateMode": "lazy",
       "resources": {
         "urls": [
-          "https://**.png",
-          "http://**.png",
-          "https://**.jpg",
-          "http://**.jpg",
-          "https://**.jpeg",
-          "http://**.jpeg",
-          "https://**.ico",
-          "http://**.ico",
-          "https://**.bmp",
-          "http://**.bmp",
-          "https://**.gif",
-          "http://**.gif",
-          "https://**.svg",
-          "http://**.svg"
+          "https://**/*.png",
+          "http://**/*.png",
+          "https://**/*.jpg",
+          "http://**/*.jpg",
+          "https://**/*.jpeg",
+          "http://**/*.jpeg",
+          "https://**/*.ico",
+          "http://**/*.ico",
+          "https://**/*.bmp",
+          "http://**/*.bmp",
+          "https://**/*.gif",
+          "http://**/*.gif",
+          "https://**/*.svg",
+          "http://**/*.svg",
+          "https://**/*.PNG",
+          "http://**/*.PNG",
+          "https://**/*.JPG",
+          "http://**/*.JPG",
+          "https://**/*.JPEG",
+          "http://**/*.JPEG",
+          "https://**/*.ICO",
+          "http://**/*.ICO",
+          "https://**/*.BMP",
+          "http://**/*.BMP",
+          "https://**/*.GIF",
+          "http://**/*.GIF",
+          "https://**/*.SVG",
+          "http://**/*.SVG"
         ]
       }
     }
