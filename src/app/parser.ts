@@ -87,7 +87,7 @@ export function parse(xml) {
 }
 
 export function formatPost(post: Post) {
-  post.date = new Date(post.pubDate);
+  post.isoDate = new Date(post.pubDate).toISOString();
   post.author = post.author || post['dc:creator'] || post['creator'];
   post.categories = post.categories || post['category'];
   if (isString(post.categories)) {

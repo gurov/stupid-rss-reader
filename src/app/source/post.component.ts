@@ -8,7 +8,7 @@ import { Post } from '../models';
             <span *ngIf="post.author">
                 {{post.author}},
             </span>
-      {{post.date|date:'yyyy-MM-dd HH:mm'}}
+      {{post.isoDate ? (post.isoDate|isoToDate|date:'yyyy-MM-dd HH:mm') : ''}}
     </h6>
     <h4>
       <a target="_blank" [href]="post.link">{{post.title}}</a><sup> ↗</sup>

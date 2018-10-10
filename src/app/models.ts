@@ -5,6 +5,6 @@ export class Post {
   description: string;
   categories: string[];
   pubDate: string;
-  date: Date;
+  isoDate: string;
 }
 

@@ -38,17 +38,17 @@ export class SourceComponent implements OnInit {
     this.coreService.getNewPosts(this.url)
       .subscribe(newPosts => {
 
-        const oldPubDates = this.posts.map(post => post.date);
-        this.newPosts = newPosts.filter(post => !oldPubDates.includes(post.date));
+        const oldPubDates = this.posts.map(post => post.isoDate);
+
+        this.newPosts = newPosts.filter(post => !oldPubDates.includes(post.isoDate));
 
         const t = 30 * 24 * 3600 * 1000; // 30 days
 
         const postsForSaving = [...this.newPosts, ...this.posts]
-          .filter((post: Post) => (+new Date() - +post.date) < t);
+          .filter((post: Post) => (+new Date() - +new Date(post.isoDate)) < t);
 
         this.coreService.saveLocalPosts(this.url, postsForSaving);
-
-      }, () => {
+        () => this.loading = false;
       }, () => this.loading = false);
 
 
