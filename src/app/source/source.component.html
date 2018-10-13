@@ -37,7 +37,10 @@
 <hr>
 
 <div class="container mb-5">
-  <h6 class="post-header mt-4">
-    <a routerLink="/home">↵ back</a>
+  <h6 class="d-flex align-items-center">
+    <a routerLink="/home" class="btn btn-outline-primary">↵ back</a>
+    <button class="btn btn-danger btn-sm ml-auto"
+      (click)="clear()"
+      type="button">&times; clear</button>
   </h6>
 </div>

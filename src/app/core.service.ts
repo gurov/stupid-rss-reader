@@ -45,6 +45,10 @@ export class CoreService {
 
   }
 
+  clear(url: string = '') {
+    localStorage.removeItem('POSTS' + url);
+  }
+
   getLocalPosts(url: string = ''): Observable<Post[]> {
     if (!url) {
       return of([]);

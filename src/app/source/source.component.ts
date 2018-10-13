@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Post } from '../models';
-import { map, switchMap, tap } from 'rxjs/operators';
+import { map, switchMap, tap, finalize } from 'rxjs/operators';
 import { CoreService } from '../core.service';
 
 @Component({
@@ -26,16 +26,14 @@ export class SourceComponent implements OnInit {
         tap(url => this.url = url),
         switchMap(url => this.coreService.getLocalPosts(url))
       )
-      .subscribe(posts => {
-        this.posts = posts;
-        console.log(posts);
-      });
+      .subscribe(posts => this.posts = posts);
 
   }
 
   getNews() {
     this.loading = true;
     this.coreService.getNewPosts(this.url)
+      .pipe(finalize(() => this.loading = false))
       .subscribe(newPosts => {
 
         const oldPubDates = this.posts.map(post => post.isoDate);
@@ -48,10 +46,16 @@ export class SourceComponent implements OnInit {
           .filter((post: Post) => (+new Date() - +new Date(post.isoDate)) < t);
 
         this.coreService.saveLocalPosts(this.url, postsForSaving);
-        () => this.loading = false;
-      }, () => this.loading = false);
+      });
 
+  }
 
+  clear() {
+    if (confirm(`Clear this feed?`)) {
+      this.newPosts = [];
+      this.posts = [];
+      this.coreService.clear(this.url); 
+    }
   }
 
 }
