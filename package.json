@@ -6,7 +6,6 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build --prod ---prod --base-href \"/stupid-rss-reader/\"",
-    "postbuild": "rm -rf ./docs && mv ./dist ./docs",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
