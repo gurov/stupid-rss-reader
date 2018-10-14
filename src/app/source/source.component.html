@@ -16,6 +16,15 @@
   </h6>
 </div>
 <hr>
+
+<div class="container">
+  <div class="alert alert-warning" role="alert" *ngIf="error">
+    <h6>Error</h6>
+    <pre>{{error|json}}</pre>
+  </div>
+  
+</div>
+
 <div class="container" *ngIf="newPosts.length">
 
 

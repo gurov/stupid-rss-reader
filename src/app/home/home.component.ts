@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { finalize } from 'rxjs/operators';
 import { CORSProxyList } from '../constants';
 import { CoreService } from '../core.service';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -17,6 +18,7 @@ export class HomeComponent implements OnInit {
   feeds: string[] = [];
   loading: boolean = false;
   CORSList = [];
+  version$: Observable<string> = null;
 
   constructor(public coreService: CoreService) {
     Object.keys(CORSProxyList)
@@ -37,11 +39,13 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.load();
+    this.version$ = this.coreService.getVersion();
   }
 
   removeFeed(url: string) {
     if (confirm(`Delete the feed: ${url}?`)) {
       this.coreService.removeFeed(url);
+      this.coreService.clear(url);
       this.load();
     }
   }

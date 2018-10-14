@@ -15,11 +15,13 @@ export class SourceComponent implements OnInit {
 
   loading: boolean = false;
   url: string = '';
+  error: any = null;
 
   constructor(private coreService: CoreService, private route: ActivatedRoute) {
   }
 
   ngOnInit() {
+    this.error = '';
     this.route.params
       .pipe(
         map(params => decodeURIComponent(params['url'])),
@@ -46,7 +48,7 @@ export class SourceComponent implements OnInit {
           .filter((post: Post) => (+new Date() - +new Date(post.isoDate)) < t);
 
         this.coreService.saveLocalPosts(this.url, postsForSaving);
-      });
+      }, e => this.error = e);
 
   }
 

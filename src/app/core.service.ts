@@ -110,4 +110,9 @@ export class CoreService {
 
   }
 
+  getVersion(): Observable<string> {
+    return this.http.get('/manifest.json')
+      .pipe(map(manifest => manifest['version']));
+  }
+
 }
