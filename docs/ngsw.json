@@ -8,7 +8,7 @@
       "updateMode": "prefetch",
       "urls": [
         "/stupid-rss-reader/index.html",
-        "/stupid-rss-reader/main.4c8833d7597fa0d3e929.js",
+        "/stupid-rss-reader/main.58cff540e915c8c6a243.js",
         "/stupid-rss-reader/polyfills.4fb94bf3dccecdef7c60.js",
         "/stupid-rss-reader/runtime.ec2944dd8b20ec099bf3.js",
         "/stupid-rss-reader/styles.b81b088a0bf8624e43b8.css"
@@ -37,42 +37,6 @@
         "/stupid-rss-reader/assets/safari-pinned-tab.svg"
       ],
       "patterns": []
-    },
-    {
-      "name": "images",
-      "installMode": "lazy",
-      "updateMode": "lazy",
-      "urls": [],
-      "patterns": [
-        "https:\\/\\/(?:.+\\/)?[^/]*\\.png",
-        "http:\\/\\/(?:.+\\/)?[^/]*\\.png",
-        "https:\\/\\/(?:.+\\/)?[^/]*\\.jpg",
-        "http:\\/\\/(?:.+\\/)?[^/]*\\.jpg",
-        "https:\\/\\/(?:.+\\/)?[^/]*\\.jpeg",
-        "http:\\/\\/(?:.+\\/)?[^/]*\\.jpeg",
-        "https:\\/\\/(?:.+\\/)?[^/]*\\.ico",
-        "http:\\/\\/(?:.+\\/)?[^/]*\\.ico",
-        "https:\\/\\/(?:.+\\/)?[^/]*\\.bmp",
-        "http:\\/\\/(?:.+\\/)?[^/]*\\.bmp",
-        "https:\\/\\/(?:.+\\/)?[^/]*\\.gif",
-        "http:\\/\\/(?:.+\\/)?[^/]*\\.gif",
-        "https:\\/\\/(?:.+\\/)?[^/]*\\.svg",
-        "http:\\/\\/(?:.+\\/)?[^/]*\\.svg",
-        "https:\\/\\/(?:.+\\/)?[^/]*\\.PNG",
-        "http:\\/\\/(?:.+\\/)?[^/]*\\.PNG",
-        "https:\\/\\/(?:.+\\/)?[^/]*\\.JPG",
-        "http:\\/\\/(?:.+\\/)?[^/]*\\.JPG",
-        "https:\\/\\/(?:.+\\/)?[^/]*\\.JPEG",
-        "http:\\/\\/(?:.+\\/)?[^/]*\\.JPEG",
-        "https:\\/\\/(?:.+\\/)?[^/]*\\.ICO",
-        "http:\\/\\/(?:.+\\/)?[^/]*\\.ICO",
-        "https:\\/\\/(?:.+\\/)?[^/]*\\.BMP",
-        "http:\\/\\/(?:.+\\/)?[^/]*\\.BMP",
-        "https:\\/\\/(?:.+\\/)?[^/]*\\.GIF",
-        "http:\\/\\/(?:.+\\/)?[^/]*\\.GIF",
-        "https:\\/\\/(?:.+\\/)?[^/]*\\.SVG",
-        "http:\\/\\/(?:.+\\/)?[^/]*\\.SVG"
-      ]
     }
   ],
   "dataGroups": [],
@@ -92,8 +56,8 @@
     "/stupid-rss-reader/assets/icon-96x96.png": "99e6a723c6e26226824c7b58bf4a8437fc9ecd67",
     "/stupid-rss-reader/assets/mstile-150x150.png": "aba962b9d2e6a5722d02489b9665866b47569bef",
     "/stupid-rss-reader/assets/safari-pinned-tab.svg": "13bc5229bb93681b6c99b120d697e23626be9029",
-    "/stupid-rss-reader/index.html": "b0b0eca5b33252bf943ef4a5e380d56843c15784",
-    "/stupid-rss-reader/main.4c8833d7597fa0d3e929.js": "0ecbe5bf580129e6dd18df6c3020c9acceea5a45",
+    "/stupid-rss-reader/index.html": "01cd1116ed961fe071f263c704a989c896f92035",
+    "/stupid-rss-reader/main.58cff540e915c8c6a243.js": "b514c6c6facf5c91baf0a062b880551eb5f98b3d",
     "/stupid-rss-reader/polyfills.4fb94bf3dccecdef7c60.js": "4abe83f8ae9f5ff61961840886e38dd4e976a760",
     "/stupid-rss-reader/runtime.ec2944dd8b20ec099bf3.js": "b62956c2192bfe5516d6374e753773901ed50ec5",
     "/stupid-rss-reader/styles.b81b088a0bf8624e43b8.css": "c9f5102e78d6fe9cd0ee50f606c3877bcdc3d7d0"
