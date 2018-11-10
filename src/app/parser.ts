@@ -91,7 +91,7 @@ export function formatPost(post: Post) {
   post.author = post.author || post['dc:creator'] || post['creator'];
   post.categories = post.categories || post['category'];
   if (isString(post.categories)) {
-    post.categories = [post.categories];
+    post.categories = [post.categories]; // tslint:disable-line
   }
   return post;
 }

@@ -3,7 +3,7 @@ export class Post {
   link: string;
   author: string;
   description: string;
-  categories: string[];
+  categories: string[] | any;
   pubDate: string;
   isoDate: string;
 }

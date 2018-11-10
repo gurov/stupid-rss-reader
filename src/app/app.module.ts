@@ -27,7 +27,8 @@ import { SanitizeHtmlPipe } from './sanitize-html.pipe';
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
-    ServiceWorkerModule.register('/stupid-rss-reader/ngsw-worker.js', {enabled: environment.production})
+    ServiceWorkerModule.register('/stupid-rss-reader/ngsw-worker.js', {enabled: environment.production}),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   bootstrap: [AppComponent]
 })

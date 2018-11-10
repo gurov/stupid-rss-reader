@@ -1,7 +1,4 @@
-#
-# Copyright © 2017 Aram Meem Company Limited.  All Rights Reserved.
-#
-
+# Editor configuration, see http://editorconfig.org
 root = true
 
 [*]
