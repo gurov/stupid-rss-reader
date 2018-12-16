@@ -28,8 +28,7 @@ import { Post } from '../models';
 export class PostComponent {
 
   @Input() post: Post = new Post();
-  @Input() fresh: boolean = false;
-  hidden: boolean = !this.fresh; 
+  @Input() hidden = false;
 
   constructor() {
   }

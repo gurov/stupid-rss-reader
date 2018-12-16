@@ -29,7 +29,7 @@
 
 
   <div *ngFor="let item of newPosts" class="d-flex post">
-    <app-post [post]="item" [fresh]="true"></app-post>
+    <app-post [post]="item" [hidden]="false"></app-post>
   </div>
   <div class="divide-line text-center text-success mb-5 mt-3">new ⤴</div>
 
@@ -39,7 +39,7 @@
 <div class="container">
   <div class="text-center text-info" *ngIf="(newPosts.length + posts.length) < 1">No recent posts</div>
   <div *ngFor="let item of posts" class="d-flex post">
-    <app-post [post]="item" [fresh]="false"></app-post>
+    <app-post [post]="item" [hidden]="true"></app-post>
   </div>
 </div>
 
