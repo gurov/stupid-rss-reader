@@ -41,8 +41,6 @@ export class CoreService {
       localStorage.setItem('feedList', JSON.stringify(this.feeds));
     }
 
-    console.log('feeds', this.feeds);
-
   }
 
   clear(url: string = '') {

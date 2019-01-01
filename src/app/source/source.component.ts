@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener, Inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Post } from '../models';
 import { map, switchMap, tap, finalize } from 'rxjs/operators';
@@ -14,10 +14,20 @@ export class SourceComponent implements OnInit {
   posts: Post[] = [];
 
   loading: boolean = false;
+  showGetNewsButton: boolean = true;
   url: string = '';
   error: any = null;
 
-  constructor(private coreService: CoreService, private route: ActivatedRoute) {
+  @HostListener('window:scroll', []) onWindowScroll() {
+    const offset = window.pageYOffset
+      || document.documentElement.scrollTop
+      || document.body.scrollTop
+      || 0;
+      this.showGetNewsButton = offset < 100;
+  }
+  constructor(
+    private coreService: CoreService,
+    private route: ActivatedRoute) {
   }
 
   ngOnInit() {

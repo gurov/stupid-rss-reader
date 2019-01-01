@@ -3,13 +3,8 @@
     <a routerLink="/">
       <img alt="Stupid RSS Reader logo" src="assets/fur-boot-green.svg" style="width: 5rem">
     </a>
-
-    <button (click)="getNews()"
-      [disabled]="loading"
-      class="btn btn-outline-success ml-auto">
-      <span *ngIf="loading" class="spinner"></span>
-      Get news!
-    </button>
+    <span class="ml-2 text-muted small">New: {{newPosts.length}}, old: {{posts.length}}</span>
+    
   </div>
   <h6 class="post-header mt-2">
     {{url}}
@@ -52,4 +47,13 @@
       (click)="clear()"
       type="button">&times; clear</button>
   </h6>
+</div>
+<div class="fixed-bottom fixed-bottom-wrapper">
+  <button (click)="getNews()"
+    [disabled]="loading"
+    [hidden]="!showGetNewsButton"
+    class="btn btn-success">
+    <span *ngIf="loading" class="spinner"></span>
+    Get news!
+  </button>
 </div>

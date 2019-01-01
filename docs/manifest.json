@@ -1,11 +1,11 @@
 {
   "theme_color": "#417505",
-  "background_color": "#fffaf0",
+  "background_color": "#417505",
   "short_name": "StupidRSS",
   "name": "Stupid RSS",
   "start_url": ".",
   "manifest_version": 2,
-  "version": "3.2.0",
+  "version": "3.3.0",
   "default_locale": "en",
   "display": "standalone",
   "description": "Stupid RSS Reader - Progressive Web Application",
