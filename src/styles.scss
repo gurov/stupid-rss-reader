@@ -76,11 +76,11 @@ h4 > sup {
 }
 
 .fixed-bottom-wrapper {
-  left: 50%; 
-  margin-left: -75px;
+  left: 15px; 
 }
 .fixed-bottom-wrapper > .btn {
-  margin-top: -100px; 
+  margin-top: -250px; 
   width: 150px;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.9);
+  border-radius: 30rem;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.3);
 }
