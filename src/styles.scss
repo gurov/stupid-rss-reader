@@ -78,9 +78,14 @@ h4 > sup {
 .fixed-bottom-wrapper {
   left: 15px; 
 }
-.fixed-bottom-wrapper > .btn {
+.fixed-bottom-wrapper > .btn-group {
   margin-top: -250px; 
-  width: 150px;
-  border-radius: 30rem;
+  background-color: white;
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.3);
+  border-top-right-radius: 30rem;
+  border-bottom-right-radius: 30rem;
+}
+.fixed-bottom-wrapper .btn-group .btn-get-news {
+  border-top-right-radius: 30rem;
+  border-bottom-right-radius: 30rem;
 }

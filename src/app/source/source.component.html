@@ -49,11 +49,17 @@
   </h6>
 </div>
 <div class="fixed-bottom fixed-bottom-wrapper">
-  <button (click)="getNews()"
-    [disabled]="loading"
-    [hidden]="!showGetNewsButton"
-    class="btn btn-success btn-lg">
-    <span *ngIf="loading" class="spinner"></span>
-    Get news!
-  </button>
+
+    <div class="btn-group btn-group-lg" [hidden]="!showGetNewsButton">
+      <button routerLink="/" type="button"
+        class="btn btn-outline-success">🏠</button>
+      <button (click)="getNews()"
+        [disabled]="loading"
+        class="btn btn-success btn-get-news">
+        <span *ngIf="loading" class="spinner"></span>
+        Get news!
+      </button>
+    </div>
+
+  
 </div>

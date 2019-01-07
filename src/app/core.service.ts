@@ -36,7 +36,7 @@ export class CoreService {
     // for first start
     if (this.feeds.length === 0) {
       this.feeds = [
-        'https://hnrss.org/newest?points=300&comments=100'
+        'https://xkcd.com/rss.xml'
       ];
       localStorage.setItem('feedList', JSON.stringify(this.feeds));
     }
@@ -84,7 +84,6 @@ export class CoreService {
     return this.http.get(proxyUrl + url, {responseType: 'text'})
       .pipe(map(xmlText => {
         const XML = new DOMParser().parseFromString(xmlText, 'text/xml');
-        ;
         const obj = parse(XML);
         const items = get(obj, 'channel.item') || [];
         return items.map(formatPost);
@@ -100,7 +99,7 @@ export class CoreService {
   add(url: string): Observable<any> {
     const a = this.feeds.find(u => u === url);
     if (!a) {
-      this.feeds.push(url)
+      this.feeds.push(url);
       localStorage.setItem('feedList', JSON.stringify(this.feeds));
       return of(true);
     }
