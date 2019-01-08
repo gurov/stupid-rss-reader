@@ -12,7 +12,7 @@
   <table class="table" *ngIf="feeds.length">
     <tbody>
     <tr *ngFor="let feed of feeds">
-      <td class="pl-0">
+      <td class="pl-0 feed-link">
         <a [routerLink]="['/home', feed]">{{feed}}</a>
       </td>
       <td class="pr-0">

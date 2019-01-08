@@ -66,7 +66,7 @@ export class SourceComponent implements OnInit {
     if (confirm(`Clear this feed?`)) {
       this.newPosts = [];
       this.posts = [];
-      this.coreService.clear(this.url); 
+      this.coreService.clear(this.url);
     }
   }
 

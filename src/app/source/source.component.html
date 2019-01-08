@@ -42,17 +42,17 @@
 
 <div class="container mb-5">
   <h6 class="d-flex align-items-center">
-    <a routerLink="/home" class="btn btn-outline-primary">↵ back</a>
-    <button class="btn btn-danger btn-sm ml-auto"
+    <a routerLink="/home" class="btn btn-sm btn-outline-primary">↵ back</a>
+    <button class="btn btn-outline-danger btn-sm ml-auto"
       (click)="clear()"
-      type="button">&times; clear</button>
+      type="button">&times; Delete all posts</button>
   </h6>
 </div>
 <div class="fixed-bottom fixed-bottom-wrapper">
 
     <div class="btn-group btn-group-lg" [hidden]="!showGetNewsButton">
       <button routerLink="/" type="button"
-        class="btn btn-outline-success">🏠</button>
+        class="btn btn-outline-success">Home</button>
       <button (click)="getNews()"
         [disabled]="loading"
         class="btn btn-success btn-get-news">
