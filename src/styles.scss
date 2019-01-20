@@ -87,10 +87,19 @@ h4 > sup {
   border-top-left-radius: 10rem;
   border-bottom-left-radius: 10rem;
 }
-.fixed-bottom-wrapper .btn-group .btn-get-news {
-  border-top-right-radius: 30rem;
-  border-bottom-right-radius: 30rem;
+
+.btn-get-news {
+  border-radius: 30rem;
+  margin-bottom: 10%;
+  margin-left: 2px;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 255, 0, 0.7);
 }
+.btn-get-news .spinner {
+  border: 2px solid white;
+  border-right-color: transparent;
+  border-left-color: transparent;
+}
+
 .more-info {
   font-weight: bold;
   margin-left: 0.5rem;
