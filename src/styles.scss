@@ -1,4 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
+$theme-colors: (
+  "primary": #192F00,
+);
 @import '~bootstrap/scss/functions';
 @import '~bootstrap/scss/variables';
 @import '~bootstrap/scss/mixins';
@@ -29,7 +32,7 @@ h4 > a {
 }
 
 h4 > sup {
-  color: #5591c5;
+  color: #5C941C;
 }
 
 .container .post > div {
@@ -92,8 +95,20 @@ h4 > sup {
   border-radius: 30rem;
   margin-bottom: 10%;
   margin-left: 2px;
-  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 255, 0, 0.7);
+  color: #fff;
+  background-color: #417505;
+  border-color: #417505;
+  box-shadow: 0.2rem 0.2rem 0.1rem rgba(0, 0, 0, 0.7);
 }
+
+.btn-get-news.disabled, .btn-get-news:disabled {
+  opacity: 1;
+}
+
+.btn-get-news:hover {
+  color: white;
+}
+
 .btn-get-news .spinner {
   border: 2px solid white;
   border-right-color: transparent;
@@ -102,9 +117,13 @@ h4 > sup {
 
 .more-info {
   font-weight: bold;
+  color: #5C941C;
   margin-left: 0.5rem;
 }
 .feed-link {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
+}
+.app-name {
+  font-size: 1.7rem
 }

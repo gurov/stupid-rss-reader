@@ -1,14 +1,16 @@
-<div class="container mb-3">
+<div class="container mb-3 mt-3">
   <div class="d-flex justify-content-start align-items-center">
     <a routerLink="/">
       <img alt="Stupid RSS Reader logo" src="assets/fur-boot-green.svg" style="width: 5rem">
     </a>
-    <span class="ml-2 text-muted small">New: {{newPosts.length}}, old: {{posts.length}}</span>
-    
+    <div>
+      <h6 class="post-header ml-2">
+        {{url}}
+      </h6>
+      <span class="ml-2 text-muted small">New: {{newPosts.length}}, old: {{posts.length}}</span>
+    </div>
   </div>
-  <h6 class="post-header mt-2">
-    {{url}}
-  </h6>
+  
 </div>
 <hr>
 
@@ -49,10 +51,10 @@
   </h6>
 </div>
 <div class="fixed-bottom fixed-bottom-wrapper" [hidden]="!showGetNewsButton">
-  <div class="container">
+  <div class="container d-flex flex-row-reverse">
       <button (click)="getNews()"
       [disabled]="loading"
-      class="btn btn-success btn-get-news btn-lg">
+      class="btn btn-get-news btn-lg">
       <span *ngIf="loading" class="spinner"></span>
       Get news!
     </button>

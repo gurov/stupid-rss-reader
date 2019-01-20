@@ -1,10 +1,10 @@
-<div class="container mb-3">
-  <div>
+<div class="container mb-3 mt-3">
+  <div class="d-flex align-items-center">
     <a routerLink="/">
       <img alt="Stupid RSS Reader logo" src="assets/fur-boot-green.svg" style="width: 5rem">
     </a>
+    <h2 class="ml-2 app-name">Stupid RSS Reader</h2>
   </div>
-  <h2 class="mt-2">Stupid RSS Reader</h2>
 </div>
 
 <div class="container pt-3 pb-3" style="background-color:cornsilk">
@@ -27,7 +27,7 @@
       [(ngModel)]="newFeed"
            placeholder="https://example.com/rss/">
     <div class="input-group-append">
-      <button class="btn btn-primary"
+      <button class="btn btn-success"
         [ngClass]="{'progress-bar-striped': loading, 'progress-bar-animated':loading}"
               type="button"
         (click)="add()"
