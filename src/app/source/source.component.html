@@ -3,7 +3,7 @@
     <a routerLink="/">
       <img alt="Stupid RSS Reader logo" src="assets/fur-boot-green.svg" style="width: 5rem">
     </a>
-    <div class="ml-2 ">
+    <div class="ml-2 w-100">
       <h6 class="post-header">
         {{url}}
       </h6>
@@ -51,7 +51,7 @@
   </h6>
 </div>
 <div class="fixed-bottom fixed-bottom-wrapper" [hidden]="!showGetNewsButton">
-  <div class="container d-flex flex-row-reverse">
+  <div class="container">
       <button (click)="getNews()"
       [disabled]="loading"
       class="btn btn-get-news btn-lg">
