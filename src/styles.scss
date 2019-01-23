@@ -20,6 +20,7 @@ $theme-colors: (
 @import '~bootstrap/scss/utilities';
 @import '~bootstrap/scss/progress';
 @import '~bootstrap/scss/alert';
+@import '~bootstrap/scss/media';
 @import '~bootstrap/scss/utilities/flex';
 
 h1, h2, h3, h4, h5, h6 {
@@ -44,6 +45,8 @@ h4 > sup {
 }
 
 .post-header {
+  width: 90%;
+  display: block;
   word-wrap: break-word;
   color: #417505;
 }
@@ -78,27 +81,11 @@ h4 > sup {
   clear: both;
 }
 
-.fixed-bottom-wrapper {
-  left: 15px; 
-}
-.fixed-bottom-wrapper > .btn-group {
-  margin-top: -250px; 
-  background-color: white;
-  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.3);
-  border-top-right-radius: 30rem;
-  border-bottom-right-radius: 30rem;
-  border-top-left-radius: 10rem;
-  border-bottom-left-radius: 10rem;
-}
-
 .btn-get-news {
   border-radius: 30rem;
   margin-bottom: 10%;
-  margin-left: 2px;
-  color: #fff;
-  background-color: #417505;
-  border-color: #417505;
-  box-shadow: 0.2rem 0.2rem 0.1rem rgba(0, 0, 0, 0.7);
+  margin-left: 10%;
+  box-shadow: 0.3rem 0.3rem 0.1rem rgba(0, 0, 0, 0.6);
 }
 
 .btn-get-news.disabled, .btn-get-news:disabled {
