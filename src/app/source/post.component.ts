@@ -11,7 +11,7 @@ import { Post } from '../models';
       {{post.isoDate ? (post.isoDate|isoToDate|date:'yyyy-MM-dd HH:mm') : ''}}
     </h6>
     <h4 *ngIf="hidden" (click)="hidden = !hidden" class="text-muted">
-      {{post.title}}<small class="more-info">| …</small>
+      {{post.title}}<small class="more-info">…</small>
     </h4>
     <h4 *ngIf="!hidden">
       <a target="_blank" [href]="post.link">{{post.title}}</a><sup> ↗</sup>

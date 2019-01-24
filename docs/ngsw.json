@@ -9,10 +9,10 @@
       "urls": [
         "/stupid-rss-reader/favicon.ico",
         "/stupid-rss-reader/index.html",
-        "/stupid-rss-reader/main.8d42a31a2a598cd96057.js",
+        "/stupid-rss-reader/main.0c1a491ffcb8f62f84b2.js",
         "/stupid-rss-reader/polyfills.1e43b31871c559c486ee.js",
         "/stupid-rss-reader/runtime.b57bf819d5bdce77f1c7.js",
-        "/stupid-rss-reader/styles.d9f0666505204f23a08e.css"
+        "/stupid-rss-reader/styles.9cc0a8f969f5f8034104.css"
       ],
       "patterns": []
     },
@@ -58,11 +58,11 @@
     "/stupid-rss-reader/assets/mstile-150x150.png": "aba962b9d2e6a5722d02489b9665866b47569bef",
     "/stupid-rss-reader/assets/safari-pinned-tab.svg": "13bc5229bb93681b6c99b120d697e23626be9029",
     "/stupid-rss-reader/favicon.ico": "51f83552d6bd2f73fb09d202efbb4a903443ca29",
-    "/stupid-rss-reader/index.html": "f347a8526832cefa557aee56453a606c62427478",
-    "/stupid-rss-reader/main.8d42a31a2a598cd96057.js": "fbed545e0bb38db9fee8a37cdbb4ff2c2ccee626",
+    "/stupid-rss-reader/index.html": "0b3fed6c924808fcfdb5b6c1b682b41367ca1c20",
+    "/stupid-rss-reader/main.0c1a491ffcb8f62f84b2.js": "ad3cf0dafcbb5cab7a6bd43b439375a93043c3fe",
     "/stupid-rss-reader/polyfills.1e43b31871c559c486ee.js": "4ab98e11e44c4bc97507dfc711f8420a47d6f18e",
     "/stupid-rss-reader/runtime.b57bf819d5bdce77f1c7.js": "b62956c2192bfe5516d6374e753773901ed50ec5",
-    "/stupid-rss-reader/styles.d9f0666505204f23a08e.css": "feb8cb229d27502f916d8536d775b910d0fa2d6c"
+    "/stupid-rss-reader/styles.9cc0a8f969f5f8034104.css": "f55d806d714c07adfdce2dfe7beaf28bb9eb415f"
   },
   "navigationUrls": [
     {

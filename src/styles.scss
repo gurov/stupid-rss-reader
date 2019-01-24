@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 $theme-colors: (
-  "primary": #192F00,
+  "primary": #28a745,
 );
 @import '~bootstrap/scss/functions';
 @import '~bootstrap/scss/variables';
@@ -20,7 +20,6 @@ $theme-colors: (
 @import '~bootstrap/scss/utilities';
 @import '~bootstrap/scss/progress';
 @import '~bootstrap/scss/alert';
-@import '~bootstrap/scss/media';
 @import '~bootstrap/scss/utilities/flex';
 
 h1, h2, h3, h4, h5, h6 {
@@ -44,9 +43,17 @@ h4 > sup {
 
 }
 
+.table-header {
+  table-layout: fixed;
+}
+
+.table-header-logo-cell {
+  width: 90px;
+  vertical-align: top;
+}
+
 .post-header {
-  width: 90%;
-  display: block;
+  border-right: 1px solid transparent;
   word-wrap: break-word;
   color: #417505;
 }
@@ -83,8 +90,6 @@ h4 > sup {
 
 .btn-get-news {
   border-radius: 30rem;
-  margin-bottom: 10%;
-  margin-left: 10%;
   box-shadow: 0.3rem 0.3rem 0.1rem rgba(0, 0, 0, 0.6);
 }
 
@@ -113,4 +118,9 @@ h4 > sup {
 }
 .app-name {
   font-size: 1.7rem
+}
+.fixed-bottom-wrapper {
+  position: fixed;
+  top: 85%;
+  left: 10%;
 }
