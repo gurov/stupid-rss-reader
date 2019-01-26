@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 $theme-colors: (
-  "primary": #28a745,
+  "primary": #417505,
 );
 @import '~bootstrap/scss/functions';
 @import '~bootstrap/scss/variables';
@@ -24,11 +24,6 @@ $theme-colors: (
 
 h1, h2, h3, h4, h5, h6 {
   margin-left: 0;
-  color: #417505;
-}
-
-h4 > a {
-  color: #417505;
 }
 
 h4 > sup {
