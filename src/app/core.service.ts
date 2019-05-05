@@ -85,7 +85,9 @@ export class CoreService {
       .pipe(map(xmlText => {
         const XML = new DOMParser().parseFromString(xmlText, 'text/xml');
         const obj = parse(XML);
-        const items = get(obj, 'channel.item') || [];
+        const items = get(obj, 'channel.item')
+          || get(obj, 'entry')
+          || [];
         return items.map(formatPost);
       }));
   }

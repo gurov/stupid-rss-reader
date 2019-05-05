@@ -4,7 +4,8 @@ export class Post {
   author: string;
   description: string;
   categories: string[] | any;
-  pubDate: string;
+  pubDate?: string;
+  published?: string;
   isoDate: string;
 }
 

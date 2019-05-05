@@ -2,7 +2,7 @@
  * This parser from:
  * https://andrew.stwrt.ca/posts/js-xml-parsing/
  */
-import { each, has, isArray, isEmpty, isPlainObject, isString, reduce, size, values } from 'lodash';
+import { each, has, get, isArray, isObject, isEmpty, isPlainObject, isString, reduce, size, values } from 'lodash';
 import { Post } from './models';
 
 
@@ -87,11 +87,17 @@ export function parse(xml) {
 }
 
 export function formatPost(post: Post) {
-  post.isoDate = new Date(post.pubDate).toISOString();
-  post.author = post.author || post['dc:creator'] || post['creator'];
-  post.categories = post.categories || post['category'];
+  post.isoDate = new Date(post.pubDate || post.published).toISOString();
+  post.author = isObject(post.author)
+    ? post.author['name']
+    : post.author || post['dc:creator'] || post['creator'];
+  post.categories = post.categories || post['category'] || [];
   if (isString(post.categories)) {
     post.categories = [post.categories]; // tslint:disable-line
+  }
+
+  if (!post.description) {
+    post.description = get(post, 'media:group.media:description') || '';
   }
   return post;
 }

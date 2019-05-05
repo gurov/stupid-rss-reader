@@ -51,7 +51,7 @@ export class HomeComponent implements OnInit {
   }
 
   add() {
-    this.newFeed = this.newFeed.trim().toLowerCase();
+    this.newFeed = this.newFeed.trim();
 
     this.loading = true;
     this.error = '';
