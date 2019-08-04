@@ -9,6 +9,7 @@ import { Post } from '../models';
                 {{post.author}},
             </span>
       {{post.isoDate ? (post.isoDate|isoToDate|date:'yyyy-MM-dd HH:mm') : ''}}
+      {{readTime}}
     </h6>
     <h4 *ngIf="hidden" (click)="hidden = !hidden" class="text-muted">
       {{post.title}}<small class="more-info">…</small>
@@ -31,5 +32,12 @@ export class PostComponent {
   @Input() hidden = false;
 
   constructor() {
+  }
+
+  get readTime (): string {
+
+    const minutes = Math.round(this.post.description.toString().length / 1500);
+
+    return minutes < 1  ? '' : ` (~${minutes}m)`;
   }
 }
