@@ -29,7 +29,7 @@ import { Post } from '../models';
 export class PostComponent {
 
   @Input() post: Post = new Post();
-  @Input() hidden = false;
+  hidden = true;
 
   constructor() {
   }

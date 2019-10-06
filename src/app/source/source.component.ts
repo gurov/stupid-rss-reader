@@ -14,17 +14,9 @@ export class SourceComponent implements OnInit {
   posts: Post[] = [];
 
   loading: boolean = false;
-  showGetNewsButton: boolean = true;
   url: string = '';
   error: any = null;
 
-  @HostListener('window:scroll', []) onWindowScroll() {
-    const offset = window.pageYOffset
-      || document.documentElement.scrollTop
-      || document.body.scrollTop
-      || 0;
-      this.showGetNewsButton = offset < 100;
-  }
   constructor(
     private coreService: CoreService,
     private route: ActivatedRoute) {
@@ -52,10 +44,7 @@ export class SourceComponent implements OnInit {
 
         this.newPosts = newPosts.filter(post => !oldPubDates.includes(post.isoDate));
 
-        const t = 30 * 24 * 3600 * 1000; // 30 days
-
-        const postsForSaving = [...this.newPosts, ...this.posts]
-          .filter((post: Post) => (+new Date() - +new Date(post.isoDate)) < t);
+        const postsForSaving = [...this.newPosts, ...this.posts].slice(0, 100);
 
         this.coreService.saveLocalPosts(this.url, postsForSaving);
       }, e => this.error = e);

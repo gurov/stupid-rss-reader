@@ -12,6 +12,7 @@ import { HomeComponent } from './home/home.component';
 import { IsoToDatePipe } from './iso-to-date.pipe';
 import { PostComponent } from './source/post.component';
 import { SanitizeHtmlPipe } from './sanitize-html.pipe';
+import { ShortUrlPipe } from './short-url.pipe';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { SanitizeHtmlPipe } from './sanitize-html.pipe';
     SourceComponent,
     HomeComponent,
     IsoToDatePipe,
+    ShortUrlPipe,
     PostComponent,
     SanitizeHtmlPipe
   ],

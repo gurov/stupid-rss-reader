@@ -13,7 +13,7 @@ The application does not impose anything, but only executes orders.
 * Very simple interface
 * Offline mode
 * All user data are stored locally only
-* Posts are stored for 30 days. Deletion occurs after downloading new ones
+* The last 100 posts are stored. Deletion occurs after downloading new ones
 * Open source: [GitHub](https://github.com/gurov/stupid-rss-reader)
 
 ## Screenshots
