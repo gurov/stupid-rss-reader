@@ -33,6 +33,20 @@ export class HomeComponent implements OnInit {
     localStorage.setItem('cors', event);
   }
 
+  get shareIsSuported() {
+    return !!navigator['share'];
+  }
+
+  test() {
+    if (navigator['share']) {
+      navigator['share']({
+        title: 'Stupid RSS',
+        text: this.feeds.join(' \n'),
+        url: location.href,
+      }); // share the URL of MDN
+    }
+  }
+
   load() {
     this.feeds = this.coreService.feeds;
   }

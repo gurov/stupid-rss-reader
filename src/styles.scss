@@ -45,7 +45,7 @@ h4 > sup {
 
 .post-header {
   word-wrap: break-word;
-  color: #9ee948;
+  color: #5C941C;
 }
 
 .rss-label {
@@ -113,4 +113,9 @@ h4 > sup {
   position: fixed;
   top: 85%;
   left: 10%;
+}
+
+.header-space {
+  position: relative;
+  height: 5rem;
 }

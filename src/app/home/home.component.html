@@ -17,12 +17,13 @@
 </div>
 
 <div class="container pt-3 pb-3" style="background-color:cornsilk">
-  <h4 *ngIf="feeds.length">Feeds</h4>
+  <h4 *ngIf="feeds.length">Feeds <span *ngIf="shareIsSuported"
+    (click)="test()">≡</span></h4>
   <table class="table" *ngIf="feeds.length">
     <tbody>
     <tr *ngFor="let feed of feeds">
       <td class="pl-0 feed-link">
-        <a [routerLink]="['/home', feed]">{{feed}}</a>
+        <a [routerLink]="['/home', feed]">{{feed | shortUrl}}</a>
       </td>
       <td class="pr-0">
         <button class="close" (click)="removeFeed(feed)">&times;</button>

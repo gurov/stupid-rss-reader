@@ -1,4 +1,36 @@
+<div class="bg-light fixed-top">
+  <div class="container">
+    <table class="w-100 table table-sm mb-0">
+      <tbody>
+        <tr>
+          <td class="border-top-0" style="width: 3.9rem">
+            <a routerLink="/">
+                <img alt="Stupid RSS Reader logo"
+                src="assets/fur-boot-green.svg"
+                style="width: 3rem">
+            </a>
+          </td>
+          <td class="border-top-0">
+            <span class="post-header">{{url | shortUrl}}</span>
+            <span class="text-muted"> (New: {{newPosts.length}})</span>
+          </td>
+          <td class="border-top-0" style="width: 4.9rem">
+            <button (click)="getNews()"
+            style="width: 4rem"
+              [disabled]="loading"
+              class="btn btn-outline-success btn-sm">
+              Get <span *ngIf="!loading">&dArr;</span><span *ngIf="loading" class="spinner"></span> 
+              <br>news
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+      
+  </div>
+</div>
 
+<div class="header-space"></div>
 
 <div class="container mt-2">
   <div class="alert alert-warning" role="alert" *ngIf="error">
@@ -38,37 +70,4 @@
 <div class="mb-5 mt-5 pb-5 pt-5 small" style="text-align: center">
   Stupid RSS Reader
 </div>
-<hr>
-<div class="mb-5"></div>
 
-<div class="bg-dark fixed-bottom">
-  <div class="container">
-    <table class="w-100 table table-sm mb-0">
-      <tbody>
-        <tr>
-          <td class="border-top-0" style="width: 3.9rem">
-            <a routerLink="/">
-                <img alt="Stupid RSS Reader logo"
-                src="assets/fur-boot-green.svg"
-                style="width: 3rem">
-            </a>
-          </td>
-          <td class="border-top-0">
-            <span class="post-header">{{url | shortUrl}}</span>
-            <span class="text-muted"> (New: {{newPosts.length}})</span>
-          </td>
-          <td class="border-top-0" style="width: 4.9rem">
-            <button (click)="getNews()"
-            style="width: 4rem"
-              [disabled]="loading"
-              class="btn btn-outline-success btn-sm">
-              Get <span *ngIf="!loading">&dArr;</span><span *ngIf="loading" class="spinner"></span> 
-              <br>news
-            </button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-      
-  </div>
-</div>
