@@ -12,6 +12,7 @@ The application does not impose anything, but only executes orders.
 * You can install it to your smartphone
 * Very simple interface
 * Offline mode
+* Angular 8
 * All user data are stored locally only
 * The last 100 posts are stored. Deletion occurs after downloading new ones
 * Open source: [GitHub](https://github.com/gurov/stupid-rss-reader)
