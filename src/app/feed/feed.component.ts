@@ -4,7 +4,7 @@ import {NgxIndexedDBService} from 'ngx-indexed-db';
 import {ActivatedRoute} from '@angular/router';
 import {FeedItem, Post, SiteFeedAbout} from '../models';
 import {CoreService} from '../core.service';
-import {concat, Observable, of} from 'rxjs';
+import {concat} from 'rxjs';
 import {MAX_POSTS_COUNT, TABLES} from '../constants';
 
 

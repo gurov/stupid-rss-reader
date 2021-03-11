@@ -5,8 +5,8 @@ import {isValidHttpUrl} from '../helpers';
 import {FeedItem} from '../models';
 import {TABLES} from '../constants';
 import {CoreService} from '../core.service';
-import { takeUntil } from 'rxjs/operators';
-import { importFeedsFromVersion3 } from '../backward-compatibility';
+import {takeUntil} from 'rxjs/operators';
+import {importFeedsFromVersion3} from '../backward-compatibility';
 
 
 @Component({
@@ -74,10 +74,10 @@ export class HomeComponent implements OnInit, OnDestroy {
 
         // import from the old version
         try {
-            this.addFeeds(importFeedsFromVersion3());    
+            this.addFeeds(importFeedsFromVersion3());
         } catch (error) {
         }
-        
+
 
     }
 

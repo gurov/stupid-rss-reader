@@ -1,10 +1,10 @@
-import { Injectable } from '@angular/core';
-import {combineLatest, concat, Observable, Subject} from 'rxjs';
-import { HttpClient } from '@angular/common/http';
-import {concatAll, tap, toArray} from 'rxjs/operators';
-import { FeedItem, Post, SiteFeed, SiteFeedAbout } from './models';
-import { RSS2JSON, TABLES } from './constants';
-import { NgxIndexedDBService } from 'ngx-indexed-db';
+import {Injectable} from '@angular/core';
+import {concat, Observable, Subject} from 'rxjs';
+import {HttpClient} from '@angular/common/http';
+import {tap, toArray} from 'rxjs/operators';
+import {FeedItem, Post, SiteFeed, SiteFeedAbout} from './models';
+import {RSS2JSON, TABLES} from './constants';
+import {NgxIndexedDBService} from 'ngx-indexed-db';
 
 
 @Injectable({

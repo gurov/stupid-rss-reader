@@ -6,14 +6,14 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {FeedComponent} from './feed/feed.component';
 import {HomeComponent} from './home/home.component';
-import {HttpClientModule} from "@angular/common/http";
-import {RouterModule} from "@angular/router";
-import {SanitizeHtmlPipe} from "./pipes/sanitize-html.pipe";
-import { FormsModule } from '@angular/forms';
-import { PostComponent } from './post/post.component';
-import { CountPipe } from './pipes/count.pipe';
-import { ServiceWorkerModule } from '@angular/service-worker';
-import { environment } from '../environments/environment';
+import {HttpClientModule} from '@angular/common/http';
+import {RouterModule} from '@angular/router';
+import {SanitizeHtmlPipe} from './pipes/sanitize-html.pipe';
+import {FormsModule} from '@angular/forms';
+import {PostComponent} from './post/post.component';
+import {CountPipe} from './pipes/count.pipe';
+import {ServiceWorkerModule} from '@angular/service-worker';
+import {environment} from '../environments/environment';
 
 
 const dbConfig: DBConfig = {
