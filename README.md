@@ -16,7 +16,7 @@ The application does not impose anything, but only executes orders.
 * The last 100 posts are stored. Deletion occurs after downloading new ones
 * Open source: [GitHub](https://github.com/gurov/stupid-rss-reader)
 * Proxy for RSS: [rss2json.com](https://rss2json.com/)
-## Screenshots
 
-https://user-images.githubusercontent.com/2802420/110778883-35262e80-8263-11eb-8eec-5f4983bdf623.mp4
+## Interface (click to watch the video)
 
+[![Watch the video](https://user-images.githubusercontent.com/2802420/110780013-871b8400-8264-11eb-9d9f-5e3321488585.png)](https://user-images.githubusercontent.com/2802420/110778883-35262e80-8263-11eb-8eec-5f4983bdf623.mp4)
