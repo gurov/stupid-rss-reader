@@ -19,4 +19,6 @@ The application does not impose anything, but only executes orders.
 
 ## Interface (click to watch the video)
 
-[![Watch the video](https://user-images.githubusercontent.com/2802420/110780013-871b8400-8264-11eb-9d9f-5e3321488585.png)](https://user-images.githubusercontent.com/2802420/110778883-35262e80-8263-11eb-8eec-5f4983bdf623.mp4)
+[![Watch the video](https://user-images.githubusercontent.com/2802420/110781253-f5147b00-8265-11eb-8aea-c57bc0565326.png)](https://user-images.githubusercontent.com/2802420/110778883-35262e80-8263-11eb-8eec-5f4983bdf623.mp4)
+
+
