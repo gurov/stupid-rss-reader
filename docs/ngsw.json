@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1615492425661,
+  "timestamp": 1615498482632,
   "index": "/stupid-rss-reader/index.html",
   "assetGroups": [
     {
@@ -13,11 +13,11 @@
       "urls": [
         "/stupid-rss-reader/favicon.ico",
         "/stupid-rss-reader/index.html",
-        "/stupid-rss-reader/main.b43dd99511e2a37138ae.js",
+        "/stupid-rss-reader/main.a6b4afb26bcbcc284fef.js",
         "/stupid-rss-reader/manifest.json",
         "/stupid-rss-reader/polyfills.d15628b9ba7248669cd9.js",
         "/stupid-rss-reader/runtime.7b63b9fd40098a2e8207.js",
-        "/stupid-rss-reader/styles.916542d2a1fb97e657e1.css"
+        "/stupid-rss-reader/styles.0ddab1706d179866d4dd.css"
       ],
       "patterns": []
     },
@@ -49,8 +49,7 @@
         "/stupid-rss-reader/assets/safari-pinned-tab.svg",
         "/stupid-rss-reader/assets/share.svg",
         "/stupid-rss-reader/assets/skulls.png",
-        "/stupid-rss-reader/assets/unexpand.svg",
-        "/stupid-rss-reader/skulls.289d6f5b801ad51f83f4.png"
+        "/stupid-rss-reader/assets/unexpand.svg"
       ],
       "patterns": []
     }
@@ -78,14 +77,13 @@
     "/stupid-rss-reader/assets/share.svg": "294413537f5bc98fa18c967a970ce79bde4b3d91",
     "/stupid-rss-reader/assets/skulls.png": "3452c09346c73808335623c7dba5ba3af99acbf5",
     "/stupid-rss-reader/assets/unexpand.svg": "19cdf930a94983f98eaa1d7209c8540a237be6d2",
-    "/stupid-rss-reader/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "/stupid-rss-reader/index.html": "8240d5b97197eb9ea56fb15269426bf576840785",
-    "/stupid-rss-reader/main.b43dd99511e2a37138ae.js": "328bcb57a0f051964b3af7663844653715d084f4",
-    "/stupid-rss-reader/manifest.json": "c425cc00e38cfa7a3b7fda8e2743233c2635f9c6",
+    "/stupid-rss-reader/favicon.ico": "51f83552d6bd2f73fb09d202efbb4a903443ca29",
+    "/stupid-rss-reader/index.html": "cee6b3fcee6d0894b62b583e0c9efd555ba3fcdf",
+    "/stupid-rss-reader/main.a6b4afb26bcbcc284fef.js": "138b220f146692b843457be29cf1dddb10e5079c",
+    "/stupid-rss-reader/manifest.json": "d17f84ff1d833864754b33f7297ba4d6708c370a",
     "/stupid-rss-reader/polyfills.d15628b9ba7248669cd9.js": "f888b31e000d9b05c8c3fef19c325d813f2b7e1b",
     "/stupid-rss-reader/runtime.7b63b9fd40098a2e8207.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
-    "/stupid-rss-reader/skulls.289d6f5b801ad51f83f4.png": "3452c09346c73808335623c7dba5ba3af99acbf5",
-    "/stupid-rss-reader/styles.916542d2a1fb97e657e1.css": "a1b2aa6bc329410554631794db4083955c804b50"
+    "/stupid-rss-reader/styles.0ddab1706d179866d4dd.css": "d3965474a4d9460d36758a22707f947f6986439f"
   },
   "navigationUrls": [
     {

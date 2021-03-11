@@ -17,11 +17,14 @@ import {importFeedsFromVersion3} from '../backward-compatibility';
 export class HomeComponent implements OnInit, OnDestroy {
 
     feeds: FeedItem[] = [];
-    addFeedMode = false;
-    rawFeedURLs = '';
-    feedLoading = {};
+    addFeedMode: boolean = false;
+    rawFeedURLs: string= '';
+    feedLoading: {[index: number]: boolean} = {};
     loading: boolean = false;
     private ngUnsubscribe$ = new Subject<void>();
+
+    identify = (index: number, feed: FeedItem) => feed.id;
+
 
     constructor(private ngxIndexedDBService: NgxIndexedDBService,
         private coreService: CoreService) {

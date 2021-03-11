@@ -1,7 +1,7 @@
 <div class="container">
     <div class="p-1" style="text-align: right">
         <a routerLink="/">
-            Back to feeds <img width="16" src="assets/back.svg" alt="Back to feeds">
+            <img width="16" src="assets/back.svg" alt="Back to feeds"> Back to feeds
         </a>
     </div>
     <table class="w-100">
@@ -10,7 +10,7 @@
             <tr>
                 <td class="feed-image">
                     <img 
-                        onerror="this.src='/assets/icon-72x72.png'"
+                        onerror="this.src='assets/icon-72x72.png'"
                         [src]="about.image || 'assets/icon-72x72.png'" alt="image">
                 </td>
                 <td class="feed-about">

@@ -27,9 +27,9 @@
             (click)="refreshFeeds()">Refresh all feeds</button>
     </div>
 
-    <table class="pure-table pure-table-horizontal w-100">
+    <table class="feeds-table w-100">
         <tbody>
-        <tr *ngFor="let feed of feeds">
+        <tr *ngFor="let feed of feeds; trackBy:identify">
             <td>
                 <a [routerLink]="['/', feed.id]">{{feed.about?.title || 'noname'}}</a><br>
                 <small>{{feed.url}}</small>
@@ -46,13 +46,11 @@
             </td>
 
         </tr>
-        <tr *ngIf="!addFeedMode">
-            <td colspan="2">
-                <button class="a-button lh-20" (click)="addFeedMode=true">+ add</button>
-            </td>
-        </tr>
         </tbody>
     </table>
+    <div *ngIf="!addFeedMode" class="mt-1">
+        <button class="a-button lh-20" (click)="addFeedMode=true">+ add</button>
+    </div>
     <div>
         <form *ngIf="addFeedMode" class="pure-form pure-form-stacked">
             <fieldset>

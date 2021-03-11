@@ -1,6 +1,4 @@
-body {
-    background-image:  url("assets/skulls.png");
-}
+
 
 .w-100 {
     width: 100%;
@@ -10,6 +8,9 @@ body {
 }
 .mb-2 {
     margin-bottom: 1rem !important;
+}
+.mt-1 {
+    margin-top: 0.5rem;
 }
 .m-1 {
     margin: 0.5rem;
@@ -206,4 +207,21 @@ hr {
 
 a {
     color: #005224;
+}
+
+
+
+
+.feeds-table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    empty-cells: show;
+}
+
+.feeds-table td,
+.feeds-table th {
+    border-bottom: 1px solid #cce3a1;
+    margin: 0;
+    overflow: visible;
+    padding: 0.5rem 0;
 }

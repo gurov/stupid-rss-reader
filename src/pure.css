@@ -783,6 +783,9 @@ since IE8 won't execute CSS that contains a CSS3 selector.
     }
 }
 
+
+
+
 .pure-table {
     /* Remove spacing between table cells (from Normalize.css) */
     border-collapse: collapse;

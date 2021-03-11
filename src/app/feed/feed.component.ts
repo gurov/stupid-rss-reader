@@ -3,7 +3,6 @@ import {debounceTime, map, switchMap, tap, toArray} from 'rxjs/operators';
 import {NgxIndexedDBService} from 'ngx-indexed-db';
 import {ActivatedRoute} from '@angular/router';
 import {FeedItem, Post, SiteFeedAbout} from '../models';
-import {CoreService} from '../core.service';
 import {concat} from 'rxjs';
 import {MAX_POSTS_COUNT, TABLES} from '../constants';
 
@@ -22,7 +21,6 @@ export class FeedComponent implements OnInit {
     private feedId: number;
 
     constructor(private db: NgxIndexedDBService,
-                private coreService: CoreService,
                 private route: ActivatedRoute) {
     }
 
