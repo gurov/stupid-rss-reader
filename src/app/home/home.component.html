@@ -18,8 +18,11 @@
 
 <div class="container p-1 mb-2" style="background-color:rgba(255,248,220,0.5)">
     <div class="feeds-header">
-        <h2>Feeds</h2>
-        <button class="a-button green ml-auto"
+        <h2 class="mr-auto">Feeds</h2>
+        <button class="a-button button-share mr-1" (click)="share()" *ngIf="shareIsSuported" >
+            <img src="assets/share.svg" alt="Share feeds">
+        </button>
+        <button class="a-button green"
             [disabled]="loading"
             (click)="refreshFeeds()">Refresh all feeds</button>
     </div>
@@ -28,8 +31,8 @@
         <tbody>
         <tr *ngFor="let feed of feeds">
             <td>
-                {{feed.about?.title}}<br>
-                <a [routerLink]="['/', feed.id]">{{feed.url}}</a>
+                <a [routerLink]="['/', feed.id]">{{feed.about?.title || 'noname'}}</a><br>
+                <small>{{feed.url}}</small>
             </td>
             <td style="width: 50px; text-align: right;">
                 <span class="spinner" *ngIf="feedLoading[feed.id]"></span>
@@ -44,20 +47,13 @@
 
         </tr>
         <tr *ngIf="!addFeedMode">
-            <td>
-                <button class="a-button" (click)="addFeedMode=true">+ add a feed URL</button>
-            </td>
-            <td>
-                <button class="a-button" (click)="share()" *ngIf="shareIsSuported">≡</button>
+            <td colspan="2">
+                <button class="a-button lh-20" (click)="addFeedMode=true">+ add</button>
             </td>
         </tr>
         </tbody>
     </table>
     <div>
-
-
-
-
         <form *ngIf="addFeedMode" class="pure-form pure-form-stacked">
             <fieldset>
                 <label for="new-feeds">Enter new feed URLs</label>
@@ -69,12 +65,10 @@
 
                 <button type="button"
                     (click)="addFeeds(rawFeedURLs)"
-                    class="a-button">Add to the feeds</button>
+                    class="a-button lh-20">Add to the feeds</button>
             </fieldset>
         </form>
-
     </div>
-
     <!-- <div *ngIf="error" class="text-danger">💢 {{error}}</div> -->
 
 </div>

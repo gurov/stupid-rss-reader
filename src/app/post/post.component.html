@@ -10,7 +10,7 @@
         <h3 (click)="hidden = !hidden" [innerHTML]="post.title | sanitizeHtml"></h3>
     </div>
 
-    <button (click)="hidden = !hidden" class="ml-auto a-button">▶️</button>
+    <button (click)="hidden = !hidden" class="ml-auto a-button post-button">️<img src="assets/expand.svg" alt="Expand post"></button>
 </div>
 
 <div class="post-header" *ngIf="!hidden">
@@ -26,7 +26,7 @@
             <sup> ↗</sup>
         </h3>
     </div>
-    <button (click)="hidden = !hidden" class="ml-auto a-button">⏏️</button>
+    <button (click)="hidden = !hidden" class="ml-auto a-button post-button"><img src="assets/unexpand.svg" alt="Unexpand post"></button>
 </div>
 <hr *ngIf="!hidden">
 <div class="post-box" *ngIf="!hidden">
