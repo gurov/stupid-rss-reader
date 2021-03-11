@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1615455187476,
+  "timestamp": 1615455478677,
   "index": "/stupid-rss-reader/index.html",
   "assetGroups": [
     {
@@ -16,7 +16,7 @@
         "/stupid-rss-reader/main.18a33dc9eb82064c73b0.js",
         "/stupid-rss-reader/polyfills.6abdde2583a2e01a2350.js",
         "/stupid-rss-reader/runtime.7b63b9fd40098a2e8207.js",
-        "/stupid-rss-reader/styles.d96487c866589793161a.css"
+        "/stupid-rss-reader/styles.ec5e2b0def8e9681cd20.css"
       ],
       "patterns": []
     },
@@ -44,14 +44,12 @@
         "/stupid-rss-reader/assets/icon-152x152.png",
         "/stupid-rss-reader/assets/icon-72x72.png",
         "/stupid-rss-reader/assets/icon-96x96.png",
-        "/stupid-rss-reader/assets/loader.gif",
-        "/stupid-rss-reader/assets/loader2.gif",
-        "/stupid-rss-reader/assets/loader3.png",
         "/stupid-rss-reader/assets/mstile-150x150.png",
         "/stupid-rss-reader/assets/safari-pinned-tab.svg",
         "/stupid-rss-reader/assets/share.svg",
         "/stupid-rss-reader/assets/skulls.png",
-        "/stupid-rss-reader/assets/unexpand.svg"
+        "/stupid-rss-reader/assets/unexpand.svg",
+        "/stupid-rss-reader/skulls.289d6f5b801ad51f83f4.png"
       ],
       "patterns": []
     }
@@ -74,20 +72,18 @@
     "/stupid-rss-reader/assets/icon-152x152.png": "271fb26295193e00d75fee8315bba62e024278e9",
     "/stupid-rss-reader/assets/icon-72x72.png": "3f91af4119bab37b808eab6f3885269dfe89867f",
     "/stupid-rss-reader/assets/icon-96x96.png": "99e6a723c6e26226824c7b58bf4a8437fc9ecd67",
-    "/stupid-rss-reader/assets/loader.gif": "94036cac293aff61763874bc3cc1e6f4fbd23793",
-    "/stupid-rss-reader/assets/loader2.gif": "a5a7b2519a98182b46001f4e3123e59c6233f564",
-    "/stupid-rss-reader/assets/loader3.png": "18871dfb8074b856dd5a1d9383c978174297acc8",
     "/stupid-rss-reader/assets/mstile-150x150.png": "aba962b9d2e6a5722d02489b9665866b47569bef",
     "/stupid-rss-reader/assets/safari-pinned-tab.svg": "1890a1fb46b8c80cab06888820de33a4c12e8a82",
     "/stupid-rss-reader/assets/share.svg": "294413537f5bc98fa18c967a970ce79bde4b3d91",
     "/stupid-rss-reader/assets/skulls.png": "3452c09346c73808335623c7dba5ba3af99acbf5",
     "/stupid-rss-reader/assets/unexpand.svg": "19cdf930a94983f98eaa1d7209c8540a237be6d2",
     "/stupid-rss-reader/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "/stupid-rss-reader/index.html": "b4339a9a1cc41620f8515e38fc18f3fb8e9cefe6",
+    "/stupid-rss-reader/index.html": "6e0f0e5f8b9064e1e6243744f90f6cae663fe658",
     "/stupid-rss-reader/main.18a33dc9eb82064c73b0.js": "359a712c940263a9bb4b2d1d60368b286a52f45e",
     "/stupid-rss-reader/polyfills.6abdde2583a2e01a2350.js": "f888b31e000d9b05c8c3fef19c325d813f2b7e1b",
     "/stupid-rss-reader/runtime.7b63b9fd40098a2e8207.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
-    "/stupid-rss-reader/styles.d96487c866589793161a.css": "998e8a3836635d2fc3066a4cb21d52b5a9626542"
+    "/stupid-rss-reader/skulls.289d6f5b801ad51f83f4.png": "3452c09346c73808335623c7dba5ba3af99acbf5",
+    "/stupid-rss-reader/styles.ec5e2b0def8e9681cd20.css": "aa5d92f9b49dea2f4ef152517808af449e1548a5"
   },
   "navigationUrls": [
     {
