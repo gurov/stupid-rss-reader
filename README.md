@@ -17,3 +17,6 @@ The application does not impose anything, but only executes orders.
 * Open source: [GitHub](https://github.com/gurov/stupid-rss-reader)
 * Proxy for RSS: [rss2json.com](https://rss2json.com/)
 ## Screenshots
+
+https://user-images.githubusercontent.com/2802420/110778883-35262e80-8263-11eb-8eec-5f4983bdf623.mp4
+
