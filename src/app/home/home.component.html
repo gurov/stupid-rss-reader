@@ -1,89 +1,105 @@
 <div class="container mb-3 mt-3">
 
-  <table class="w-100">
-      <tbody>
+    <table class="w-100">
+        <tbody>
         <tr>
-          <td>
-              <a routerLink="/">
-                <img alt="Stupid RSS Reader logo" src="assets/fur-boot-green.svg" style="width: 5rem">
-              </a>
-          </td>
-          <td>
-              <h2 class="ml-2 app-name">Stupid RSS Reader</h2>
-          </td>
+            <td>
+                <a routerLink="/">
+                    <img alt="Stupid RSS Reader logo" src="assets/fur-boot-green.svg" style="width: 5rem">
+                </a>
+            </td>
+            <td>
+                <h1 class="ml-2 app-name">Stupid RSS Reader</h1>
+            </td>
         </tr>
-      </tbody>
+        </tbody>
     </table>
 </div>
 
-<div class="container pt-3 pb-3" style="background-color:cornsilk">
-  <h4 *ngIf="feeds.length">Feeds <span *ngIf="shareIsSuported"
-    (click)="test()">≡</span></h4>
-  <table class="table" *ngIf="feeds.length">
-    <tbody>
-    <tr *ngFor="let feed of feeds">
-      <td class="pl-0 feed-link">
-        <a [routerLink]="['/home', feed]">{{feed | shortUrl}}</a>
-      </td>
-      <td class="pr-0">
-        <button class="close" (click)="removeFeed(feed)">&times;</button>
-      </td>
-    </tr>
-    </tbody>
-  </table>
-  <div class="input-group mb-3 mt-2">
-    <input type="text"
-           class="form-control"
-           inputmode="url"
-      [(ngModel)]="newFeed"
-           placeholder="https://example.com/rss/">
-    <div class="input-group-append">
-      <button class="btn btn-success"
-        [ngClass]="{'progress-bar-striped': loading, 'progress-bar-animated':loading}"
-              type="button"
-        (click)="add()"
-        [disabled]="!newFeed">+ Add
-      </button>
+<div class="container p-1 mb-2" style="background-color:rgba(255,248,220,0.5)">
+    <div class="feeds-header">
+        <h2>Feeds</h2>
+        <button class="a-button green ml-auto"
+            [disabled]="loading"
+            (click)="refreshFeeds()">Refresh all feeds</button>
     </div>
-  </div>
-  <div *ngIf="error" class="text-danger">💢 {{error}}</div>
+
+    <table class="pure-table pure-table-horizontal w-100">
+        <tbody>
+        <tr *ngFor="let feed of feeds">
+            <td>
+                {{feed.about?.title}}<br>
+                <a [routerLink]="['/', feed.id]">{{feed.url}}</a>
+            </td>
+            <td style="width: 50px; text-align: right;">
+                <span class="spinner" *ngIf="feedLoading[feed.id]"></span>
+                <span *ngIf="!feedLoading[feed.id]">
+                    <sup class="new-info" *ngIf="(feed.id | count:true | async) > 0">
+                        +{{ feed.id | count:true | async }}
+                    </sup>
+                    {{feed.id | count | async}}
+                </span>
+
+            </td>
+
+        </tr>
+        <tr *ngIf="!addFeedMode">
+            <td>
+                <button class="a-button" (click)="addFeedMode=true">+ add a feed URL</button>
+            </td>
+            <td>
+                <button class="a-button" (click)="share()" *ngIf="shareIsSuported">≡</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <div>
+
+
+
+
+        <form *ngIf="addFeedMode" class="pure-form pure-form-stacked">
+            <fieldset>
+                <label for="new-feeds">Enter new feed URLs</label>
+                <textarea class="pure-input-1"
+                    [(ngModel)]="rawFeedURLs"
+                    name="rawFeedURLs"
+                    id=new-feeds
+                    [placeholder]="['https://example.com/feed1\nhttps://example.com/feed2']"></textarea>
+
+                <button type="button"
+                    (click)="addFeeds(rawFeedURLs)"
+                    class="a-button">Add to the feeds</button>
+            </fieldset>
+        </form>
+
+    </div>
+
+    <!-- <div *ngIf="error" class="text-danger">💢 {{error}}</div> -->
 
 </div>
 
 
-<div class="container pt-3 pb-3" style="background-color:bisque">
-  <h4>Settings</h4>
-  <h6>CORS proxy</h6>
-  <div class="form-group">
-    <select class="form-control" [(ngModel)]="cors" (ngModelChange)="setCors($event)">
-      <option *ngFor="let proxy of CORSList"
-        [ngValue]="proxy.key">{{proxy.url}}
-      </option>
-    </select>
-  </div>
-
-
-</div>
-
-<div class="container pt-3 pb-3" style="background-color:floralwhite">
+<div class="container p-1 mb-2" style="background-color:rgba(255,250,240,0.5)">
     <h4>Philosophy</h4>
     <p>The application does not impose anything, but only executes orders.</p>
 </div>
 
-<div class="container pt-3 pb-3" style="background-color:blanchedalmond">
-  <h4>About</h4>
-  <p>I'm tired of different stupid RSS clients and I created own Stupid RSS Reader.</p>
-  <h6>Features</h6>
-  <ul>
-    <li>Stupid RSS is <a target="_blank" href="https://developers.google.com/web/progressive-web-apps/">Progressive
-      Web App</a>
-    </li>
-    <li>You can install it to your smartphone</li>
-    <li>Very simple interface</li>
-    <li>Offline mode</li>
-    <li>All user data are stored locally only</li>
-    <li>The last 100 posts are stored. Deletion occurs after downloading new ones</li>
-    <li>Open source: <a target="_blank" href="https://github.com/gurov/stupid-rss-reader">Github</a></li>
-  </ul>
-  
+<div class="container p-1 mb-2" style="background-color:rgba(255,235,205,0.5);">
+    <h4>About</h4>
+    <p>I'm tired of different stupid RSS clients and I created own Stupid RSS Reader.</p>
+    <h4>Features</h4>
+    <ul>
+        <li>Stupid RSS is <a href="https://developers.google.com/web/progressive-web-apps/" target="_blank">Progressive
+            Web App</a>
+        </li>
+        <li>You can install it to your smartphone</li>
+        <li>Very simple interface</li>
+        <li>Offline mode</li>
+        <li>All user data are stored locally only</li>
+        <li>The last 99 posts are stored. Deletion occurs after downloading new ones</li>
+        <li>Open source: <a href="https://github.com/gurov/stupid-rss-reader" target="_blank">Github</a></li>
+        <li>Proxy for RSS: <a href="https://rss2json.com/" target="_blank">rss2json.com</a></li>
+    </ul>
+
 </div>

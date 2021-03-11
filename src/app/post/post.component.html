@@ -1,0 +1,52 @@
+
+<div class="post-header" *ngIf="hidden">
+    <img *ngIf="post.thumbnail"
+        class="post-header-thumbnail"
+        [src]="post.thumbnail" alt="thumbnail">
+    <div class="post-header-text">
+        <small class="short-info">
+            {{shortInfo}}
+        </small>
+        <h3 (click)="hidden = !hidden" [innerHTML]="post.title | sanitizeHtml"></h3>
+    </div>
+
+    <button (click)="hidden = !hidden" class="ml-auto a-button">▶️</button>
+</div>
+
+<div class="post-header" *ngIf="!hidden">
+    <img *ngIf="post.thumbnail"
+        class="post-header-thumbnail"
+        [src]="post.thumbnail" alt="thumbnail">
+    <div class="post-header-text">
+        <small class="short-info">
+            {{shortInfo}}
+        </small>
+        <h3>
+            <a target="_blank" [href]="post.link" [innerHTML]="post.title | sanitizeHtml"></a>
+            <sup> ↗</sup>
+        </h3>
+    </div>
+    <button (click)="hidden = !hidden" class="ml-auto a-button">⏏️</button>
+</div>
+<hr *ngIf="!hidden">
+<div class="post-box" *ngIf="!hidden">
+    <div [innerHTML]="post.content | sanitizeHtml"></div>
+</div>
+<div *ngIf="post?.categories?.length && !hidden" class="small text-muted mb-1">
+    <em *ngFor="let cat of post.categories; let last = last">{{cat}}<span *ngIf="!last">, </span></em>
+</div>
+
+<div *ngIf="post.enclosure?.thumbnail && !hidden">
+    <a [href]="post.link" *ngIf="post.enclosure?.thumbnail">
+        <img *ngIf="post.enclosure.thumbnail" [src]="post.enclosure.thumbnail" alt="thumbnail">
+    </a>
+    <div *ngIf="post.enclosure?.type">Type: {{post.enclosure?.type}}</div>
+</div>
+
+<div *ngIf="!(post.enclosure?.thumbnail) && !hidden && post.enclosure?.url">
+    <a [href]="post.enclosure.url" target="_blank">Enclosure<sup>↗️</sup></a>
+    <div *ngIf="post.enclosure?.type">Type: {{post.enclosure?.type}}</div>
+    <div *ngIf="post.enclosure?.length">Length: {{post.enclosure?.length}}</div>
+</div>
+
+<!-- <pre *ngIf="!hidden">{{post.enclosure|json}}</pre> -->

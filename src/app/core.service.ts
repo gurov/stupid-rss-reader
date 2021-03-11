@@ -1,117 +1,54 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { Post } from './models';
+import {combineLatest, concat, Observable, Subject} from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
-import { formatPost, parse } from './parser';
-import { get } from 'lodash';
-import { CORSProxyList } from './constants';
+import {concatAll, tap, toArray} from 'rxjs/operators';
+import { FeedItem, Post, SiteFeed, SiteFeedAbout } from './models';
+import { RSS2JSON, TABLES } from './constants';
+import { NgxIndexedDBService } from 'ngx-indexed-db';
+
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class CoreService {
 
-  feeds: string[] = [];
 
-  constructor(private http: HttpClient) {
+    feedLoading$ = new Subject<[id: number, isLoading: boolean]>();
 
-    const feedString = localStorage.getItem('feedList');
-
-    try {
-      this.feeds = JSON.parse(feedString) || [];
-    } catch (error) {
+    constructor(private http: HttpClient, private ngxIndexedDBService: NgxIndexedDBService) {
     }
 
-    // support first version
-    if (this.feeds.length === 0) {
-      const storeString = localStorage.getItem('store');
-
-      try {
-        this.feeds = JSON.parse(storeString).map(s => s['url']) || [];
-      } catch (error) {
-      }
+    updateFeed(url: string, id: number, about: SiteFeedAbout): void {
+        this.ngxIndexedDBService.update(TABLES.FEEDS, { url, id, about });
     }
 
-    // for first start
-    if (this.feeds.length === 0) {
-      this.feeds = [
-        'https://xkcd.com/rss.xml'
-      ];
-      localStorage.setItem('feedList', JSON.stringify(this.feeds));
+    addPosts(posts: Post[], feedId: number): void {
+        posts.forEach((post) => {
+            this.ngxIndexedDBService
+                .add(TABLES.POSTS, { ...post, feedId, isNew: true })
+                .subscribe();
+        });
     }
 
-  }
+    getNewPostsAndUpdateStore(url: string, id: number): Observable<SiteFeed> {
+        this.feedLoading$.next([id, true]);
 
-  clear(url: string = '') {
-    localStorage.removeItem('POSTS' + url);
-  }
+        return this.http.get<SiteFeed>(encodeURI(`${RSS2JSON}${url}`))
+            .pipe(tap((siteFeed) => {
 
-  getLocalPosts(url: string = ''): Observable<Post[]> {
-    if (!url) {
-      return of([]);
+                this.updateFeed(url, id, siteFeed.feed);
+                this.addPosts(siteFeed.items.reverse(), id);
+
+                this.feedLoading$.next([id, false]);
+            }));
     }
 
-    const postsSource: string = localStorage.getItem('POSTS' + url) || '[]';
-    let posts: Post[] = [];
+    refreshFeeds(feedItems: FeedItem[]): Observable<SiteFeed[]> {
+        const requests$ = feedItems
+            .map(feedItem => this.getNewPostsAndUpdateStore(feedItem.url, feedItem.id));
 
-    try {
-      posts = JSON.parse(postsSource) || [];
-    } catch (e) {
-      console.error('parse posts from localStorage', e);
+        return concat(...requests$).pipe(toArray());
     }
 
-    return of(posts);
-  }
-
-  saveLocalPosts(url: string, posts: Post[] = []) {
-    localStorage.setItem('POSTS' + url, JSON.stringify(posts));
-  }
-
-  getNewPosts(url: string) {
-    if (!url) {
-      return of([]);
-    }
-
-    let proxyUrl = CORSProxyList.corsanywhere;
-
-    const lastCORS = localStorage.getItem('cors');
-    if (lastCORS && CORSProxyList[lastCORS]) {
-      proxyUrl = CORSProxyList[lastCORS];
-    }
-
-
-    return this.http.get(proxyUrl + url, {responseType: 'text'})
-      .pipe(map(xmlText => {
-        const XML = new DOMParser().parseFromString(xmlText, 'text/xml');
-        const obj = parse(XML);
-        const items = get(obj, 'channel.item')
-          || get(obj, 'entry')
-          || [];
-        return items.map(formatPost);
-      }));
-  }
-
-  removeFeed(url: string) {
-    this.feeds = this.feeds.filter(item => item !== url);
-    localStorage.setItem('feedList', JSON.stringify(this.feeds));
-  }
-
-
-  add(url: string): Observable<any> {
-    const a = this.feeds.find(u => u === url);
-    if (!a) {
-      this.feeds.push(url);
-      localStorage.setItem('feedList', JSON.stringify(this.feeds));
-      return of(true);
-    }
-    return Observable.throw('Error: The feed exist');
-
-  }
-
-  getVersion(): Observable<string> {
-    return this.http.get('manifest.json')
-      .pipe(map(manifest => manifest['version']));
-  }
 
 }

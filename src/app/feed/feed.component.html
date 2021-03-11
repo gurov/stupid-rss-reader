@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="p-1"><a routerLink="/">🔙 to feeds</a></div>
+    <table class="w-100">
+
+        <tbody>
+            <tr>
+                <td class="feed-image">
+                    <img [src]="about.image || 'assets/icon-72x72.png'" alt="image">
+                </td>
+                <td class="feed-about">
+                    <div *ngIf="about.title">
+                        <strong class="mr-1">Title:</strong>
+                        <span>{{about.title}}</span>
+                    </div>
+                    <div *ngIf="about.author">
+                        <strong class="mr-1">Author:</strong>
+                        <span>{{about.author}}</span>
+                    </div>
+                    <div *ngIf="about.description">
+                        <strong class="mr-1">Description:</strong>
+                        <span>{{about.description}}</span>
+                    </div>
+                    
+                    <!-- <div *ngIf="about.url">
+                        <strong class="mr-1">URL:</strong>
+                        <a target="_blank" href="{{about.url}}">{{about.url}}</a>
+                    </div> -->
+                    <div *ngIf="about.link">
+                        <strong class="mr-1">Link:</strong>
+                        <a target="_blank" href="{{about.link}}">{{about.link}}</a>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+ 
+
+    <div class="post-wrapper" *ngFor="let post of posts">
+        <app-post [post]=post></app-post>
+    </div>
+
+</div>

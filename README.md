@@ -15,9 +15,5 @@ The application does not impose anything, but only executes orders.
 * All user data are stored locally only
 * The last 100 posts are stored. Deletion occurs after downloading new ones
 * Open source: [GitHub](https://github.com/gurov/stupid-rss-reader)
-
+* Proxy for RSS: [rss2json.com](https://rss2json.com/)
 ## Screenshots
-
-|![](https://res.cloudinary.com/gurov/image/upload/w_350/v1548491816/stupid-rss-reader/photo_2019-01-26_15-36-30.png)|![](https://res.cloudinary.com/gurov/image/upload/w_350/v1548491816/stupid-rss-reader/photo_2019-01-26_15-36-38.png)|
-|----|---|
-

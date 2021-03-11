@@ -1,57 +1,54 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Stupid RSS Reader</title>
-  <base href="/">
-  <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta charset="utf-8">
+    <title>Stupid RSS Reader</title>
+    <base href="/">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
 
-  <link href="assets/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
-  <link href="assets/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
-  <link href="assets/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
-  <link color="#5bbad5" href="assets/safari-pinned-tab.svg" rel="mask-icon">
-  <meta content="#00a300" name="msapplication-TileColor">
-  <meta content="#417505" name="theme-color">
-  <link href="manifest.json" rel="manifest">
+    <link href="assets/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
+    <link href="assets/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
+    <link href="assets/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
+    <link color="#5bbad5" href="assets/safari-pinned-tab.svg" rel="mask-icon">
+    <meta content="#00a300" name="msapplication-TileColor">
+    <link href="favicon.ico" rel="icon" type="image/x-icon">
+    <link href="manifest.webmanifest" rel="manifest">
+    <meta content="#1976d2" name="theme-color">
+    <style>
+        .preloader {
+            width: 100%;
+            text-align: center;
+            margin-top: 20%;
+            font-family: monospace;
+            font-size: 1.2rem;
+        }
 
-  <link href="./favicon.ico" rel="icon" type="image/x-icon">
-  <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#1976d2">
+        .spinner {
+            height: 0.7rem;
+            width: 0.7rem;
+            display: inline-block;
+            animation: rotate 3s infinite ease-out;
+            border: 2px solid black;
+            border-right-color: transparent;
+            border-left-color: transparent;
+            border-radius: 50%;
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(2840deg);
+            }
+        }
+
+    </style>
 </head>
-<style>
-  .preloader {
-    width: 100%;
-    text-align: center;
-    margin-top: 20%;
-    font-family: monospace;
-    font-size: 1.2rem;
-  }
-
-  .spinner {
-    height: 0.7rem;
-    width: 0.7rem;
-    display: inline-block;
-    animation: rotate 3s infinite ease-out;
-    border: 2px solid black;
-    border-right-color: transparent;
-    border-left-color: transparent;
-    border-radius: 50%;
-  }
-
-  @keyframes rotate {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(2840deg);
-    }
-  }
-
-</style>
 <body>
 <app-root>
-  <div class="preloader"><span class="spinner"></span> Stupid RSS Reader is loading ...</div>
+    <div class="preloader"><span class="spinner"></span> Stupid RSS Reader is loading ...</div>
 </app-root>
-  <noscript>Please enable JavaScript to continue using this application.</noscript>
+<noscript>Please enable JavaScript to continue using this application.</noscript>
 </body>
 </html>

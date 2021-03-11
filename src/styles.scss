@@ -1,121 +1,182 @@
-/* You can add global styles to this file, and also import other style files */
-$theme-colors: (
-  "primary": #417505,
-);
-@import '~bootstrap/scss/functions';
-@import '~bootstrap/scss/variables';
-@import '~bootstrap/scss/mixins';
-@import '~bootstrap/scss/root';
-@import '~bootstrap/scss/reboot';
-@import '~bootstrap/scss/type';
-@import '~bootstrap/scss/images';
-@import '~bootstrap/scss/code';
-@import '~bootstrap/scss/grid';
-@import '~bootstrap/scss/tables';
-@import '~bootstrap/scss/forms';
-@import '~bootstrap/scss/buttons';
-@import '~bootstrap/scss/button-group';
-@import '~bootstrap/scss/input-group';
-@import '~bootstrap/scss/close';
-@import '~bootstrap/scss/utilities';
-@import '~bootstrap/scss/progress';
-@import '~bootstrap/scss/alert';
-@import '~bootstrap/scss/utilities/flex';
+body {
+    background-image:  url("/assets/skulls.png");
+}
+
+.w-100 {
+    width: 100%;
+}
+.p-1 {
+    padding: 0.5rem;
+}
+.mb-2 {
+    margin-bottom: 1rem !important;
+}
+.m-1 {
+    margin: 0.5rem;
+}
+.mr-1 {
+    margin-right: 0.5rem;
+}
+.ml-auto {
+    margin-left: auto;
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+}
+.post-wrapper {
+    background-color: rgba(255,255,255,0.5);
+    margin: 0.5rem 0;
+    padding: 0.2rem 0.5rem;
+
+    .post-header h3 {
+        margin-top: 0;
+        margin-bottom: 0;
+        color: #333;;
+    }
+
+    .post-header-thumbnail {
+        max-height: 58px;
+        max-width: 120px;
+        margin-right: 0.2rem;
+    }
+
+    .post-header-text {
+        margin: 0.2rem 0.3rem 0.3rem 0.3rem;
+    }
+
+    img {
+        max-width: 100%;
+    }
+}
+.post-box {
+    overflow-wrap: break-word;
+    img {
+        max-width: 100%;
+    }
+    svg.spacer {
+        display: none;
+    }
+}
+.feed-image {
+    width: 80px;
+    min-width: 80px;
+    padding: 4px;
+    vertical-align: top;
+    img {
+        max-width: 100%;
+    }
+}
+.feed-about {
+    padding: 4px;
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
+.post-header,
+.feeds-header {
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+}
+
+h1.app-name {
+    margin: 0;
+    font-size: 1.8rem;
+}
 
 h1, h2, h3, h4, h5, h6 {
-  margin-left: 0;
+    color: #444;
 }
 
-h4 > sup {
-  color: #5C941C;
+.new-info {
+    color: #16a006;
+    font-weight: bold;
 }
 
-.container .post > div {
-  h1, h2, h3, h4, h5, h6 {
-    font-size: 1.4rem;
-    color: #132104;
-  }
-
+.short-info {
+    color: grey;
 }
 
-.table-header-logo-cell {
-  width: 90px;
-  vertical-align: top;
+.loader {
+    border-radius: 8px;
 }
 
-.post-header {
-  word-wrap: break-word;
-  color: #5C941C;
+hr {
+    border-top: 0;
 }
 
-.rss-label {
-  padding: 0.1rem 0.3rem;
-  background-color: coral;
-  margin-right: 0.5rem;
-}
+/**
+ * Grey
+ */
+.a-button {
+    -moz-box-shadow: inset 0 0 0 1px #63ad0d;
+    -webkit-box-shadow: inset 0 0 0 1px #63ad0d;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    background: #eee;
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#eee), to(#e2e2e2));
+    background: -moz-linear-gradient(#eee, #e2e2e2);
+    background: linear-gradient(#eee, #e2e2e2);
+    border: solid 1px #d0d0d0;
+    border-bottom: solid 1px #b2b1b1;
+    border-radius: 3px;
+    box-shadow: inset 0 0 0 1px #f5f5f5;
+    color: #555;
+    display: block;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 0 1px 0 #fafafa; }
 
-.container .post {
-  margin-bottom: 2rem;
-  word-break: break-word;
-}
+.a-button:hover {
+    background: #e4e4e4;
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#e4e4e4), to(#ededed));
+    background: -moz-linear-gradient(#e4e4e4, #ededed);
+    background: linear-gradient(#e4e4e4, #ededed);
+    border: solid 1px #c2c2c2;
+    border-bottom: solid 1px #b2b1b1;
+    box-shadow: inset 0 0 0 1px #efefef; }
 
-.post img {
-  height: auto;
-  max-width: 100%;
-}
+.a-button:active {
+    background: #dfdfdf;
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#dfdfdf), to(#e3e3e3));
+    background: -moz-linear-gradient(#dfdfdf, #e3e3e3);
+    background: linear-gradient(#dfdfdf, #e3e3e3);
+    border: solid 1px #959595;
+    box-shadow: inset 0 10px 15px 0 #c4c4c4;
+    top:2px;}
 
-.table td {
-  word-break: break-all;
-}
 
-.divide-line {
-  position: relative;
-  border-bottom: 1px green dotted;
-}
-
-.post-container {
-  position: relative;
-  clear: both;
-}
-
-.btn-get-news {
-  border-radius: 30rem;
-  box-shadow: 0.3rem 0.3rem 0.1rem rgba(0, 0, 0, 0.6);
-}
-
-.btn-get-news.disabled, .btn-get-news:disabled {
-  opacity: 1;
-}
-
-.btn-get-news:hover {
-  color: white;
-}
-
-.btn-get-news .spinner {
-  border: 2px solid white;
-  border-right-color: transparent;
-  border-left-color: transparent;
-}
-
-.more-info {
-  font-weight: bold;
-  color: #5C941C;
-  margin-left: 0.5rem;
-}
-.feed-link {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-}
-.app-name {
-  font-size: 1.7rem
-}
-.fixed-bottom-wrapper {
-  position: fixed;
-  top: 85%;
-  left: 10%;
-}
-
-.header-space {
-  position: relative;
-  height: 5rem;
+.a-button.green {
+    background: #cae285;
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#cae285), to(#a3cd5a));
+    background: -moz-linear-gradient(#cae285, #a3cd5a);
+    background: linear-gradient(#cae285, #a3cd5a);
+    border: solid 1px #aad063;
+    border-bottom: solid 1px #799545;
+    box-shadow: inset 0 0 0 1px #e0eeb6;
+    color: #5d7731;
+    text-shadow: 0 1px 0 #d0e5a4; }
+    
+.a-button.green:hover {
+    background: #abd164;
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#abd164), to(#b9d972));
+    background: -moz-linear-gradient(#abd164, #b9d972);
+    background: linear-gradient(#abd164, #b9d972);
+    border: solid 1px #98b85b;
+    border-bottom: solid 1px #799545;
+    box-shadow: inset 0 0 0 1px #cce3a1; }
+    
+.a-button.green:active {
+    background: #a4cb5d;
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#a4cb5d), to(#9ec45a));
+    background: -moz-linear-gradient(#a4cb5d, #9ec45a);
+    background: linear-gradient(#a4cb5d, #9ec45a);
+    border: solid 1px #6e883f;
+    box-shadow: inset 0 10px 15px 0 #90b352; }
+    
+a {
+    color: #005224;
 }

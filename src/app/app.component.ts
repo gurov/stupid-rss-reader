@@ -1,16 +1,11 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+
 
 @Component({
-  selector: 'app-root',
-  template: `
-    <div (scroll)="onMouseWheel($event)">
-      <router-outlet></router-outlet>
-    </div>
-    `,
-  styles: []
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-   onMouseWheel(evt) {
-    console.log('Wheel event: ', evt);
-  }
+    title = 'stupid-rss-reader';
 }

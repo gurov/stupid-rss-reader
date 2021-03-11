@@ -1,82 +1,90 @@
-import { Component, OnInit } from '@angular/core';
-import { finalize } from 'rxjs/operators';
-import { CORSProxyList } from '../constants';
-import { CoreService } from '../core.service';
-import { Observable } from 'rxjs';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {NgxIndexedDBService} from 'ngx-indexed-db';
+import {combineLatest, Subject} from 'rxjs';
+import {isValidHttpUrl} from '../helpers';
+import {FeedItem} from '../models';
+import {TABLES} from '../constants';
+import {CoreService} from '../core.service';
+import { takeUntil } from 'rxjs/operators';
+import { importFeedsFromVersion3 } from '../backward-compatibility';
 
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styles: []
+    selector: 'app-home',
+    templateUrl: './home.component.html',
+    styles: []
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
 
-  newFeed: string = '';
-  cors: string = 'corsio';
-  error: string = '';
-  feeds: string[] = [];
-  loading: boolean = false;
-  CORSList = [];
-  version$: Observable<string> = null;
+    feeds: FeedItem[] = [];
+    addFeedMode = false;
+    rawFeedURLs = '';
+    feedLoading = {};
+    loading: boolean = false;
+    private ngUnsubscribe$ = new Subject<void>();
 
-  constructor(public coreService: CoreService) {
-    Object.keys(CORSProxyList)
-      .forEach(key => this.CORSList.push({key, url: CORSProxyList[key]}));
-    const lastCORS = localStorage.getItem('cors');
-    if (lastCORS && CORSProxyList[lastCORS]) {
-      this.cors = lastCORS;
+    constructor(private ngxIndexedDBService: NgxIndexedDBService,
+        private coreService: CoreService) {
+
     }
-  }
 
-  setCors(event: string) {
-    localStorage.setItem('cors', event);
-  }
-
-  get shareIsSuported() {
-    return !!navigator['share'];
-  }
-
-  test() {
-    if (navigator['share']) {
-      navigator['share']({
-        title: 'Stupid RSS',
-        text: this.feeds.join(' \n'),
-        url: location.href,
-      }); // share the URL of MDN
+    get shareIsSuported(): boolean {
+        return !!navigator.share;
     }
-  }
 
-  load() {
-    this.feeds = this.coreService.feeds;
-  }
+    addFeeds(rawFeedStrings: string): void {
+        this.addFeedMode = false;
+        const newFeeds$ = rawFeedStrings
+            .split('\n')
+            .map(s => s.trim())
+            .filter(s => s)
+            .filter(s => isValidHttpUrl(s))
+            .map(url => this.ngxIndexedDBService.add(TABLES.FEEDS, {url}));
 
-  ngOnInit() {
-    this.load();
-    this.version$ = this.coreService.getVersion();
-  }
-
-  removeFeed(url: string) {
-    if (confirm(`Delete the feed: ${url}?`)) {
-      this.coreService.removeFeed(url);
-      this.coreService.clear(url);
-      this.load();
+        combineLatest(newFeeds$)
+            .subscribe(() => this.load());
     }
-  }
 
-  add() {
-    this.newFeed = this.newFeed.trim();
+    refreshFeeds(): void {
+        this.loading = true;
+        this.coreService.refreshFeeds(this.feeds)
+            .subscribe(() => this.loading = false);
+    }
 
-    this.loading = true;
-    this.error = '';
-    this.coreService.add(this.newFeed)
-      .pipe(
-        finalize(() => this.loading = false)
-      )
-      .subscribe(() => {
-        this.newFeed = '';
+    share(): void {
+        if (navigator['share']) {
+          navigator['share']({
+            title: 'Stupid RSS',
+            text: this.feeds.map(f => f.url).join(' \n'),
+            url: location.href,
+          }); // share the URL of MDN
+        }
+    }
+
+    load(): void {
+        this.ngxIndexedDBService.getAll(TABLES.FEEDS)
+            .subscribe(feeds => this.feeds = feeds);
+    }
+
+    ngOnInit(): void {
+        this.coreService.feedLoading$
+            .pipe(takeUntil(this.ngUnsubscribe$))
+            .subscribe(([id, isLoadind]) => this.feedLoading[id] = isLoadind);
         this.load();
-      }, error => this.error = error);
-  }
+
+        // import from the old version
+        try {
+            this.addFeeds(importFeedsFromVersion3());    
+        } catch (error) {
+        }
+        
+
+    }
+
+    ngOnDestroy(): void {
+        this.ngUnsubscribe$.next();
+        this.ngUnsubscribe$.complete();
+    }
+
 
 }
