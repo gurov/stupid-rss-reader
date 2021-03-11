@@ -1,15 +1,15 @@
 {
-    "theme_color": "#417505",
-    "version": "4.0.5",
-    "background_color": "#417505",
+    "theme_color": "#41750b",
+    "version": "4.0.6",
+    "background_color": "#41750b",
     "short_name": "StupidRSS",
     "name": "Stupid RSS",
-    "description": "Stupid RSS Reader - Progressive Web Application",
+    "description": "Stupid RSS Reader - I'm tired of different stupid RSS clients and I created own Stupid RSS Reader",
     "orientation": "portrait-primary",
     "display": "standalone",
     "default_locale": "en",
-    "scope": "./",
-    "start_url": "./",
+    "scope": ".",
+    "start_url": ".",
     "icons": [
         {
             "src": "assets/favicon-32x32.png",

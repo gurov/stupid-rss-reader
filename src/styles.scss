@@ -34,9 +34,11 @@ body {
 }
 .post-wrapper {
     background-color: rgba(255,255,255,0.5);
-    margin: 0.5rem 0;
+    margin: 0.5rem 0 1rem;
     padding: 0.2rem 0.5rem;
     border-radius: 0.2rem;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    border-bottom: 1px solid white;
 
     .post-header h3 {
         margin-top: 0;
@@ -90,6 +92,7 @@ body {
 }
 
 .post-button {
+    min-width: 40px;
     img {
         vertical-align: text-top;
         width: 16px;

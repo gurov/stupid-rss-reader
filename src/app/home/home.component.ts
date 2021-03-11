@@ -48,7 +48,10 @@ export class HomeComponent implements OnInit, OnDestroy {
     refreshFeeds(): void {
         this.loading = true;
         this.coreService.refreshFeeds(this.feeds)
-            .subscribe(() => this.loading = false);
+            .subscribe(() => {
+                this.loading = false;
+                this.load();
+            });
     }
 
     share(): void {
