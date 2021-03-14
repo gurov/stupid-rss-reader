@@ -10,7 +10,9 @@
         <h3 (click)="hidden = !hidden" [innerHTML]="post.title | sanitizeHtml"></h3>
     </div>
 
-    <button (click)="hidden = !hidden" class="ml-auto a-button post-button">️<img src="assets/expand.svg" alt="Expand post"></button>
+    <button (click)="hidden = !hidden"
+        [ngClass]="{green: post.isNew}"
+        class="ml-auto a-button post-button">️<img src="assets/expand.svg" alt="Expand post"></button>
 </div>
 
 <div class="post-header" *ngIf="!hidden">
@@ -26,7 +28,9 @@
             <sup> ↗</sup>
         </h3>
     </div>
-    <button (click)="hidden = !hidden" class="ml-auto a-button post-button"><img src="assets/unexpand.svg" alt="Unexpand post"></button>
+    <button (click)="hidden = !hidden"
+        [ngClass]="{green: post.isNew}"    
+        class="ml-auto a-button post-button"><img src="assets/unexpand.svg" alt="Unexpand post"></button>
 </div>
 <hr *ngIf="!hidden">
 <div class="post-box" *ngIf="!hidden">
@@ -37,11 +41,17 @@
 </div>
 
 <div *ngIf="post.enclosure?.thumbnail && !hidden">
-    <a [href]="post.link" *ngIf="post.enclosure?.thumbnail">
+    <a [href]="post.enclosure.link" *ngIf="post.enclosure?.thumbnail">
         <img *ngIf="post.enclosure.thumbnail" [src]="post.enclosure.thumbnail" alt="thumbnail">
     </a>
     <div *ngIf="post.enclosure?.type">Type: {{post.enclosure?.type}}</div>
 </div>
+
+<div *ngIf="isImage && !hidden">
+    <img [src]="post.enclosure.link" alt="thumbnail">
+    <div *ngIf="post.enclosure?.type">Type: {{post.enclosure?.type}}</div>
+</div>
+
 
 <div *ngIf="!(post.enclosure?.thumbnail) && !hidden && post.enclosure?.url">
     <a [href]="post.enclosure.url" target="_blank">Enclosure<sup>↗️</sup></a>
@@ -49,4 +59,4 @@
     <div *ngIf="post.enclosure?.length">Length: {{post.enclosure?.length}}</div>
 </div>
 
-<!-- <pre *ngIf="!hidden">{{post.enclosure|json}}</pre> -->
+<pre *ngIf="!hidden">{{post.enclosure|json}}</pre>

@@ -40,5 +40,18 @@
     <div class="post-wrapper" *ngFor="let post of posts">
         <app-post [post]=post></app-post>
     </div>
+    <hr>
+    <div style="height: 50px;">
+    </div>
+
+    <div class="p-1">
+        <button (click)="deleteFeed()" class="a-button red lh-20 mr-1">Delete the feed</button>
+        <button (click)="removeAllPosts()"
+            *ngIf="posts.length > 0"
+            class="a-button red lh-20">Remove all posts</button>
+    </div>
+
+    <div style="height: 100px;">
+    </div>
 
 </div>

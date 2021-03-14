@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1615498482632,
+  "timestamp": 1615759722928,
   "index": "/stupid-rss-reader/index.html",
   "assetGroups": [
     {
@@ -13,11 +13,11 @@
       "urls": [
         "/stupid-rss-reader/favicon.ico",
         "/stupid-rss-reader/index.html",
-        "/stupid-rss-reader/main.a6b4afb26bcbcc284fef.js",
+        "/stupid-rss-reader/main.1de5b815eee745dd58bd.js",
         "/stupid-rss-reader/manifest.json",
         "/stupid-rss-reader/polyfills.d15628b9ba7248669cd9.js",
         "/stupid-rss-reader/runtime.7b63b9fd40098a2e8207.js",
-        "/stupid-rss-reader/styles.0ddab1706d179866d4dd.css"
+        "/stupid-rss-reader/styles.86a37bddcd397bf3a1b6.css"
       ],
       "patterns": []
     },
@@ -78,12 +78,12 @@
     "/stupid-rss-reader/assets/skulls.png": "3452c09346c73808335623c7dba5ba3af99acbf5",
     "/stupid-rss-reader/assets/unexpand.svg": "19cdf930a94983f98eaa1d7209c8540a237be6d2",
     "/stupid-rss-reader/favicon.ico": "51f83552d6bd2f73fb09d202efbb4a903443ca29",
-    "/stupid-rss-reader/index.html": "cee6b3fcee6d0894b62b583e0c9efd555ba3fcdf",
-    "/stupid-rss-reader/main.a6b4afb26bcbcc284fef.js": "138b220f146692b843457be29cf1dddb10e5079c",
-    "/stupid-rss-reader/manifest.json": "d17f84ff1d833864754b33f7297ba4d6708c370a",
+    "/stupid-rss-reader/index.html": "28c950180d2ff15b076318bac2a4412a69b442df",
+    "/stupid-rss-reader/main.1de5b815eee745dd58bd.js": "a45804d8fa68457bbf7e93fada8149da4d53f96b",
+    "/stupid-rss-reader/manifest.json": "6ae3a20f479d098051aea727a977499e505cdabf",
     "/stupid-rss-reader/polyfills.d15628b9ba7248669cd9.js": "f888b31e000d9b05c8c3fef19c325d813f2b7e1b",
     "/stupid-rss-reader/runtime.7b63b9fd40098a2e8207.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
-    "/stupid-rss-reader/styles.0ddab1706d179866d4dd.css": "d3965474a4d9460d36758a22707f947f6986439f"
+    "/stupid-rss-reader/styles.86a37bddcd397bf3a1b6.css": "6e8e3b22269b7c3ec6b8055b4f6d4edf17ab0635"
   },
   "navigationUrls": [
     {

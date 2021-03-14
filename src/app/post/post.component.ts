@@ -16,6 +16,11 @@ export class PostComponent {
     constructor() {
     }
 
+    get isImage(): boolean {
+        const typeAsString = this.post?.enclosure?.type || '';
+        return typeAsString?.split('/')?.[0] === 'image';
+    }
+
     get shortInfo(): string {
         return [
             this.post.author,

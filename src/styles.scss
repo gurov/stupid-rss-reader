@@ -136,15 +136,13 @@ hr {
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
     background: #eee;
-    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#eee), to(#e2e2e2));
-    background: -moz-linear-gradient(#eee, #e2e2e2);
     background: linear-gradient(#eee, #e2e2e2);
     border: solid 1px #d0d0d0;
     border-bottom: solid 1px #b2b1b1;
     border-radius: 3px;
     box-shadow: inset 0 0 0 1px #f5f5f5;
     color: #555;
-    display: block;
+    display: inline-block;
     line-height: 2rem;
     text-align: center;
     text-decoration: none;
@@ -152,8 +150,6 @@ hr {
 
 .a-button:hover {
     background: #e4e4e4;
-    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#e4e4e4), to(#ededed));
-    background: -moz-linear-gradient(#e4e4e4, #ededed);
     background: linear-gradient(#e4e4e4, #ededed);
     border: solid 1px #c2c2c2;
     border-bottom: solid 1px #b2b1b1;
@@ -161,8 +157,6 @@ hr {
 
 .a-button:active {
     background: #dfdfdf;
-    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#dfdfdf), to(#e3e3e3));
-    background: -moz-linear-gradient(#dfdfdf, #e3e3e3);
     background: linear-gradient(#dfdfdf, #e3e3e3);
     border: solid 1px #959595;
     box-shadow: inset 0 10px 15px 0 #c4c4c4;
@@ -171,8 +165,6 @@ hr {
 
 .a-button.green {
     background: #cae285;
-    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#cae285), to(#a3cd5a));
-    background: -moz-linear-gradient(#cae285, #a3cd5a);
     background: linear-gradient(#cae285, #a3cd5a);
     border: solid 1px #aad063;
     border-bottom: solid 1px #799545;
@@ -182,8 +174,6 @@ hr {
 
 .a-button.green:hover {
     background: #abd164;
-    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#abd164), to(#b9d972));
-    background: -moz-linear-gradient(#abd164, #b9d972);
     background: linear-gradient(#abd164, #b9d972);
     border: solid 1px #98b85b;
     border-bottom: solid 1px #799545;
@@ -191,11 +181,13 @@ hr {
 
 .a-button.green:active {
     background: #a4cb5d;
-    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#a4cb5d), to(#9ec45a));
-    background: -moz-linear-gradient(#a4cb5d, #9ec45a);
-    background: linear-gradient(#a4cb5d, #9ec45a);
+    background: linear-gradient(#cae285, #a3cd5a);
     border: solid 1px #6e883f;
     box-shadow: inset 0 10px 15px 0 #90b352; }
+
+    .a-button.red {
+        color: #82280C;
+    }
 
 .button-share {
     img {

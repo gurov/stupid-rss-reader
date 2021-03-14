@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {debounceTime, map, switchMap, tap, toArray} from 'rxjs/operators';
 import {NgxIndexedDBService} from 'ngx-indexed-db';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {FeedItem, Post, SiteFeedAbout} from '../models';
 import {concat} from 'rxjs';
 import {MAX_POSTS_COUNT, TABLES} from '../constants';
@@ -21,6 +21,7 @@ export class FeedComponent implements OnInit {
     private feedId: number;
 
     constructor(private db: NgxIndexedDBService,
+                private router: Router,
                 private route: ActivatedRoute) {
     }
 
@@ -56,5 +57,22 @@ export class FeedComponent implements OnInit {
             .subscribe();
     }
 
+    deleteFeed() {
+        const result = confirm("Remove the feed?");
+        if (result === true) {
+            this.db.delete(TABLES.FEEDS, this.feedId)
+                .subscribe(() => this.router.navigate(['/']));
+        }
+    }
+
+    removeAllPosts() {
+        const result = confirm("Remove all the posts?");
+        if (result === true) {
+            const postForDelete$ = this.posts
+                .map(post => this.db.delete(TABLES.POSTS, post.id));
+            concat(...postForDelete$).pipe(toArray())
+                .subscribe(() => this.ngOnInit());
+        } 
+    }
 
 }
