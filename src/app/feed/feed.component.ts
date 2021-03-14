@@ -11,7 +11,12 @@ import {MAX_POSTS_COUNT, TABLES} from '../constants';
     selector: 'app-feed',
     templateUrl: './feed.component.html',
     styles: [`
-
+        .bottom-box {
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
     `]
 })
 export class FeedComponent implements OnInit {
