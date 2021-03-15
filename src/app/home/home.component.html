@@ -28,7 +28,7 @@
     </div>
 
     <div class="feed-line" *ngFor="let feed of feeds; trackBy:identify">
-        <div>
+        <div class="mr-1">
             <strong class="fit-text">{{feed.about?.title || 'noname'}}</strong><br>
             <small class="fit-text">{{feed.url}}</small>
         </div>
