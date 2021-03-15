@@ -11,17 +11,15 @@ import {MAX_POSTS_COUNT, TABLES} from '../constants';
     selector: 'app-feed',
     templateUrl: './feed.component.html',
     styles: [`
-        .bottom-box {
-            height: 200px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        .active-actions {
+            background-color: rgba(255, 255, 255, 0.7);
         }
     `]
 })
 export class FeedComponent implements OnInit {
 
     posts: Post[] = [];
+    displayActions = false;
     about: SiteFeedAbout = new SiteFeedAbout();
     private feedId: number;
 
@@ -32,12 +30,12 @@ export class FeedComponent implements OnInit {
 
     markAsRead(): void {
         const newPosts$ = this.posts.filter(p => p.isNew)
-            .map(post => this.db.update(TABLES.POSTS, { ...post, isNew: false }));
+            .map(post => this.db.update(TABLES.POSTS, {...post, isNew: false}));
 
         concat(...newPosts$).pipe(toArray()).subscribe();
     }
 
-    deleteTail() {
+    deleteTail(): void {
         const postForDelete$ = this.posts.slice(MAX_POSTS_COUNT)
             .map(post => this.db.delete(TABLES.POSTS, post.id));
 
@@ -62,22 +60,27 @@ export class FeedComponent implements OnInit {
             .subscribe();
     }
 
-    deleteFeed() {
-        const result = confirm("Remove the feed?");
+    deleteFeed(): void {
+        const result = confirm('Remove the feed?');
         if (result === true) {
-            this.db.delete(TABLES.FEEDS, this.feedId)
+
+            const forDelete$ = [
+                this.db.delete(TABLES.FEEDS, this.feedId),
+                ...this.posts.map(post => this.db.delete(TABLES.POSTS, post.id))
+            ];
+            concat(...forDelete$).pipe(toArray())
                 .subscribe(() => this.router.navigate(['/']));
         }
     }
 
-    removeAllPosts() {
-        const result = confirm("Remove all the posts?");
+    removeAllPosts(): void {
+        const result = confirm('Remove all the posts?');
         if (result === true) {
             const postForDelete$ = this.posts
                 .map(post => this.db.delete(TABLES.POSTS, post.id));
             concat(...postForDelete$).pipe(toArray())
                 .subscribe(() => this.ngOnInit());
-        } 
+        }
     }
 
 }

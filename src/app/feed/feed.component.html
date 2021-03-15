@@ -1,15 +1,36 @@
-<div class="container">
-    <div class="p-1" style="text-align: right">
-        <a routerLink="/">
-            <img width="16" src="assets/back.svg" alt="Back to feeds"> Back to feeds
-        </a>
+<div [ngClass]="{'active-actions': displayActions}">
+    <div class="container">
+        <div class="p-1">
+            <div class="top-top-feed">
+                <button
+                    (click)="displayActions = !displayActions"
+                    class="a-button lh-20">⚙</button>
+                <a routerLink="/" class="ml-auto">
+                    <img width="16" src="assets/back.svg" alt="Back to feeds"> Back to feeds
+                </a>
+            </div>
+
+            <div class="mb-2 mt-1" *ngIf="displayActions">
+                <button (click)="deleteFeed()" class="a-button red lh-20 mr-1">Delete the feed</button>
+                <button (click)="removeAllPosts()"
+                        *ngIf="posts.length > 0"
+                        class="a-button red lh-20">Remove all posts</button>
+            </div>
+
+        </div>
     </div>
+</div>
+
+
+<div class="container">
+
+
     <table class="w-100">
 
         <tbody>
             <tr>
                 <td class="feed-image">
-                    <img 
+                    <img
                         onerror="this.src='assets/icon-72x72.png'"
                         [src]="about.image || 'assets/icon-72x72.png'" alt="image">
                 </td>
@@ -41,16 +62,6 @@
         <app-post [post]=post></app-post>
     </div>
     <hr>
-    <div style="height: 30px;">
-    </div>
-
-    <div class="p-1">
-        <h3 style="margin-bottom: 0.4rem;">Actions</h3>
-        <button (click)="deleteFeed()" class="a-button red lh-20 mr-1">Delete the feed</button>
-        <button (click)="removeAllPosts()"
-            *ngIf="posts.length > 0"
-            class="a-button red lh-20">Remove all posts</button>
-    </div>
 
     <div class="bottom-box">
         <img src="assets/favicon-32x32.png">

@@ -27,29 +27,26 @@
             (click)="refreshFeeds()">Refresh all feeds</button>
     </div>
 
-    <table class="feeds-table w-100">
-        <tbody>
-        <tr *ngFor="let feed of feeds; trackBy:identify">
-            <td>
-                <strong>{{feed.about?.title || 'noname'}}</strong><br>
-                <small>{{feed.url}}</small>
-            </td>
-            <td style="width: 60px; text-align: right;">
-                <span class="spinner" *ngIf="feedLoading[feed.id]"></span>
+    <div class="feed-line" *ngFor="let feed of feeds; trackBy:identify">
+        <div>
+            <strong class="fit-text">{{feed.about?.title || 'noname'}}</strong><br>
+            <small class="fit-text">{{feed.url}}</small>
+        </div>
+        <div class="ml-auto" style="text-align: right;">
+            <span class="spinner" *ngIf="feedLoading[feed.id]"></span>
 
-                <button class="a-button w-100"
+            <button class="a-button"
+                    style="width: 60px"
                     [routerLink]="['/', feed.id]"
                     *ngIf="!feedLoading[feed.id]">
-                    <sup class="new-info" *ngIf="(feed.id | count:true | async) > 0">
-                        +{{ feed.id | count:true | async }}
-                    </sup>
-                    {{(feed.id | count | async) || '-'}}
-                </button>
-            </td>
+                <sup class="new-info" *ngIf="(feed.id | count:true | async) > 0">
+                    +{{ feed.id | count:true | async }}
+                </sup>
+                {{(feed.id | count | async) || '-'}}
+            </button>
+        </div>
+    </div>
 
-        </tr>
-        </tbody>
-    </table>
     <div *ngIf="!addFeedMode" class="mt-1">
         <button class="a-button lh-20" (click)="addFeedMode=true">+ add</button>
     </div>
@@ -102,4 +99,8 @@
 <div class="container p-1 mb-2" style="background-color:rgba(255,250,240,0.5)">
     <h3>Philosophy</h3>
     <p>The application does not impose anything, but only executes orders.</p>
+</div>
+
+<div class="bottom-box">
+    <img src="assets/favicon-32x32.png">
 </div>

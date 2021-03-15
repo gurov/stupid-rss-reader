@@ -86,10 +86,22 @@
 }
 
 .post-header,
+.feed-line,
+.top-top-feed,
 .feeds-header {
     display: flex;
     justify-content:flex-start;
     align-items: center;
+}
+
+.fit-text {
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
+.feed-line {
+    border-bottom: 1px solid #c6e081;
+    padding: 0.5rem 0;
 }
 
 .post-button {
@@ -201,19 +213,9 @@ a {
     color: #005224;
 }
 
-
-
-
-.feeds-table {
-    border-collapse: collapse;
-    border-spacing: 0;
-    empty-cells: show;
-}
-
-.feeds-table td,
-.feeds-table th {
-    border-bottom: 1px solid #cce3a1;
-    margin: 0;
-    overflow: visible;
-    padding: 0.5rem 0;
+.bottom-box {
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

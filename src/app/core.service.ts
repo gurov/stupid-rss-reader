@@ -19,13 +19,13 @@ export class CoreService {
     }
 
     updateFeed(url: string, id: number, about: SiteFeedAbout): void {
-        this.ngxIndexedDBService.update(TABLES.FEEDS, { url, id, about });
+        this.ngxIndexedDBService.update(TABLES.FEEDS, {url, id, about});
     }
 
     addPosts(posts: Post[], feedId: number): void {
         posts.forEach((post) => {
             this.ngxIndexedDBService
-                .add(TABLES.POSTS, { ...post, feedId, isNew: true })
+                .add(TABLES.POSTS, {...post, feedId, isNew: true})
                 .subscribe();
         });
     }
