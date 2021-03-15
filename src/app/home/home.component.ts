@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
     feeds: FeedItem[] = [];
     addFeedMode: boolean = false;
+    godMode: boolean = false;
     rawFeedURLs: string= '';
     feedLoading: {[index: number]: boolean} = {};
     loading: boolean = false;
@@ -85,6 +86,17 @@ export class HomeComponent implements OnInit, OnDestroy {
         }
 
 
+    }
+
+    unregister(): void {
+        const result = confirm('Unregister the Service Worker?');
+        if (result === true) {
+            navigator.serviceWorker?.getRegistrations().then((registrations) => {
+                for(let registration of registrations) {
+                    registration.unregister()
+                }
+            });
+        }
     }
 
     ngOnDestroy(): void {
