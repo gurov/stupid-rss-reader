@@ -1,6 +1,6 @@
 {
   "name": "stupid-rss-reader",
-  "version": "4.0.10",
+  "version": "4.0.11",
   "homepage": "https://github.com/gurov/stupid-rss-reader",
   "scripts": {
     "ng": "ng",
