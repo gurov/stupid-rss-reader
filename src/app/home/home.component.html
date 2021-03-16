@@ -33,16 +33,18 @@
             <small class="fit-text">{{feed.url}}</small>
         </div>
         <div class="ml-auto" style="text-align: right;">
-            <span class="spinner" *ngIf="feedLoading[feed.id]"></span>
-
             <button class="a-button"
+                    [disabled]="feedLoading[feed.id]"
                     style="width: 60px"
-                    [routerLink]="['/', feed.id]"
-                    *ngIf="!feedLoading[feed.id]">
-                <sup class="new-info" *ngIf="(feed.id | count:true | async) > 0">
-                    +{{ feed.id | count:true | async }}
-                </sup>
-                {{(feed.id | count | async) || '-'}}
+                    [routerLink]="['/', feed.id]">
+                    <span class="spinner" *ngIf="feedLoading[feed.id]"></span>
+                    <span *ngIf="!feedLoading[feed.id]">
+                        <sup class="new-info" *ngIf="(feed.id | count:true | async) > 0">
+                            +{{ feed.id | count:true | async }}
+                        </sup>
+                        {{(feed.id | count | async) || '-'}}
+                    </span>
+                    
             </button>
         </div>
     </div>

@@ -32,8 +32,8 @@ export class CoreService {
 
     getNewPostsAndUpdateStore(url: string, id: number): Observable<SiteFeed> {
         this.feedLoading$.next([id, true]);
-        const t = Math.floor(+(new Date())/(1000 * 60 * 15));
-        return this.http.get<SiteFeed>(encodeURI(`${RSS2JSON}${url}&${t}`))
+
+        return this.http.get<SiteFeed>(encodeURI(`${RSS2JSON}${url}`))
             .pipe(tap((siteFeed) => {
 
                 this.updateFeed(url, id, siteFeed.feed);
