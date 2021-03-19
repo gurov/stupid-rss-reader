@@ -31,6 +31,9 @@
         <div class="mr-1">
             <strong class="fit-text">{{feed.about?.title || 'noname'}}</strong><br>
             <small class="fit-text">{{feed.url}}</small>
+            <div *ngIf="feedError[feed.id]" style="color: #82280c" class="fit-text">
+                <small>{{feedError[feed.id]}}</small>
+            </div>
         </div>
         <div class="ml-auto" style="text-align: right;">
             <button class="a-button"
@@ -44,7 +47,7 @@
                         </sup>
                         {{(feed.id | count | async) || '-'}}
                     </span>
-                    
+
             </button>
         </div>
     </div>

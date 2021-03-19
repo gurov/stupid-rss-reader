@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
-import {concat, Observable, Subject} from 'rxjs';
+import {concat, Observable, of, Subject} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
-import {tap, toArray} from 'rxjs/operators';
+import {catchError, tap, toArray} from 'rxjs/operators';
 import {FeedItem, Post, SiteFeed, SiteFeedAbout} from './models';
 import {RSS2JSON, TABLES} from './constants';
 import {NgxIndexedDBService} from 'ngx-indexed-db';
@@ -14,6 +14,7 @@ export class CoreService {
 
 
     feedLoading$ = new Subject<[id: number, isLoading: boolean]>();
+    feedError$ = new Subject<[id: number, message: string]>();
 
     constructor(private http: HttpClient, private ngxIndexedDBService: NgxIndexedDBService) {
     }
@@ -34,13 +35,19 @@ export class CoreService {
         this.feedLoading$.next([id, true]);
 
         return this.http.get<SiteFeed>(encodeURI(`${RSS2JSON}${url}`))
-            .pipe(tap((siteFeed) => {
-
-                this.updateFeed(url, id, siteFeed.feed);
-                this.addPosts(siteFeed.items.reverse(), id);
-
-                this.feedLoading$.next([id, false]);
-            }));
+            .pipe(
+                tap((siteFeed) => {
+                    this.updateFeed(url, id, siteFeed.feed);
+                    this.addPosts(siteFeed.items.reverse(), id);
+                    this.feedLoading$.next([id, false]);
+                }),
+                catchError((error) => {
+                    console.log('!', error);
+                    this.feedLoading$.next([id, false]);
+                    this.feedError$.next([id, error.message || 'Error']);
+                    return of(null);
+                })
+            );
     }
 
     refreshFeeds(feedItems: FeedItem[]): Observable<SiteFeed[]> {

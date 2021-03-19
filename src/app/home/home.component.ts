@@ -19,17 +19,16 @@ export class HomeComponent implements OnInit, OnDestroy {
     feeds: FeedItem[] = [];
     addFeedMode: boolean = false;
     godMode: boolean = false;
-    rawFeedURLs: string= '';
-    feedLoading: {[index: number]: boolean} = {};
+    rawFeedURLs: string = '';
+    feedLoading: { [index: number]: boolean } = {};
+    feedError: { [index: number]: string } = {};
     loading: boolean = false;
     private ngUnsubscribe$ = new Subject<void>();
 
     identify = (index: number, feed: FeedItem) => feed.id;
 
-
     constructor(private ngxIndexedDBService: NgxIndexedDBService,
-        private coreService: CoreService) {
-
+                private coreService: CoreService) {
     }
 
     get shareIsSuported(): boolean {
@@ -38,6 +37,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
     addFeeds(rawFeedStrings: string): void {
         this.addFeedMode = false;
+        this.rawFeedURLs = '';
         const newFeeds$ = rawFeedStrings
             .split('\n')
             .map(s => s.trim())
@@ -51,6 +51,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
     refreshFeeds(): void {
         this.loading = true;
+        this.feedError = {};
         this.coreService.refreshFeeds(this.feeds)
             .subscribe(() => {
                 this.loading = false;
@@ -59,13 +60,11 @@ export class HomeComponent implements OnInit, OnDestroy {
     }
 
     share(): void {
-        if (navigator['share']) {
-          navigator['share']({
+        navigator.share?.({
             title: 'Stupid RSS',
             text: this.feeds.map(f => f.url).join(' \n'),
             url: location.href,
-          }); // share the URL of MDN
-        }
+        }); // share the URL of MDN
     }
 
     load(): void {
@@ -77,6 +76,11 @@ export class HomeComponent implements OnInit, OnDestroy {
         this.coreService.feedLoading$
             .pipe(takeUntil(this.ngUnsubscribe$))
             .subscribe(([id, isLoadind]) => this.feedLoading[id] = isLoadind);
+
+        this.coreService.feedError$
+            .pipe(takeUntil(this.ngUnsubscribe$))
+            .subscribe(([id, message]) => this.feedError[id] = message);
+
         this.load();
 
         // import from the old version
@@ -92,8 +96,8 @@ export class HomeComponent implements OnInit, OnDestroy {
         const result = confirm('Unregister the Service Worker?');
         if (result === true) {
             navigator.serviceWorker?.getRegistrations().then((registrations) => {
-                for(let registration of registrations) {
-                    registration.unregister()
+                for (const registration of registrations) {
+                    registration.unregister();
                 }
             });
         }
