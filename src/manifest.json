@@ -1,6 +1,6 @@
 {
     "theme_color": "#41750b",
-    "version": "4.0.14",
+    "version": "4.0.15",
     "background_color": "#41750b",
     "short_name": "StupidRSS",
     "name": "Stupid RSS",
@@ -9,7 +9,7 @@
     "display": "standalone",
     "default_locale": "en",
     "scope": ".",
-    "start_url": ".",
+    "start_url": "./index.html",
     "icons": [
         {
             "src": "assets/favicon-32x32.png",

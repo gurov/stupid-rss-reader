@@ -58,8 +58,14 @@
 
 
 
-    <div class="post-wrapper" *ngFor="let post of posts">
+    <div class="post-wrapper" *ngFor="let post of viewPosts; trackBy:identify">
         <app-post [post]=post></app-post>
+    </div>
+
+    <div *ngIf="viewCount < posts.length" class="feed-line pb-2">
+        <button class="ml-auto  a-button" (click)="showPrevious()">
+            Show previous 10 posts
+        </button>
     </div>
     <hr>
 

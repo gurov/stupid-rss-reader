@@ -32,7 +32,7 @@
             <strong class="fit-text">{{feed.about?.title || 'noname'}}</strong><br>
             <small class="fit-text">{{feed.url}}</small>
             <div *ngIf="feedError[feed.id]" style="color: #82280c" class="fit-text">
-                <small>{{feedError[feed.id]}}</small>
+                <small>💢 {{feedError[feed.id]}}</small>
             </div>
         </div>
         <div class="ml-auto" style="text-align: right;">
@@ -71,8 +71,6 @@
             </fieldset>
         </form>
     </div>
-    <!-- <div *ngIf="error" class="text-danger">💢 {{error}}</div> -->
-
 </div>
 
 

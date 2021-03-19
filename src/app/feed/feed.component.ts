@@ -20,13 +20,25 @@ export class FeedComponent implements OnInit {
 
     posts: Post[] = [];
     displayActions = false;
+    viewCount: number = 10;
     about: SiteFeedAbout = new SiteFeedAbout();
     private feedId: number;
+
+    identify = (index: number, post: Post) => post.id;
 
     constructor(private db: NgxIndexedDBService,
                 private router: Router,
                 private route: ActivatedRoute) {
     }
+
+    get viewPosts(): Post[] {
+        return this.posts.slice(0, this.viewCount);
+    }
+
+    showPrevious():void {
+        this.viewCount += 10;
+    }
+
 
     markAsRead(): void {
         const newPosts$ = this.posts.filter(p => p.isNew)
