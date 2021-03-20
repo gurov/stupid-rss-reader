@@ -11,9 +11,7 @@ import {MAX_POSTS_COUNT, TABLES} from '../constants';
     selector: 'app-feed',
     templateUrl: './feed.component.html',
     styles: [`
-        .active-actions {
-            background-color: rgba(255, 255, 255, 0.7);
-        }
+
     `]
 })
 export class FeedComponent implements OnInit {
@@ -26,7 +24,7 @@ export class FeedComponent implements OnInit {
 
     identify = (index: number, post: Post) => post.id;
 
-    constructor(private db: NgxIndexedDBService,
+    constructor(private dbService: NgxIndexedDBService,
                 private router: Router,
                 private route: ActivatedRoute) {
     }
@@ -35,21 +33,21 @@ export class FeedComponent implements OnInit {
         return this.posts.slice(0, this.viewCount);
     }
 
-    showPrevious():void {
+    showMore():void {
         this.viewCount += 10;
     }
 
 
     markAsRead(): void {
         const newPosts$ = this.posts.filter(p => p.isNew)
-            .map(post => this.db.update(TABLES.POSTS, {...post, isNew: false}));
+            .map(post => this.dbService.update(TABLES.POSTS, {...post, isNew: false}));
 
         concat(...newPosts$).pipe(toArray()).subscribe();
     }
 
     deleteTail(): void {
         const postForDelete$ = this.posts.slice(MAX_POSTS_COUNT)
-            .map(post => this.db.delete(TABLES.POSTS, post.id));
+            .map(post => this.dbService.delete(TABLES.POSTS, post.id));
 
         concat(...postForDelete$).pipe(toArray()).subscribe();
 
@@ -60,9 +58,9 @@ export class FeedComponent implements OnInit {
             .pipe(
                 map(params => params.id),
                 tap(id => this.feedId = +id),
-                switchMap(id => this.db.getByID(TABLES.FEEDS, +id)),
+                switchMap(id => this.dbService.getByID(TABLES.FEEDS, +id)),
                 tap((feed: FeedItem) => this.about = feed.about),
-                switchMap(feed => this.db.getAllByIndex(TABLES.POSTS, 'feedId', IDBKeyRange.only(this.feedId))),
+                switchMap(feed => this.dbService.getAllByIndex(TABLES.POSTS, 'feedId', IDBKeyRange.only(this.feedId))),
                 tap((posts) => this.posts = posts?.reverse() || []),
                 debounceTime(200),
                 tap(() => this.markAsRead()),
@@ -77,8 +75,8 @@ export class FeedComponent implements OnInit {
         if (result === true) {
 
             const forDelete$ = [
-                this.db.delete(TABLES.FEEDS, this.feedId),
-                ...this.posts.map(post => this.db.delete(TABLES.POSTS, post.id))
+                this.dbService.delete(TABLES.FEEDS, this.feedId),
+                ...this.posts.map(post => this.dbService.delete(TABLES.POSTS, post.id))
             ];
             concat(...forDelete$).pipe(toArray())
                 .subscribe(() => this.router.navigate(['/']));
@@ -89,7 +87,7 @@ export class FeedComponent implements OnInit {
         const result = confirm('Remove all the posts?');
         if (result === true) {
             const postForDelete$ = this.posts
-                .map(post => this.db.delete(TABLES.POSTS, post.id));
+                .map(post => this.dbService.delete(TABLES.POSTS, post.id));
             concat(...postForDelete$).pipe(toArray())
                 .subscribe(() => this.ngOnInit());
         }

@@ -62,9 +62,9 @@
         <app-post [post]=post></app-post>
     </div>
 
-    <div *ngIf="viewCount < posts.length" class="feed-line pb-2">
-        <button class="ml-auto  a-button" (click)="showPrevious()">
-            Show previous 10 posts
+    <div *ngIf="viewCount < posts.length" class="feed-line p-1 pb-2">
+        <button class="ml-auto a-button mr-auto" (click)="showMore()">
+            Show 10 more posts
         </button>
     </div>
     <hr>

@@ -4,7 +4,7 @@
     width: 100%;
 }
 .p-1 {
-    padding: 0.5rem;
+    padding: 0.5rem !important;
 }
 .pb-2 {
     padding-bottom: 1rem !important;
@@ -213,6 +213,10 @@ hr {
         width: 16px;
         height: 16px;
     }
+}
+
+.active-actions {
+    background-color: rgba(255, 255, 255, 0.7);
 }
 
 a {

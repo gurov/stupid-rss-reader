@@ -27,7 +27,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
     identify = (index: number, feed: FeedItem) => feed.id;
 
-    constructor(private ngxIndexedDBService: NgxIndexedDBService,
+    constructor(private dbService: NgxIndexedDBService,
                 private coreService: CoreService) {
     }
 
@@ -43,7 +43,7 @@ export class HomeComponent implements OnInit, OnDestroy {
             .map(s => s.trim())
             .filter(s => s)
             .filter(s => isValidHttpUrl(s))
-            .map(url => this.ngxIndexedDBService.add(TABLES.FEEDS, {url}));
+            .map(url => this.dbService.add(TABLES.FEEDS, {url}));
 
         combineLatest(newFeeds$)
             .subscribe(() => this.load());
@@ -68,7 +68,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     }
 
     load(): void {
-        this.ngxIndexedDBService.getAll(TABLES.FEEDS)
+        this.dbService.getAll(TABLES.FEEDS)
             .subscribe(feeds => this.feeds = feeds);
     }
 
