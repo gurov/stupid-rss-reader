@@ -36,16 +36,15 @@
             </div>
         </div>
         <div class="ml-auto" style="text-align: right;">
-            <button class="a-button"
+            <button class="a-button button-counter"
                     [disabled]="feedLoading[feed.id]"
-                    style="width: 60px"
                     [routerLink]="['/', feed.id]">
                     <span class="spinner" *ngIf="feedLoading[feed.id]"></span>
                     <span *ngIf="!feedLoading[feed.id]">
-                        <sup class="new-info" *ngIf="(feed.id | count:true | async) > 0">
-                            +{{ feed.id | count:true | async }}
+                        <sup class="new-info" *ngIf="feed.newCount">
+                            +{{ feed.newCount }}
                         </sup>
-                        {{(feed.id | count | async) || '-'}}
+                        {{feed.count || '-'}}
                     </span>
 
             </button>

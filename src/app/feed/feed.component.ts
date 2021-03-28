@@ -9,10 +9,7 @@ import {MAX_POSTS_COUNT, TABLES} from '../constants';
 
 @Component({
     selector: 'app-feed',
-    templateUrl: './feed.component.html',
-    styles: [`
-
-    `]
+    templateUrl: './feed.component.html'
 })
 export class FeedComponent implements OnInit {
 

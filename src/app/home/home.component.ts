@@ -2,7 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {NgxIndexedDBService} from 'ngx-indexed-db';
 import {combineLatest, Subject} from 'rxjs';
 import {isValidHttpUrl} from '../helpers';
-import {FeedItem} from '../models';
+import {FeedError, FeedItem, FeedLoading} from '../models';
 import {TABLES} from '../constants';
 import {CoreService} from '../core.service';
 import {takeUntil} from 'rxjs/operators';
@@ -20,8 +20,8 @@ export class HomeComponent implements OnInit, OnDestroy {
     addFeedMode: boolean = false;
     godMode: boolean = false;
     rawFeedURLs: string = '';
-    feedLoading: { [index: number]: boolean } = {};
-    feedError: { [index: number]: string } = {};
+    feedLoading: FeedLoading = {};
+    feedError: FeedError = {};
     loading: boolean = false;
     private ngUnsubscribe$ = new Subject<void>();
 
@@ -75,11 +75,17 @@ export class HomeComponent implements OnInit, OnDestroy {
     ngOnInit(): void {
         this.coreService.feedLoading$
             .pipe(takeUntil(this.ngUnsubscribe$))
-            .subscribe(([id, isLoadind]) => this.feedLoading[id] = isLoadind);
+            .subscribe(feedLoading => {
+                this.feedLoading = feedLoading;
+                this.load();
+            });
 
         this.coreService.feedError$
             .pipe(takeUntil(this.ngUnsubscribe$))
-            .subscribe(([id, message]) => this.feedError[id] = message);
+            .subscribe(feedError => {
+                this.feedError = feedError;
+                this.load();
+            });
 
         this.load();
 

@@ -6,9 +6,16 @@ export interface Enclosure {
     length?: number;
 }
 
+export type FeedLoading = Record<number,boolean>;
+
+export type FeedError = Record<number,string>;
+
+
 export class FeedItem {
     url: string;
     id: number;
+    newCount?: number;
+    count?: number
     about?: SiteFeedAbout;
 }
 
