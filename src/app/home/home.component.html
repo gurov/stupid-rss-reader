@@ -24,10 +24,14 @@
         </button>
         <button class="a-button green"
             [disabled]="loading"
-            (click)="refreshFeeds()">Refresh all feeds</button>
+            (click)="refreshFeeds()">
+            Refresh all feeds <span class="spinner" *ngIf="loading"></span>
+        </button>
     </div>
 
-    <div class="feed-line" *ngFor="let feed of feeds; trackBy:identify">
+    <div class="feed-line"
+        *ngFor="let feed of feeds; trackBy:identify"
+        [ngClass]="{loading: feedLoading[feed.id]}">
         <div class="mr-1">
             <strong class="fit-text">{{feed.about?.title || 'noname'}}</strong><br>
             <small class="fit-text">{{feed.url}}</small>
@@ -37,6 +41,7 @@
         </div>
         <div class="ml-auto" style="text-align: right;">
             <button class="a-button button-counter"
+                    
                     [disabled]="feedLoading[feed.id]"
                     [routerLink]="['/', feed.id]">
                     <span class="spinner" *ngIf="feedLoading[feed.id]"></span>

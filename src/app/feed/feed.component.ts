@@ -35,7 +35,12 @@ export class FeedComponent implements OnInit {
     }
 
 
-    markAsRead(): void {
+    markAsReadFeed(feed: FeedItem): void {
+        this.dbService.update(TABLES.FEEDS, {...feed, newCount: 0}).subscribe();
+    }
+
+    markAsReadPosts(): void {
+        
         const newPosts$ = this.posts.filter(p => p.isNew)
             .map(post => this.dbService.update(TABLES.POSTS, {...post, isNew: false}));
 
@@ -56,11 +61,14 @@ export class FeedComponent implements OnInit {
                 map(params => params.id),
                 tap(id => this.feedId = +id),
                 switchMap(id => this.dbService.getByID(TABLES.FEEDS, +id)),
-                tap((feed: FeedItem) => this.about = feed.about),
+                tap((feed: FeedItem) => {
+                    this.markAsReadFeed(feed);
+                    this.about = feed.about;
+                }),
                 switchMap(feed => this.dbService.getAllByIndex(TABLES.POSTS, 'feedId', IDBKeyRange.only(this.feedId))),
                 tap((posts) => this.posts = posts?.reverse() || []),
                 debounceTime(200),
-                tap(() => this.markAsRead()),
+                tap(() => this.markAsReadPosts()),
                 debounceTime(200),
                 tap(() => this.deleteTail())
             )

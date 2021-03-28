@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1616960511979,
+  "timestamp": 1616967479152,
   "index": "/stupid-rss-reader/index.html",
   "assetGroups": [
     {
@@ -13,12 +13,12 @@
       "urls": [
         "/stupid-rss-reader/favicon.ico",
         "/stupid-rss-reader/index.html",
-        "/stupid-rss-reader/main.240d1eed98a0a069a495.js",
+        "/stupid-rss-reader/main.72db1674d37ffd41e716.js",
         "/stupid-rss-reader/manifest.json",
         "/stupid-rss-reader/polyfills.cc016dd7ad141a005302.js",
         "/stupid-rss-reader/runtime.7b63b9fd40098a2e8207.js",
-        "/stupid-rss-reader/styles.03ceb2b8af737fd2b1a6.css",
-        "/stupid-rss-reader/vendor.57dfe22b876fe4d5476d.js"
+        "/stupid-rss-reader/styles.c9820192138fb06ade20.css",
+        "/stupid-rss-reader/vendor.4b3058942a8f47b50e72.js"
       ],
       "patterns": []
     },
@@ -91,13 +91,13 @@
     "/stupid-rss-reader/assets/skulls.png": "3452c09346c73808335623c7dba5ba3af99acbf5",
     "/stupid-rss-reader/assets/unexpand.svg": "19cdf930a94983f98eaa1d7209c8540a237be6d2",
     "/stupid-rss-reader/favicon.ico": "51f83552d6bd2f73fb09d202efbb4a903443ca29",
-    "/stupid-rss-reader/index.html": "5aac6df13e4bf733b6e3b0d4d91dcae05bf420c7",
-    "/stupid-rss-reader/main.240d1eed98a0a069a495.js": "43f984659024a252516bdff4928492040a5dedd3",
+    "/stupid-rss-reader/index.html": "4148a43e614f6183d6a3c612007b36b8fcb9308d",
+    "/stupid-rss-reader/main.72db1674d37ffd41e716.js": "e4cb1dbdbd85d9415afbe7d826ec5f53453d70eb",
     "/stupid-rss-reader/manifest.json": "58fc308bfbd3d29eb32ff5dba40d26df99ed4fc9",
     "/stupid-rss-reader/polyfills.cc016dd7ad141a005302.js": "ef49d5ac0a220b23365420ed0735be6bd2ec7eab",
     "/stupid-rss-reader/runtime.7b63b9fd40098a2e8207.js": "9807dfba83b084ad75415db8a55d77467ece2bb1",
-    "/stupid-rss-reader/styles.03ceb2b8af737fd2b1a6.css": "b79a361066a410cf0ec80bf41d04ad2b120a9ba3",
-    "/stupid-rss-reader/vendor.57dfe22b876fe4d5476d.js": "b7223049bad357b3cb0cb35a81c6a563307dae3d"
+    "/stupid-rss-reader/styles.c9820192138fb06ade20.css": "6f544f6fafc806dcb6ded8f83e8b3e529a63a917",
+    "/stupid-rss-reader/vendor.4b3058942a8f47b50e72.js": "0286e0a076c4f35ec4e279e24da8906119270e96"
   },
   "navigationUrls": [
     {

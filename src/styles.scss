@@ -110,6 +110,10 @@
     padding: 0.5rem 0;
 }
 
+.feed-line.loading {
+    text-shadow: 0px 1px 3px rgba(19, 161, 0, 0.3);;
+}
+
 .post-button {
     min-width: 40px;
     img {
@@ -216,8 +220,7 @@ hr {
 }
 
 .button-counter {
-    width: 60px;
-    font-size: 0.8rem;
+    min-width: 60px;
 }
 
 .active-actions {
