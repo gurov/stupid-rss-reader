@@ -68,7 +68,7 @@ export class CoreService {
         const requests$ = feedItems
             .map(feedItem => this.getNewPostsAndUpdateStore(feedItem.url, feedItem.id));
 
-        return concat(...requests$).pipe(toArray());
+        return combineLatest(requests$);
     }
 
 

@@ -3,9 +3,9 @@ import {NgxIndexedDBService} from 'ngx-indexed-db';
 import {combineLatest, Subject} from 'rxjs';
 import {isValidHttpUrl} from '../helpers';
 import {FeedError, FeedItem, FeedLoading} from '../models';
-import {TABLES} from '../constants';
+import {DELAY100, TABLES} from '../constants';
 import {CoreService} from '../core.service';
-import {takeUntil} from 'rxjs/operators';
+import {debounceTime, switchMap, takeUntil} from 'rxjs/operators';
 import {importFeedsFromVersion3} from '../backward-compatibility';
 
 
@@ -24,6 +24,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     feedError: FeedError = {};
     loading: boolean = false;
     private ngUnsubscribe$ = new Subject<void>();
+    private load$ = new Subject<void>();
 
     identify = (index: number, feed: FeedItem) => feed.id;
 
@@ -46,7 +47,7 @@ export class HomeComponent implements OnInit, OnDestroy {
             .map(url => this.dbService.add(TABLES.FEEDS, {url}));
 
         combineLatest(newFeeds$)
-            .subscribe(() => this.load());
+            .subscribe(() => this.load$.next());
     }
 
     refreshFeeds(): void {
@@ -55,7 +56,7 @@ export class HomeComponent implements OnInit, OnDestroy {
         this.coreService.refreshFeeds(this.feeds)
             .subscribe(() => {
                 this.loading = false;
-                this.load();
+                this.load$.next();
             });
     }
 
@@ -67,27 +68,33 @@ export class HomeComponent implements OnInit, OnDestroy {
         }); // share the URL of MDN
     }
 
-    load(): void {
-        this.dbService.getAll(TABLES.FEEDS)
-            .subscribe(feeds => this.feeds = feeds);
-    }
-
     ngOnInit(): void {
+
         this.coreService.feedLoading$
             .pipe(takeUntil(this.ngUnsubscribe$))
             .subscribe(feedLoading => {
                 this.feedLoading = feedLoading;
-                this.load();
+                this.load$.next();
             });
 
         this.coreService.feedError$
             .pipe(takeUntil(this.ngUnsubscribe$))
             .subscribe(feedError => {
                 this.feedError = feedError;
-                this.load();
+                this.load$.next();
             });
 
-        this.load();
+
+        this.load$
+            .pipe(
+                takeUntil(this.ngUnsubscribe$),
+                debounceTime(DELAY100),
+                switchMap(() => this.dbService.getAll(TABLES.FEEDS))
+            )
+            .subscribe(feeds => this.feeds = feeds);
+
+
+        this.load$.next();
 
         // import from the old version
         try {

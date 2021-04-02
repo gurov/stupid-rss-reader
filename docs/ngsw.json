@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1616967479152,
+  "timestamp": 1617371967679,
   "index": "/stupid-rss-reader/index.html",
   "assetGroups": [
     {
@@ -13,12 +13,11 @@
       "urls": [
         "/stupid-rss-reader/favicon.ico",
         "/stupid-rss-reader/index.html",
-        "/stupid-rss-reader/main.72db1674d37ffd41e716.js",
+        "/stupid-rss-reader/main.d99539e729f2115c637d.js",
         "/stupid-rss-reader/manifest.json",
-        "/stupid-rss-reader/polyfills.cc016dd7ad141a005302.js",
+        "/stupid-rss-reader/polyfills.00096ed7d93ed26ee6df.js",
         "/stupid-rss-reader/runtime.7b63b9fd40098a2e8207.js",
-        "/stupid-rss-reader/styles.c9820192138fb06ade20.css",
-        "/stupid-rss-reader/vendor.4b3058942a8f47b50e72.js"
+        "/stupid-rss-reader/styles.8d877fb47cb501c4832a.css"
       ],
       "patterns": []
     },
@@ -91,13 +90,12 @@
     "/stupid-rss-reader/assets/skulls.png": "3452c09346c73808335623c7dba5ba3af99acbf5",
     "/stupid-rss-reader/assets/unexpand.svg": "19cdf930a94983f98eaa1d7209c8540a237be6d2",
     "/stupid-rss-reader/favicon.ico": "51f83552d6bd2f73fb09d202efbb4a903443ca29",
-    "/stupid-rss-reader/index.html": "4148a43e614f6183d6a3c612007b36b8fcb9308d",
-    "/stupid-rss-reader/main.72db1674d37ffd41e716.js": "e4cb1dbdbd85d9415afbe7d826ec5f53453d70eb",
+    "/stupid-rss-reader/index.html": "07e7196a48bf5c4591ba4eca4bb614d9123e3436",
+    "/stupid-rss-reader/main.d99539e729f2115c637d.js": "1f7a57f474011184a77df310a692422cbea22b57",
     "/stupid-rss-reader/manifest.json": "58fc308bfbd3d29eb32ff5dba40d26df99ed4fc9",
-    "/stupid-rss-reader/polyfills.cc016dd7ad141a005302.js": "ef49d5ac0a220b23365420ed0735be6bd2ec7eab",
-    "/stupid-rss-reader/runtime.7b63b9fd40098a2e8207.js": "9807dfba83b084ad75415db8a55d77467ece2bb1",
-    "/stupid-rss-reader/styles.c9820192138fb06ade20.css": "6f544f6fafc806dcb6ded8f83e8b3e529a63a917",
-    "/stupid-rss-reader/vendor.4b3058942a8f47b50e72.js": "0286e0a076c4f35ec4e279e24da8906119270e96"
+    "/stupid-rss-reader/polyfills.00096ed7d93ed26ee6df.js": "cfe7b0b53e96bff9ba384b4d497c08475a617d62",
+    "/stupid-rss-reader/runtime.7b63b9fd40098a2e8207.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
+    "/stupid-rss-reader/styles.8d877fb47cb501c4832a.css": "a0e2c1e6ea8ff49568e1799662c8f25f9038fb94"
   },
   "navigationUrls": [
     {

@@ -47,10 +47,11 @@
                             ],
                             "optimization": true,
                             "outputHashing": "all",
-                            "sourceMap": true,
-                            "namedChunks": true,
+                            "sourceMap": false,
+                            "namedChunks": false,
                             "extractLicenses": true,
-                            "vendorChunk": true,
+                            "vendorChunk": false,
+                            "commonChunk": false,
                             "buildOptimizer": true,
                             "budgets": [
                                 {
