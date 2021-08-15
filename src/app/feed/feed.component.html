@@ -6,8 +6,11 @@
                     (click)="displayActions = !displayActions"
                     class="a-button lh-20">⚙</button>
                 <a routerLink="/" class="ml-auto">
-                    <img width="16" src="assets/back.svg" alt="Back to feeds"> Back to feeds
+                    <img width="16" src="assets/back.svg" alt="Back to feeds"> Back
                 </a>
+                <button class="a-button lh-20 ml-1" (click)="markAsRead()">
+                    Mark as read
+                </button>
             </div>
 
             <div class="mb-2 mt-1" *ngIf="displayActions">
@@ -23,7 +26,6 @@
 
 
 <div class="container">
-
 
     <table class="w-100">
 

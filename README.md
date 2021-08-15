@@ -15,7 +15,6 @@ The application must use the proxy [rss2json.com](https://rss2json.com/) because
 * Very simple interface
 * Offline mode
 * All user data are stored locally only ([IndexedDB](https://developer.mozilla.org/ru/docs/Web/API/IndexedDB_API))
-* The last 100 posts are stored. Deletion occurs after downloading new ones
 * Open source: [GitHub](https://github.com/gurov/stupid-rss-reader)
 * Proxy for RSS: [rss2json.com](https://rss2json.com/)
 

@@ -7,6 +7,7 @@ import {DELAY100, TABLES} from '../constants';
 import {CoreService} from '../core.service';
 import {debounceTime, switchMap, takeUntil} from 'rxjs/operators';
 import {importFeedsFromVersion3} from '../backward-compatibility';
+import { cloneDeep } from 'lodash-es';
 
 
 @Component({
@@ -91,7 +92,10 @@ export class HomeComponent implements OnInit, OnDestroy {
                 debounceTime(DELAY100),
                 switchMap(() => this.dbService.getAll(TABLES.FEEDS))
             )
-            .subscribe(feeds => this.feeds = feeds);
+            .subscribe(feeds => {
+                this.feeds = cloneDeep(feeds);
+                
+            });
 
 
         this.load$.next();

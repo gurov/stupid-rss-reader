@@ -18,6 +18,7 @@ export class FeedComponent implements OnInit {
     viewCount: number = 10;
     about: SiteFeedAbout = new SiteFeedAbout();
     private feedId: number;
+    private feed: FeedItem = null;
 
     identify = (index: number, post: Post) => post.id;
 
@@ -35,16 +36,24 @@ export class FeedComponent implements OnInit {
     }
 
 
+    markAsRead() {
+        this.markAsReadFeed(this.feed);
+        this.markAsReadPosts();
+    }
+
     markAsReadFeed(feed: FeedItem): void {
         this.dbService.update(TABLES.FEEDS, {...feed, newCount: 0}).subscribe();
     }
 
     markAsReadPosts(): void {
-        
         const newPosts$ = this.posts.filter(p => p.isNew)
             .map(post => this.dbService.update(TABLES.POSTS, {...post, isNew: false}));
 
         concat(...newPosts$).pipe(toArray()).subscribe();
+
+        this.posts.forEach(p => {
+            p.isNew = false;
+        });
     }
 
     deleteTail(): void {
@@ -62,15 +71,11 @@ export class FeedComponent implements OnInit {
                 tap(id => this.feedId = +id),
                 switchMap(id => this.dbService.getByID(TABLES.FEEDS, +id)),
                 tap((feed: FeedItem) => {
-                    this.markAsReadFeed(feed);
+                    this.feed = feed;
                     this.about = feed.about;
                 }),
                 switchMap(feed => this.dbService.getAllByIndex(TABLES.POSTS, 'feedId', IDBKeyRange.only(this.feedId))),
-                tap((posts) => this.posts = posts?.reverse() || []),
-                debounceTime(200),
-                tap(() => this.markAsReadPosts()),
-                debounceTime(200),
-                tap(() => this.deleteTail())
+                tap((posts) => this.posts = posts?.reverse() || [])
             )
             .subscribe();
     }
