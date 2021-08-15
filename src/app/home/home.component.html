@@ -46,10 +46,12 @@
                     [routerLink]="['/', feed.id]">
                     <span class="spinner" *ngIf="feedLoading[feed.id]"></span>
                     <span *ngIf="!feedLoading[feed.id]">
-                        <sup class="new-info" *ngIf="feed.newCount">
+                        <span class="new-info" *ngIf="feed.newCount">
                             +{{ feed.newCount }}
-                        </sup>
-                        {{feed.count || '-'}}
+                        </span>
+                        <span *ngIf="!feed.newCount">
+                            {{feed.count || '-'}}
+                        </span>
                     </span>
 
             </button>
