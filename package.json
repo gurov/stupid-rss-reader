@@ -5,8 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "NODE_OPTIONS=--openssl-legacy-provider ng build --prod",
-    "deploy": "npm run build && gh-pages -d docs",
+    "build": "NODE_OPTIONS=--openssl-legacy-provider ng build --prod --base-href \"/stupid-rss-reader/\"",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -36,7 +35,6 @@
     "@types/jasmine": "3.6.9",
     "@types/node": "14.14.37",
     "codelyzer": "6.0.1",
-    "gh-pages": "^6.3.0",
     "jasmine-core": "3.7.1",
     "jasmine-spec-reporter": "6.0.0",
     "karma": "6.2.0",

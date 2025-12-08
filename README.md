@@ -34,12 +34,8 @@ Deploy with gh-pages module:
 1. **Configure GitHub Pages:**
    - Go to repo Settings → Pages
    - Source: **Deploy from a branch**
-   - Branch: **gh-pages** / **root**
+   - Branch: **branch to deploy from**  **/docs**
    - Save
 
-3. **Deploy:**
-```bash
-   npm run deploy
-```
-
+1. Pushes to the configured branch will trigger update to the GitHub pages site
 
