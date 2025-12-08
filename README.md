@@ -41,3 +41,6 @@ Deploy with gh-pages module:
 
 Note the href option in the package.json build command must match the GitHub repository name
 
+## TODO
+
+Deployment not working - console 404 error to main - something up with the build/url base names?
