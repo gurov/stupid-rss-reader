@@ -27,21 +27,3 @@ The application does not impose anything, but only executes orders.
 [![Watch the video](https://user-images.githubusercontent.com/2802420/111161788-cbc45980-859b-11eb-99f7-280724bf0590.png)](https://user-images.githubusercontent.com/2802420/111161791-cc5cf000-859b-11eb-91d4-b15bbaf68d7e.mp4)
 
 
-
-## Deploy to GitHub Pages
-
-1. **Configure GitHub Pages:**
-   - Go to repo Settings → Pages
-   - Source: **Deploy from a branch**
-   - Branch: **branch to deploy from**  **/docs**
-   - Save
-
-1. **Build and Push**
-   - Run build: `npm run build`
-   - Add any new build files: `git add *`
-   - Commit and push: `git commit -am 'build' && git push`
-
-1. Pushes to the configured branch will trigger update to the GitHub pages site
-
-Note the href option in the package.json build command must match the GitHub repository name
-
