@@ -39,3 +39,5 @@ Deploy with gh-pages module:
 
 1. Pushes to the configured branch will trigger update to the GitHub pages site
 
+Note the href option in the package.json build command must match the GitHub repository name
+
