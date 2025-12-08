@@ -5,8 +5,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "NODE_OPTIONS=--openssl-legacy-provider ng build --prod --base-href \"/stupid-rss-reader/\"",
-    "deploy": "gh-pages",
+    "build": "NODE_OPTIONS=--openssl-legacy-provider ng build --prod",
+    "deploy": "npm run build && gh-pages -d docs",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

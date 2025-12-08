@@ -27,6 +27,19 @@ The application does not impose anything, but only executes orders.
 [![Watch the video](https://user-images.githubusercontent.com/2802420/111161788-cbc45980-859b-11eb-99f7-280724bf0590.png)](https://user-images.githubusercontent.com/2802420/111161791-cc5cf000-859b-11eb-91d4-b15bbaf68d7e.mp4)
 
 
+# Build and Deploy
 
+Deploy with gh-pages module:
+
+1. **Configure GitHub Pages:**
+   - Go to repo Settings → Pages
+   - Source: **Deploy from a branch**
+   - Branch: **gh-pages** / **root**
+   - Save
+
+3. **Deploy:**
+```bash
+   npm run deploy
+```
 
 
