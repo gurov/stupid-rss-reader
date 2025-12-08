@@ -4,7 +4,7 @@
   "homepage": "https://github.com/gurov/stupid-rss-reader",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "NODE_OPTIONS=--openssl-legacy-provider ng serve",
     "build": "NODE_OPTIONS=--openssl-legacy-provider ng build --prod --base-href \"/fork-stupid-rss-reader/\"",
     "test": "ng test",
     "lint": "ng lint",

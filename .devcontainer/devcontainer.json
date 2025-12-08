@@ -24,10 +24,10 @@
     "postCreateCommand": "sudo chown -R $(id -u):$(id -g) node_modules",
 
     // port forwarding for vite dev server
-    "forwardPorts": [5173],
+    "forwardPorts": [4200],
     "portsAttributes": {
-        "5173": {
-            "label": "Vite Dev Server"
+        "4200": {
+            "label": "Dev Server"
         }
     }
 }
