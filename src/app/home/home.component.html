@@ -41,7 +41,7 @@
         </div>
         <div class="ml-auto" style="text-align: right;">
             <button class="a-button button-counter"
-                    
+
                     [disabled]="feedLoading[feed.id]"
                     [routerLink]="['/', feed.id]">
                     <span class="spinner" *ngIf="feedLoading[feed.id]"></span>
@@ -82,6 +82,7 @@
 
 
 <div class="container p-1 mb-2" style="background-color:rgba(255,235,205,0.5);">
+
     <h3>About</h3>
     <p>I'm tired of different stupid RSS clients and I created own Stupid RSS Reader.</p>
     <h4>Proxy for RSS</h4>

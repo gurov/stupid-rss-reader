@@ -27,6 +27,3 @@ The application does not impose anything, but only executes orders.
 [![Watch the video](https://user-images.githubusercontent.com/2802420/111161788-cbc45980-859b-11eb-99f7-280724bf0590.png)](https://user-images.githubusercontent.com/2802420/111161791-cc5cf000-859b-11eb-91d4-b15bbaf68d7e.mp4)
 
 
-
-
-
