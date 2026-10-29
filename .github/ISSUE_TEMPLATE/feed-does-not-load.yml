@@ -1,0 +1,34 @@
+name: A feed does not load
+description: The reader shows an error for a feed.
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Some sites let no server read their feeds (Cloudflare and other bot checks), and a proxy cannot get past that. If the error is "The site did not answer" or "The site answered 403", this is probably the case: try opening the feed in your browser, and try your own proxy (Settings → Proxy).
+  - type: input
+    id: feed
+    attributes:
+      label: Feed address
+      placeholder: https://example.com/feed.xml
+    validations:
+      required: true
+  - type: dropdown
+    id: proxy
+    attributes:
+      label: Proxy
+      options:
+        - The default one (rss.bizibah.com)
+        - My own
+    validations:
+      required: true
+  - type: textarea
+    id: error
+    attributes:
+      label: The error the reader shows
+    validations:
+      required: true
+  - type: input
+    id: browser
+    attributes:
+      label: Browser and system
+      placeholder: Firefox 140, Android 15
