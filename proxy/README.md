@@ -69,11 +69,11 @@ On a unix socket the client IP is taken from `X-Real-IP`, which the web server m
 
 ### Running it
 
-1. Copy `rss_proxy.py` to `/opt/rss-proxy/` (owned by root) and `rss-proxy.service` to
-   `/etc/systemd/system/`. Edit the addresses and the group in the unit: see the
-   comment at its top.
-2. `systemctl daemon-reload && systemctl enable --now rss-proxy`, then
-   `journalctl -u rss-proxy -f`.
+1. Edit the addresses and the group in `rss-proxy.service`: see the comment at its top.
+2. `SERVER=root@example.com proxy/install.sh`: copies `rss_proxy.py` to
+   `/opt/rss-proxy/` and the unit to `/etc/systemd/system/`, (re)starts the service and
+   asks it for a feed and for `127.0.0.1` through the socket. The same command updates
+   it. Then `journalctl -u rss-proxy -f` on the server.
 3. Add a site to Caddy, see `Caddyfile.example`, and `systemctl reload caddy`.
 4. Check it: `BASE=https://rss.example.com/ ./selftest.sh`.
 5. In the reader: **Settings → Proxy**, `https://rss.example.com/?url={url}`, then

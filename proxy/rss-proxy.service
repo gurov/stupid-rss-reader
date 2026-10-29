@@ -1,7 +1,7 @@
 # systemd unit of the RSS proxy: /etc/systemd/system/rss-proxy.service
 # The script itself: /opt/rss-proxy/rss_proxy.py (owned by root, read-only).
 #
-# Before enabling, check on the server and edit below:
+# The values are those of bizibah.com. On another server edit:
 #   - SELF_ADDRESSES and IPAddressDeny: the public IPv4 and IPv6 of the server;
 #   - IPAddressAllow: how DNS goes (/etc/resolv.conf, /etc/nsswitch.conf). With the
 #     systemd-resolved stub it is 127.0.0.53; with nss-resolve DNS goes over a unix
@@ -18,7 +18,7 @@ ExecStart=/usr/bin/python3 -I /opt/rss-proxy/rss_proxy.py
 Environment=RSS_PROXY_SOCKET=/run/rss-proxy/rss-proxy.sock
 Environment=RSS_PROXY_SOCKET_GROUP=caddy
 Environment="ALLOWED_ORIGINS=https://bizibah.com https://gurov.github.io http://localhost:4200"
-Environment=SELF_ADDRESSES=165.227.139.115
+Environment="SELF_ADDRESSES=165.227.139.115 2a03:b0c0:3:d0::1291:a001"
 # 20 GiB a day, then 503 until midnight UTC
 Environment=DAILY_EGRESS_BYTES=21474836480
 Restart=on-failure
@@ -59,7 +59,7 @@ SystemCallErrorNumber=EPERM
 # The second layer of the SSRF filter, in the kernel: it works even if the check in
 # Python has a bug. The proxy listens on a unix socket, so localhost can be closed
 # completely. Allow wins over Deny.
-IPAddressDeny=localhost link-local multicast 0.0.0.0/8 10.0.0.0/8 100.64.0.0/10 172.16.0.0/12 192.168.0.0/16 fc00::/7 165.227.139.115
+IPAddressDeny=localhost link-local multicast 0.0.0.0/8 10.0.0.0/8 100.64.0.0/10 172.16.0.0/12 192.168.0.0/16 fc00::/7 165.227.139.115 2a03:b0c0:3:d0::1291:a001
 IPAddressAllow=127.0.0.53
 
 # Limits: under a flood the proxy must not take the memory and CPU of its neighbours.

@@ -19,16 +19,27 @@ rss.example.com {
 	# The feed address is personal data: keep it out of the access log. The syntax
 	# of the log filter depends on the Caddy version, check it with "caddy validate".
 	log {
-		output file /var/log/caddy/rss-access.log
+		output file /var/log/caddy/rss-access.log {
+			roll_size 16mb
+			roll_keep 5
+			roll_keep_for 720h
+		}
 		format filter {
 			wrap json
 			fields {
 				request>uri query {
 					delete url
 				}
+				request>headers delete
+				request>tls delete
+				request>remote_port delete
+				resp_headers delete
+				bytes_read delete
+				user_id delete
 			}
 		}
 	}
+	header Strict-Transport-Security "max-age=31536000"
 
 	# Refuse cheaply right here, without bothering the script.
 	@feed {
@@ -39,6 +50,8 @@ rss.example.com {
 		request_body {
 			max_size 1KB
 		}
+		# Feeds compress well: less traffic.
+		encode zstd gzip
 		reverse_proxy unix//run/rss-proxy/rss-proxy.sock {
 			# The script limits requests by this address; set, not appended, so a
 			# client cannot forge it.
