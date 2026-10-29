@@ -2,54 +2,48 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <!-- GitHub Pages cannot send headers, so the policy is here, before anything loads.
+         connect-src is wide on purpose: a proxy of your own may be anywhere, also local.
+         Scripts only from this site, no inline anything; Trusted Types policies:
+         dompurify (sanitizing), srr-inert (DOMParser), srr-sw (the service worker). -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' https: data:; connect-src 'self' https: http://localhost:* http://127.0.0.1:*; manifest-src 'self'; worker-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'; require-trusted-types-for 'script'; trusted-types dompurify srr-inert srr-sw">
+    <meta name="referrer" content="no-referrer">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#41750b" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#1a2016" media="(prefers-color-scheme: dark)">
+    <meta name="description" content="A simple RSS and Atom reader. Your feeds and posts stay in your browser; it works offline and installs as an app.">
     <title>Stupid RSS Reader</title>
-    <base href="/stupid-rss-reader/">
-    <meta content="width=device-width, initial-scale=1" name="viewport">
-
-    <link href="assets/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
-    <link href="assets/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
-    <link href="assets/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
-    <link color="#5bbad5" href="assets/safari-pinned-tab.svg" rel="mask-icon">
-    <meta content="#00a300" name="msapplication-TileColor">
-    <link href="favicon.ico" rel="icon" type="image/x-icon">
-    <link href="manifest.json" rel="manifest">
-    <meta content="#41750b" name="theme-color">
-    <meta name="description" content="PWA RSS client on Angular 11. I'm tired of different stupid RSS clients and I created own Stupid RSS Reader.">
-    <style>
-        .preloader {
-            width: 100%;
-            text-align: center;
-            margin-top: 20%;
-            font-family: monospace;
-            font-size: 1.2rem;
-        }
-
-        .spinner {
-            height: 0.7rem;
-            width: 0.7rem;
-            display: inline-block;
-            animation: rotate 3s infinite ease-out;
-            border: 2px solid black;
-            border-right-color: transparent;
-            border-left-color: transparent;
-            border-radius: 50%;
-        }
-
-        @keyframes rotate {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(2840deg);
-            }
-        }
-
-    </style>
-<link rel="stylesheet" href="styles.8d877fb47cb501c4832a.css"></head>
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" href="assets/fur-boot-green.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+    <link rel="stylesheet" href="app.css">
+    <script src="version.js"></script>
+    <script type="module" src="js/app.js"></script>
+</head>
 <body>
-<app-root>
-    <div class="preloader"><span class="spinner"></span> Stupid RSS Reader is loading ...</div>
-</app-root>
-<noscript>Please enable JavaScript to continue using this application.</noscript>
-<script src="runtime.7b63b9fd40098a2e8207.js" defer></script><script src="polyfills.00096ed7d93ed26ee6df.js" defer></script><script src="main.3abe0f1288fe1afd2bad.js" defer></script></body>
+<svg class="sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="i-back" viewBox="0 0 24 24"><path d="M19 12H5M11 18l-6-6 6-6"/></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-2.34-5.66M20 4v5h-5"/></symbol>
+    <symbol id="i-settings" viewBox="0 0 24 24"><path d="M4 6h9M17 6h3M15 4v4M4 12h3M11 12h9M9 10v4M4 18h11M19 18h1M17 16v4"/></symbol>
+    <symbol id="i-share" viewBox="0 0 24 24"><path d="M12 15V3M8 7l4-4 4 4M6 11H5v9h14v-9h-1"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><path d="M9 9h11v11H9zM15 9V4H4v11h5"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></symbol>
+    <symbol id="i-more" viewBox="0 0 24 24"><path d="M12 5h.01M12 12h.01M12 19h.01" stroke-width="3.5"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/></symbol>
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v6H4V6h6"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+    <symbol id="i-chevron-up" viewBox="0 0 24 24"><path d="M6 15l6-6 6 6"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 9v4M12 17h.01M10.3 4L2.5 18a2 2 0 0 0 1.7 3h15.6a2 2 0 0 0 1.7-3L13.7 4a2 2 0 0 0-3.4 0z"/></symbol>
+    <symbol id="i-rss" viewBox="0 0 24 24"><path d="M5 11a8 8 0 0 1 8 8M5 5a14 14 0 0 1 14 14"/><path d="M6 18h.01" stroke-width="3.5"/></symbol>
+    <symbol id="i-attachment" viewBox="0 0 24 24"><path d="M20 11.5l-8 8a5 5 0 0 1-7-7l8.5-8.5a3.3 3.3 0 0 1 4.7 4.7l-8.4 8.4a1.7 1.7 0 0 1-2.4-2.4L15 7"/></symbol>
+</svg>
+<div id="banners" class="banners" aria-live="polite"></div>
+<main id="app" class="app">
+    <p class="preloader"><span class="spinner"></span> Stupid RSS Reader is loading…</p>
+</main>
+<noscript><p class="preloader">Stupid RSS Reader needs JavaScript.</p></noscript>
+</body>
 </html>
