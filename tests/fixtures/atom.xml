@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
+    <title type="text">Atom &lt;Example&gt;</title>
+    <subtitle type="html">&lt;b&gt;Sub&lt;/b&gt;title</subtitle>
+    <link rel="self" href="https://example.org/atom.xml"/>
+    <link href="https://example.org/"/>
+    <icon>/favicon.png</icon>
+    <author><name>Bob</name></author>
+    <id>urn:uuid:feed</id>
+    <updated>2025-06-10T12:00:00Z</updated>
+    <entry>
+        <title type="html">Entry &amp;amp; one</title>
+        <link rel="alternate" type="text/html" href="/2025/one"/>
+        <link rel="enclosure" type="image/png" length="100" href="https://example.org/pic.png"/>
+        <id>urn:uuid:1</id>
+        <published>2025-06-10T12:00:00+02:00</published>
+        <updated>2025-06-11T12:00:00Z</updated>
+        <category term="tech" label="Technology"/>
+        <content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml"><p>Hello <em>world</em></p></div></content>
+    </entry>
+    <entry>
+        <title>Text entry</title>
+        <link href="https://example.org/two"/>
+        <id>urn:uuid:2</id>
+        <updated>2025-06-09T00:00:00Z</updated>
+        <summary>Plain &lt;text&gt; with https://example.org/x link</summary>
+        <media:group><media:thumbnail url="https://i.example.org/t.jpg"/></media:group>
+    </entry>
+</feed>
