@@ -1,25 +1,29 @@
-/* Stupid RSS Reader. Colors are variables: light by default, dark by the system. */
+/* Stupid RSS Reader. Colors are variables: light by default, dark by the system.
+   The warm card backgrounds come from v4: cornsilk for the feeds, blanched almond
+   for "About", floral white for the rest, all at half strength on white. */
 
 :root {
     color-scheme: light dark;
-    --bg: #f3f5ee;
-    --surface: #ffffff;
-    --surface-2: #f6f8f1;
+    --bg: #ffffff;
+    --surface: #fffcf7;
+    --surface-feeds: #fffbee;
+    --surface-about: #fff5e6;
+    --surface-2: #fbf6ea;
     --text: #1c2117;
-    --muted: #586152;
-    --border: #d6ddca;
+    --muted: #5a5f50;
+    --border: #ece2c9;
     --brand: #41750b;
     --primary: #a3cd5a;
     --primary-hover: #93c046;
     --primary-text: #17240a;
-    --button: #eef1e8;
-    --button-hover: #e2e7d9;
+    --button: #f1eee4;
+    --button-hover: #e6e1d2;
     --link: #2b5c00;
     --danger: #a12b0a;
     --danger-bg: #fbeae5;
     --new: #2f7a00;
     --focus: #1f6fd1;
-    --warning-bg: #fff6dc;
+    --warning-bg: #fdeec2;
     --radius: 10px;
     --shadow: 0 1px 2px rgba(25, 35, 15, 0.08);
     --gutter: 16px;
@@ -29,18 +33,20 @@
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --bg: #12160f;
-        --surface: #1a2016;
-        --surface-2: #20281b;
-        --text: #e5eadf;
-        --muted: #a2ac9a;
-        --border: #313b29;
+        --bg: #13120f;
+        --surface: #1c1a15;
+        --surface-feeds: #201d13;
+        --surface-about: #241e15;
+        --surface-2: #27241b;
+        --text: #e8e6de;
+        --muted: #aaa696;
+        --border: #37322a;
         --brand: #8cc63f;
         --primary: #6c9a2a;
         --primary-hover: #7aab33;
         --primary-text: #0c1404;
-        --button: #262f20;
-        --button-hover: #303b28;
+        --button: #2b2820;
+        --button-hover: #36322a;
         --link: #a5d76a;
         --danger: #ff9479;
         --danger-bg: #3a1c14;
@@ -137,6 +143,14 @@ code {
     box-shadow: var(--shadow);
     padding: 16px;
     margin: 16px 0;
+}
+
+.card.feeds {
+    background: var(--surface-feeds);
+}
+
+.card.about {
+    background: var(--surface-about);
 }
 
 .card > :first-child {
