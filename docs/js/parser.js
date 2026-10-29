@@ -95,6 +95,12 @@ function rssText(el, max) {
     return textFromHtml(text(el), max);
 }
 
+// RSS <author> is "email (Name)" by the spec: show the name.
+function rssAuthor(el) {
+    const value = rssText(el, MAX_AUTHOR);
+    return /^\S+@\S+\s+\((.+)\)$/.exec(value)?.[1].trim() || value;
+}
+
 const ZONES = { UT: '+0000', GMT: '+0000', Z: '+0000', EST: '-0500', EDT: '-0400', CST: '-0600',
     CDT: '-0500', MST: '-0700', MDT: '-0600', PST: '-0800', PDT: '-0700', MSK: '+0300', CET: '+0100',
     CEST: '+0200', BST: '+0100', IST: '+0530', JST: '+0900' };
@@ -248,7 +254,7 @@ function parseRssItem(item, base, fallbackAuthor) {
         link,
         guid,
         pubDate: parseDate(text(kid(item, 'pubDate')) || text(kid(item, 'date', NS.dc))),
-        author: limit(rssText(kid(item, 'creator', NS.dc), MAX_AUTHOR) || rssText(kid(item, 'author'), MAX_AUTHOR)
+        author: limit(rssText(kid(item, 'creator', NS.dc), MAX_AUTHOR) || rssAuthor(kid(item, 'author'))
             || fallbackAuthor, MAX_AUTHOR),
         content: text(kid(item, 'encoded', NS.content)) || text(kid(item, 'description')) || mediaDescription(item),
         categories: categories(kids(item, 'category').concat(kids(item, 'subject', NS.dc)), (node) => node.textContent),
@@ -273,7 +279,7 @@ function parseRss(root, feedUrl, format) {
         image: url(text(kid(imageNode, 'url')), base, { image: true })
             || url(itunesImage?.getAttribute('href'), base, { image: true }),
         author: limit(rssText(kid(channel, 'creator', NS.dc), MAX_AUTHOR)
-            || rssText(kid(channel, 'managingEditor'), MAX_AUTHOR), MAX_AUTHOR),
+            || rssAuthor(kid(channel, 'managingEditor')), MAX_AUTHOR),
     };
     // RSS 2.0: items inside <channel>; RSS 1.0: next to it.
     const itemNodes = format === 'RSS 1.0' ? kids(root, 'item') : kids(channel, 'item');

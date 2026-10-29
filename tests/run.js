@@ -45,7 +45,7 @@ async function feedFrom(name, url = 'https://example.com/feed.xml') {
 test('RSS 2.0: channel and fields', async () => {
     const feed = await feedFrom('rss2.xml');
     equal(feed.format, 'RSS 2.0');
-    equal(feed.about, { title: 'Example & Co', link: 'https://example.com/', description: 'An example feed', image: 'https://example.com/logo.png', author: '' });
+    equal(feed.about, { title: 'Example & Co', link: 'https://example.com/', description: 'An example feed', image: 'https://example.com/logo.png', author: 'Ed Itor' });
     const [first, second, third, fourth] = feed.items;
     equal(first.title, 'First post', 'HTML in a title becomes text:');
     equal([first.link, first.guid, first.pubDate, first.author], ['https://example.com/posts/1', 'post-1', '2025-06-10T04:00:00.000Z', 'Alice']);
@@ -54,6 +54,8 @@ test('RSS 2.0: channel and fields', async () => {
     equal(first.enclosure, { url: 'https://example.com/a.mp3', type: 'audio/mpeg', length: 12345678 });
     equal(first.thumbnail, 'https://example.com/t.jpg');
     equal(second.pubDate, '2025-06-11T07:00:00.000Z', '+0300:');
+    equal(second.author, 'Bob Example', 'RSS author "email (Name)":');
+    equal(third.author, 'Ed Itor', 'managingEditor as the fallback:');
     equal(second.content, '<p>Escaped &amp; html</p>');
     equal([third.link, third.guid, third.pubDate], ['https://example.com/posts/3', 'https://example.com/posts/3', '2025-06-12T15:00:00.000Z'], 'permalink guid, EST:');
     assert(fourth.guid.startsWith('h:') && fourth.title === '', 'an entry without anything gets a hash id');

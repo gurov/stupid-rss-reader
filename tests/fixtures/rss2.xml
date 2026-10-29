@@ -5,6 +5,7 @@
     <link>https://example.com/</link>
     <atom:link href="https://example.com/feed.xml" rel="self" type="application/rss+xml"/>
     <description>An example feed</description>
+    <managingEditor>editor@example.com (Ed Itor)</managingEditor>
     <image><url>https://example.com/logo.png</url><title>Example</title><link>https://example.com/</link></image>
     <item>
         <title>First &lt;b&gt;post&lt;/b&gt;</title>
@@ -22,6 +23,7 @@
     <item>
         <title>Second</title>
         <link>https://example.com/posts/2</link>
+        <author>bob@example.com (Bob Example)</author>
         <pubDate>Wed, 11 Jun 2025 10:00:00 +0300</pubDate>
         <description>&lt;p&gt;Escaped &amp;amp; html&lt;/p&gt;</description>
     </item>
