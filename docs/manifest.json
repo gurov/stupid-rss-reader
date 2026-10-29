@@ -5,7 +5,9 @@
     "description": "A simple RSS and Atom reader. Your feeds and posts stay in your browser.",
     "lang": "en",
     "dir": "ltr",
-    "categories": ["news"],
+    "categories": [
+        "news"
+    ],
     "start_url": ".",
     "scope": ".",
     "display": "standalone",
@@ -29,6 +31,29 @@
             "sizes": "512x512",
             "type": "image/png",
             "purpose": "maskable"
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "assets/screenshots/phone-feeds.webp",
+            "sizes": "780x1688",
+            "type": "image/webp",
+            "form_factor": "narrow",
+            "label": "The list of feeds"
+        },
+        {
+            "src": "assets/screenshots/phone-post.webp",
+            "sizes": "780x1688",
+            "type": "image/webp",
+            "form_factor": "narrow",
+            "label": "An opened post"
+        },
+        {
+            "src": "assets/screenshots/desktop.webp",
+            "sizes": "1280x800",
+            "type": "image/webp",
+            "form_factor": "wide",
+            "label": "A feed on a computer"
         }
     ]
 }

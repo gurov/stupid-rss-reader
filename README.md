@@ -4,6 +4,10 @@ I'm tired of different stupid RSS clients and I created own Stupid RSS Reader.
 
 Try it [here](https://gurov.github.io/stupid-rss-reader/)
 
+<p align="center">
+<img src="docs/assets/screenshots/demo.webp" width="300" alt="Refreshing the feeds, reading posts, the dark theme and the settings">
+</p>
+
 ## Features
 * RSS 2.0, Atom and RSS 1.0 feeds
 * A [Progressive Web App](https://web.dev/explore/progressive-web-apps): install it on your phone or computer, it works offline
@@ -70,8 +74,17 @@ full of XSS payloads.
    New files of the app go to `APP_FILES` in `docs/sw.js`.
 2. Run the tests, commit, merge to `master`.
 
-## Interface (click to watch the video)
+## Interface
 
-[![Watch the video](https://user-images.githubusercontent.com/2802420/111161788-cbc45980-859b-11eb-99f7-280724bf0590.png)](https://user-images.githubusercontent.com/2802420/111161791-cc5cf000-859b-11eb-91d4-b15bbaf68d7e.mp4)
+<p align="center">
+<img src="docs/assets/screenshots/phone-feeds.webp" width="250" alt="The list of feeds">
+<img src="docs/assets/screenshots/phone-post.webp" width="250" alt="An opened post">
+<img src="docs/assets/screenshots/phone-dark.webp" width="250" alt="The dark theme">
+</p>
 
-The video shows the previous version.
+<p align="center">
+<img src="docs/assets/screenshots/desktop.webp" alt="A feed on a computer">
+</p>
+
+The feeds in the screenshots: xkcd, NASA Image of the Day, the Rust Blog, Hacker News and
+the commits of this repository.
