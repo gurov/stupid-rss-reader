@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:media="http://search.yahoo.com/mrss/" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+    <title>Example &amp; Co</title>
+    <link>https://example.com/</link>
+    <atom:link href="https://example.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <description>An example feed</description>
+    <image><url>https://example.com/logo.png</url><title>Example</title><link>https://example.com/</link></image>
+    <item>
+        <title>First &lt;b&gt;post&lt;/b&gt;</title>
+        <link>https://example.com/posts/1</link>
+        <guid isPermaLink="false">post-1</guid>
+        <pubDate>Tue, 10 Jun 2025 04:00:00 GMT</pubDate>
+        <dc:creator>Alice</dc:creator>
+        <description>Short</description>
+        <content:encoded><![CDATA[<p>Full <a href="/rel">relative</a> <img src="img.png"></p>]]></content:encoded>
+        <category>One</category>
+        <category>Two</category>
+        <enclosure url="https://example.com/a.mp3" type="audio/mpeg" length="12345678"/>
+        <media:thumbnail url="https://example.com/t.jpg"/>
+    </item>
+    <item>
+        <title>Second</title>
+        <link>https://example.com/posts/2</link>
+        <pubDate>Wed, 11 Jun 2025 10:00:00 +0300</pubDate>
+        <description>&lt;p&gt;Escaped &amp;amp; html&lt;/p&gt;</description>
+    </item>
+    <item>
+        <title>Permalink guid only</title>
+        <guid>https://example.com/posts/3</guid>
+        <pubDate>Thu, 12 Jun 2025 10:00:00 EST</pubDate>
+    </item>
+    <item>
+        <description>No title, no link, no guid</description>
+    </item>
+</channel>
+</rss>

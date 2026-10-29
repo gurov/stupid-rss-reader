@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Every payload sets window.__pwned when it runs. The tests parse and render this
+     feed and check that nothing ran and nothing dangerous is left in the DOM. -->
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:media="http://search.yahoo.com/mrss/">
+<channel>
+    <title><![CDATA[<img src=x onerror="window.__pwned='channel title'">Evil <b>feed</b>]]></title>
+    <link>https://evil.example/</link>
+    <description><![CDATA[<script>window.__pwned='channel description'</script>Evil]]></description>
+    <image><url>javascript:window.__pwned='channel image'</url></image>
+
+    <item>
+        <title><![CDATA[<script>window.__pwned='title'</script>Title <b>bold</b> &lt;img src=x onerror=window.__pwned='title entity'&gt;]]></title>
+        <link>javascript:window.__pwned='link'</link>
+        <guid>evil-1</guid>
+        <media:thumbnail url="javascript:window.__pwned='thumbnail'"/>
+        <enclosure url="javascript:window.__pwned='enclosure'" type="text/html" length="1"/>
+        <content:encoded><![CDATA[
+            <p>Scripts and handlers</p>
+            <script>window.__pwned='script'</script>
+            <img src="x" onerror="window.__pwned='img onerror'">
+            <svg onload="window.__pwned='svg onload'"><circle r="10"/></svg>
+            <svg><use href="data:image/svg+xml,&lt;svg id='x' xmlns='http://www.w3.org/2000/svg'&gt;&lt;image href='x' onerror='window.__pwned=1'/&gt;&lt;/svg&gt;#x"/></svg>
+            <details open ontoggle="window.__pwned='ontoggle'"><summary>s</summary>d</details>
+            <body onload="window.__pwned='body onload'">
+            <video><source onerror="window.__pwned='source onerror'"></video>
+            <audio src="x" onerror="window.__pwned='audio onerror'"></audio>
+            <a href="https://ok.example/" onclick="window.__pwned='onclick'" target="_self">ok link</a>
+        ]]></content:encoded>
+    </item>
+
+    <item>
+        <title>URLs</title>
+        <link> JaVaScRiPt:window.__pwned='link case'</link>
+        <guid isPermaLink="true">javascript:window.__pwned='guid'</guid>
+        <media:thumbnail url="data:text/html,&lt;script&gt;window.__pwned='thumb data'&lt;/script&gt;"/>
+        <enclosure url="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIG9ubG9hZD0id2luZG93Ll9fcHduZWQ9MSIvPg==" type="image/svg+xml" length="1"/>
+        <content:encoded><![CDATA[
+            <a href="javascript:window.__pwned='a js'">1</a>
+            <a href="  java&#x09;script:window.__pwned='a tab'">2</a>
+            <a href="JAVASCRIPT:window.__pwned='a upper'">3</a>
+            <a href="&#106;avascript:window.__pwned='a entity'">4</a>
+            <a href="data:text/html;base64,PHNjcmlwdD53aW5kb3cuX19wd25lZD0xPC9zY3JpcHQ+">5</a>
+            <a href="vbscript:msgbox(1)">6</a>
+            <a href="//evil.example/protocol-relative">7</a>
+            <a href="/relative">8</a>
+            <img src="javascript:window.__pwned='img js'">
+            <img src="https://ok.example/a.png" srcset="javascript:window.__pwned=1 1x">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==">
+        ]]></content:encoded>
+    </item>
+
+    <item>
+        <title>Frames, forms, base, meta, styles, clobbering</title>
+        <link>https://evil.example/3</link>
+        <content:encoded><![CDATA[
+            <iframe src="javascript:window.__pwned='iframe'"></iframe>
+            <iframe srcdoc="&lt;script&gt;parent.__pwned='srcdoc'&lt;/script&gt;"></iframe>
+            <object data="javascript:window.__pwned='object'"></object>
+            <embed src="javascript:window.__pwned='embed'">
+            <form action="javascript:window.__pwned='form'"><input name="q" autofocus onfocus="window.__pwned='onfocus'"><button>go</button></form>
+            <base href="javascript:/a/">
+            <meta http-equiv="refresh" content="0;url=javascript:window.__pwned='meta'">
+            <link rel="stylesheet" href="https://evil.example/x.css">
+            <style>body { background: url(https://evil.example/track.png) }</style>
+            <p style="background:url(https://evil.example/t.png)">styled</p>
+            <img id="getElementById" name="body" src="https://ok.example/c.png">
+            <form name="cookie"></form>
+            <div class="toolbar" data-x="1" aria-hidden="true">attributes</div>
+            <template><img src="x" onerror="window.__pwned='template'"></template>
+        ]]></content:encoded>
+    </item>
+
+    <item>
+        <title>mXSS</title>
+        <link>https://evil.example/4</link>
+        <content:encoded><![CDATA[
+            <noscript><p title="</noscript><img src=x onerror=window.__pwned='noscript'>"></noscript>
+            <title><img src=x onerror=window.__pwned='title tag'></title>
+            <textarea><img src=x onerror=window.__pwned='textarea'></textarea>
+            <math><mtext><table><mglyph><style><img src=x onerror=window.__pwned='mglyph'></style></mglyph></table></mtext></math>
+            <svg><p><style><img src=x onerror=window.__pwned='svg style'></style></p></svg>
+            <form><math><mtext></form><form><mglyph><svg><mtext><style><path id="</style><img onerror=window.__pwned='form math' src=x>">
+        ]]></content:encoded>
+    </item>
+
+    <item>
+        <title><![CDATA[Nested <![CDATA[x]]]]><![CDATA[> and &lt;script&gt;window.__pwned='cdata'&lt;/script&gt;]]></title>
+        <link>https://evil.example/5</link>
+        <description>&lt;img src=x onerror="window.__pwned='escaped description'"&gt;</description>
+    </item>
+</channel>
+</rss>

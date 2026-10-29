@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!-- The same policy as docs/index.html: the tests run with CSP and Trusted Types. -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' https: data:; connect-src 'self' https: http://localhost:* http://127.0.0.1:*; manifest-src 'self'; worker-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'; require-trusted-types-for 'script'; trusted-types dompurify srr-inert srr-sw">
+    <title>Tests</title>
+    <link rel="stylesheet" href="tests.css">
+    <script type="module" src="run.js"></script>
+</head>
+<body>
+<h1>Stupid RSS Reader tests (with CSP and Trusted Types)</h1>
+<div id="results"></div>
+</body>
+</html>
