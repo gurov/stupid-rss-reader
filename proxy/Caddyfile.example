@@ -1,0 +1,60 @@
+# Caddy in front of the proxy. Origin, CORS and the address filter are done by the
+# script itself, so it behaves the same behind nginx or anything else.
+
+# Global options (the first block of the Caddyfile): timeouts against slowloris.
+# Do not set "write": large files of other sites on the same Caddy would break.
+#
+# {
+# 	servers {
+# 		timeouts {
+# 			read_header 10s
+# 			read_body 10s
+# 			idle 2m
+# 		}
+# 		max_header_size 16KB
+# 	}
+# }
+
+rss.example.com {
+	# The feed address is personal data: keep it out of the access log. The syntax
+	# of the log filter depends on the Caddy version, check it with "caddy validate".
+	log {
+		output file /var/log/caddy/rss-access.log
+		format filter {
+			wrap json
+			fields {
+				request>uri query {
+					delete url
+				}
+			}
+		}
+	}
+
+	# Refuse cheaply right here, without bothering the script.
+	@feed {
+		path /
+		method GET OPTIONS
+	}
+	handle @feed {
+		request_body {
+			max_size 1KB
+		}
+		reverse_proxy unix//run/rss-proxy/rss-proxy.sock {
+			# The script limits requests by this address; set, not appended, so a
+			# client cannot forge it.
+			header_up X-Real-IP {remote_host}
+			transport http {
+				dial_timeout 2s
+				# A bit longer than the 15 s deadline of the script.
+				response_header_timeout 20s
+			}
+		}
+	}
+	@root path /
+	handle @root {
+		respond "Method not allowed" 405
+	}
+	handle {
+		respond "Not found" 404
+	}
+}
